@@ -1,6 +1,77 @@
 {
   "sections": [
     {
+      "tier": "中文文档",
+      "title": "指南（简体中文）",
+      "icon": "book-open",
+      "desc": "从入门、核心概念到高级工作流程，逐步了解如何运行 Paperclip AI 公司。",
+      "pages": [
+        { "title": "五分钟快速上手", "file": "../docs/zh/guides/getting-started/five-minute-path.md" },
+        { "title": "安装 Paperclip", "file": "../docs/zh/guides/getting-started/installation.md" },
+        { "title": "创建你的第一家公司", "file": "../docs/zh/guides/getting-started/your-first-company.md" },
+        { "title": "聘用你的首位智能体", "file": "../docs/zh/guides/getting-started/your-first-agent.md" },
+        { "title": "观察智能体工作", "file": "../docs/zh/guides/getting-started/watching-agents-work.md" },
+        {
+          "title": "欢迎与核心概念",
+          "pages": [
+            { "title": "Paperclip 是什么？", "file": "../docs/zh/guides/welcome/what-is-paperclip.md" },
+            { "title": "关键概念", "file": "../docs/zh/guides/welcome/key-concepts.md" },
+            { "title": "术语表", "file": "../docs/zh/guides/welcome/glossary.md" }
+          ]
+        },
+        {
+          "title": "进阶指南",
+          "pages": [
+            { "title": "终端设置", "file": "../docs/zh/guides/power/terminal-setup.md" },
+            { "title": "执行策略", "file": "../docs/zh/guides/power/execution-policy.md" },
+            { "title": "导出和导入公司", "file": "../docs/zh/guides/power/export-import.md" }
+          ]
+        },
+        {
+          "title": "日常使用",
+          "pages": [
+            { "title": "仪表板", "file": "../docs/zh/guides/day-to-day/dashboard.md" },
+            { "title": "命令面板", "file": "../docs/zh/guides/day-to-day/command-palette.md" },
+            { "title": "工作模式", "file": "../docs/zh/guides/day-to-day/work-modes.md" },
+            { "title": "反馈与投票", "file": "../docs/zh/guides/day-to-day/feedback-voting.md" },
+            { "title": "审批", "file": "../docs/zh/guides/day-to-day/approvals.md" },
+            { "title": "阻塞收件箱", "file": "../docs/zh/guides/day-to-day/blocked-inbox.md" },
+            { "title": "决策", "file": "../docs/zh/guides/day-to-day/decisions.md" },
+            { "title": "活动日志", "file": "../docs/zh/guides/day-to-day/activity-log.md" },
+            { "title": "工作时间线", "file": "../docs/zh/guides/day-to-day/work-timeline.md" },
+            { "title": "成果", "file": "../docs/zh/guides/day-to-day/artifacts.md" },
+            { "title": "问题与任务", "file": "../docs/zh/guides/day-to-day/issues.md" },
+            { "title": "成本与预算", "file": "../docs/zh/guides/day-to-day/costs.md" }
+          ]
+        },
+        {
+          "title": "组织与智能体",
+          "pages": [
+            { "title": "成员与访问权限", "file": "../docs/zh/guides/org/members-and-access.md" },
+            { "title": "组织结构", "file": "../docs/zh/guides/org/org-structure.md" },
+            { "title": "委派", "file": "../docs/zh/guides/org/delegation.md" },
+            { "title": "智能体适配器", "file": "../docs/zh/guides/org/agent-adapters.md" },
+            { "title": "适配器管理器", "file": "../docs/zh/guides/org/adapters.md" },
+            { "title": "智能体的密码学身份", "file": "../docs/zh/guides/org/agent-identity.md" },
+            { "title": "团队目录", "file": "../docs/zh/guides/org/team-catalog.md" },
+            { "title": "智能体", "file": "../docs/zh/guides/org/agents.md" },
+            { "title": "技能", "file": "../docs/zh/guides/org/skills.md" }
+          ]
+        },
+        {
+          "title": "项目与工作流",
+          "pages": [
+            { "title": "目标", "file": "../docs/zh/guides/projects-workflow/goals.md" },
+            { "title": "项目", "file": "../docs/zh/guides/projects-workflow/projects.md" },
+            { "title": "任务看护器", "file": "../docs/zh/guides/projects-workflow/task-watchdogs.md" },
+            { "title": "自定义沙盒镜像", "file": "../docs/zh/guides/projects-workflow/custom-sandbox-images.md" },
+            { "title": "例程", "file": "../docs/zh/guides/projects-workflow/routines.md" },
+            { "title": "工作区", "file": "../docs/zh/guides/projects-workflow/workspaces.md" }
+          ]
+        }
+      ]
+    },
+    {
       "tier": "Learn",
       "title": "Quickstart",
       "icon": "rocket",
