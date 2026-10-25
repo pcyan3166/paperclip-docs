@@ -72,6 +72,128 @@
       ]
     },
     {
+      "tier": "中文文档",
+      "title": "操作指南（简体中文）",
+      "icon": "wrench",
+      "desc": "成员管理、智能体配置、预算、自动化和 Paperclip 运维的实用步骤。",
+      "pages": [
+        {
+          "title": "成员与访问",
+          "pages": [
+            {
+              "title": "启用多用户登录",
+              "file": "../docs/zh/how-to/enable-multi-user-login.md"
+            },
+            {
+              "title": "添加团队成员",
+              "file": "../docs/zh/how-to/add-a-human-teammate.md"
+            },
+            {
+              "title": "移除成员",
+              "file": "../docs/zh/how-to/offboard-a-member.md"
+            }
+          ]
+        },
+        {
+          "title": "治理与预算",
+          "pages": [
+            {
+              "title": "设置月度预算",
+              "file": "../docs/zh/how-to/set-monthly-budget.md"
+            },
+            {
+              "title": "要求支出前审批",
+              "file": "../docs/zh/how-to/require-board-approval-before-spend.md"
+            },
+            {
+              "title": "处理招聘审批",
+              "file": "../docs/zh/how-to/handle-board-approvals-for-hires.md"
+            }
+          ]
+        },
+        {
+          "title": "智能体与技能",
+          "pages": [
+            {
+              "title": "接入自有智能体",
+              "file": "../docs/zh/how-to/bring-your-own-agent.md"
+            },
+            {
+              "title": "连接 GitHub 并创建 PR",
+              "file": "../docs/zh/how-to/connect-agent-to-github.md"
+            },
+            {
+              "title": "为智能体添加 MCP 服务",
+              "file": "../docs/zh/how-to/add-mcp-server-to-agent.md"
+            },
+            {
+              "title": "编写公司技能",
+              "file": "../docs/zh/how-to/write-a-company-skill.md"
+            }
+          ]
+        },
+        {
+          "title": "自动化与通知",
+          "pages": [
+            {
+              "title": "创建每日例程",
+              "file": "../docs/zh/how-to/create-a-daily-routine.md"
+            },
+            {
+              "title": "配置 Slack/Discord 通知",
+              "file": "../docs/zh/how-to/wire-slack-discord-notifications.md"
+            }
+          ]
+        },
+        {
+          "title": "密钥与服务商",
+          "pages": [
+            {
+              "title": "轮换服务商 API 密钥",
+              "file": "../docs/zh/how-to/rotate-provider-api-key.md"
+            },
+            {
+              "title": "连接 AWS Secrets Manager",
+              "file": "../docs/zh/how-to/connect-aws-secrets-vault.md"
+            }
+          ]
+        },
+        {
+          "title": "部署与维护",
+          "pages": [
+            {
+              "title": "部署到 VPS 或 Fly.io",
+              "file": "../docs/zh/how-to/deploy-to-vps-or-fly.md"
+            },
+            {
+              "title": "更新 Paperclip",
+              "file": "../docs/zh/how-to/update-paperclip.md"
+            },
+            {
+              "title": "备份和恢复公司",
+              "file": "../docs/zh/how-to/back-up-and-restore-a-company.md"
+            },
+            {
+              "title": "排查卡住的心跳",
+              "file": "../docs/zh/how-to/debug-stuck-heartbeat.md"
+            },
+            {
+              "title": "同步到 Cloud 上游（已弃用）",
+              "file": "../docs/zh/how-to/sync-to-cloud-upstream.md"
+            },
+            {
+              "title": "本地开发插件",
+              "file": "../docs/zh/how-to/develop-a-plugin-locally.md"
+            },
+            {
+              "title": "社区桌面应用（非官方）",
+              "file": "../docs/zh/how-to/community-desktop-app.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "tier": "Learn",
       "title": "Quickstart",
       "icon": "rocket",
