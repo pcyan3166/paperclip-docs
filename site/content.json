@@ -334,6 +334,390 @@
       ]
     },
     {
+      "tier": "中文文档",
+      "title": "连接器（简体中文）",
+      "icon": "unplug",
+      "desc": "93 篇连接器、模型提供商、聊天渠道及相关访问与设置文档的完整简体中文翻译。",
+      "pages": [
+        {
+          "title": "连接器文档目录",
+          "file": "../docs/zh/connectors/README.md"
+        },
+        {
+          "title": "连接器访问机制说明",
+          "file": "../docs/zh/connectors/access-model.md"
+        },
+        {
+          "title": "设置操作权限",
+          "file": "../docs/zh/connectors/action-permissions.md"
+        },
+        {
+          "title": "AgentMail",
+          "file": "../docs/zh/connectors/agentmail.md"
+        },
+        {
+          "title": "检查 AI 账户使用情况",
+          "file": "../docs/zh/connectors/ai-usage.md"
+        },
+        {
+          "title": "Airtable",
+          "file": "../docs/zh/connectors/airtable.md"
+        },
+        {
+          "title": "Anthropic",
+          "file": "../docs/zh/connectors/anthropic.md"
+        },
+        {
+          "title": "Arcade",
+          "file": "../docs/zh/connectors/arcade.md"
+        },
+        {
+          "title": "Asana",
+          "file": "../docs/zh/connectors/asana.md"
+        },
+        {
+          "title": "Bitly",
+          "file": "../docs/zh/connectors/bitly.md"
+        },
+        {
+          "title": "Box",
+          "file": "../docs/zh/connectors/box.md"
+        },
+        {
+          "title": "Browser Use Cloud",
+          "file": "../docs/zh/connectors/browser-use-cloud.md"
+        },
+        {
+          "title": "Calendly",
+          "file": "../docs/zh/connectors/calendly.md"
+        },
+        {
+          "title": "ClickHouse",
+          "file": "../docs/zh/connectors/clickhouse.md"
+        },
+        {
+          "title": "Cloudflare",
+          "file": "../docs/zh/connectors/cloudflare.md"
+        },
+        {
+          "title": "Cloudinary",
+          "file": "../docs/zh/connectors/cloudinary.md"
+        },
+        {
+          "title": "Cognee",
+          "file": "../docs/zh/connectors/cognee.md"
+        },
+        {
+          "title": "Composio",
+          "file": "../docs/zh/connectors/composio.md"
+        },
+        {
+          "title": "已保存的连接说明",
+          "file": "../docs/zh/connectors/connection-instructions.md"
+        },
+        {
+          "title": "Context7",
+          "file": "../docs/zh/connectors/context7.md"
+        },
+        {
+          "title": "连接自定义 MCP 服务器",
+          "file": "../docs/zh/connectors/custom-mcp-servers.md"
+        },
+        {
+          "title": "自定义模型提供商",
+          "file": "../docs/zh/connectors/custom-model-providers.md"
+        },
+        {
+          "title": "Discord",
+          "file": "../docs/zh/connectors/discord.md"
+        },
+        {
+          "title": "Enterpret",
+          "file": "../docs/zh/connectors/enterpret.md"
+        },
+        {
+          "title": "Exa",
+          "file": "../docs/zh/connectors/exa.md"
+        },
+        {
+          "title": "Executor",
+          "file": "../docs/zh/connectors/executor.md"
+        },
+        {
+          "title": "Firecrawl",
+          "file": "../docs/zh/connectors/firecrawl.md"
+        },
+        {
+          "title": "Fireflies",
+          "file": "../docs/zh/connectors/fireflies.md"
+        },
+        {
+          "title": "连接您的第一个连接器",
+          "file": "../docs/zh/connectors/first-connector.md"
+        },
+        {
+          "title": "Gauge",
+          "file": "../docs/zh/connectors/gauge.md"
+        },
+        {
+          "title": "设置 GitHub 审查机器人",
+          "file": "../docs/zh/connectors/github-review-bot-setup.md"
+        },
+        {
+          "title": "设置 GitHub 连接器",
+          "file": "../docs/zh/connectors/github-setup.md"
+        },
+        {
+          "title": "GitHub",
+          "file": "../docs/zh/connectors/github.md"
+        },
+        {
+          "title": "设置 Gmail 连接器",
+          "file": "../docs/zh/connectors/gmail-setup.md"
+        },
+        {
+          "title": "Gmail",
+          "file": "../docs/zh/connectors/gmail.md"
+        },
+        {
+          "title": "Google Calendar",
+          "file": "../docs/zh/connectors/google-calendar.md"
+        },
+        {
+          "title": "Google Chat",
+          "file": "../docs/zh/connectors/google-chat.md"
+        },
+        {
+          "title": "Google Docs",
+          "file": "../docs/zh/connectors/google-docs.md"
+        },
+        {
+          "title": "Google Drive",
+          "file": "../docs/zh/connectors/google-drive.md"
+        },
+        {
+          "title": "Google People",
+          "file": "../docs/zh/connectors/google-people.md"
+        },
+        {
+          "title": "设置您自己的 Google OAuth 应用",
+          "file": "../docs/zh/connectors/google-setup.md"
+        },
+        {
+          "title": "Google Sheets",
+          "file": "../docs/zh/connectors/google-sheets.md"
+        },
+        {
+          "title": "Google Slides",
+          "file": "../docs/zh/connectors/google-slides.md"
+        },
+        {
+          "title": "Google Workspace 搜索",
+          "file": "../docs/zh/connectors/google-workspace-search.md"
+        },
+        {
+          "title": "GSC Wizard",
+          "file": "../docs/zh/connectors/gsc-wizard.md"
+        },
+        {
+          "title": "Honcho",
+          "file": "../docs/zh/connectors/honcho.md"
+        },
+        {
+          "title": "Hugging Face",
+          "file": "../docs/zh/connectors/hugging-face.md"
+        },
+        {
+          "title": "iMessage Photon",
+          "file": "../docs/zh/connectors/imessage-photon.md"
+        },
+        {
+          "title": "Jira",
+          "file": "../docs/zh/connectors/jira.md"
+        },
+        {
+          "title": "Linear",
+          "file": "../docs/zh/connectors/linear.md"
+        },
+        {
+          "title": "Make",
+          "file": "../docs/zh/connectors/make.md"
+        },
+        {
+          "title": "通过 MCP 聚合器连接应用",
+          "file": "../docs/zh/connectors/mcp-aggregators.md"
+        },
+        {
+          "title": "Mem0",
+          "file": "../docs/zh/connectors/mem0.md"
+        },
+        {
+          "title": "记忆连接器",
+          "file": "../docs/zh/connectors/memory-connectors.md"
+        },
+        {
+          "title": "Microsoft Teams",
+          "file": "../docs/zh/connectors/microsoft-teams.md"
+        },
+        {
+          "title": "Miro",
+          "file": "../docs/zh/connectors/miro.md"
+        },
+        {
+          "title": "Mixpanel",
+          "file": "../docs/zh/connectors/mixpanel.md"
+        },
+        {
+          "title": "Neon",
+          "file": "../docs/zh/connectors/neon.md"
+        },
+        {
+          "title": "Netlify",
+          "file": "../docs/zh/connectors/netlify.md"
+        },
+        {
+          "title": "Notion",
+          "file": "../docs/zh/connectors/notion.md"
+        },
+        {
+          "title": "OpenAI",
+          "file": "../docs/zh/connectors/openai.md"
+        },
+        {
+          "title": "OpenRouter",
+          "file": "../docs/zh/connectors/openrouter.md"
+        },
+        {
+          "title": "PagerDuty",
+          "file": "../docs/zh/connectors/pagerduty.md"
+        },
+        {
+          "title": "并行搜索",
+          "file": "../docs/zh/connectors/parallel-search.md"
+        },
+        {
+          "title": "PostHog",
+          "file": "../docs/zh/connectors/posthog.md"
+        },
+        {
+          "title": "Postman",
+          "file": "../docs/zh/connectors/postman.md"
+        },
+        {
+          "title": "Railway",
+          "file": "../docs/zh/connectors/railway.md"
+        },
+        {
+          "title": "重新授权、撤销或断开连接",
+          "file": "../docs/zh/connectors/reauthorize-and-disconnect.md"
+        },
+        {
+          "title": "Paperclip 识别但不列出的提供商",
+          "file": "../docs/zh/connectors/recognized-providers.md"
+        },
+        {
+          "title": "Resend",
+          "file": "../docs/zh/connectors/resend.md"
+        },
+        {
+          "title": "回复连接器审核请求",
+          "file": "../docs/zh/connectors/review-requests.md"
+        },
+        {
+          "title": "Sentry",
+          "file": "../docs/zh/connectors/sentry.md"
+        },
+        {
+          "title": "为人员和智能体使用独立账户",
+          "file": "../docs/zh/connectors/separate-accounts.md"
+        },
+        {
+          "title": "将连接器共享给人员和智能体",
+          "file": "../docs/zh/connectors/share-access.md"
+        },
+        {
+          "title": "Shopify",
+          "file": "../docs/zh/connectors/shopify.md"
+        },
+        {
+          "title": "Slack",
+          "file": "../docs/zh/connectors/slack.md"
+        },
+        {
+          "title": "Stripe",
+          "file": "../docs/zh/connectors/stripe.md"
+        },
+        {
+          "title": "Supabase",
+          "file": "../docs/zh/connectors/supabase.md"
+        },
+        {
+          "title": "Superagent",
+          "file": "../docs/zh/connectors/superagent.md"
+        },
+        {
+          "title": "Supermemory",
+          "file": "../docs/zh/connectors/supermemory.md"
+        },
+        {
+          "title": "Tavily",
+          "file": "../docs/zh/connectors/tavily.md"
+        },
+        {
+          "title": "Telegram",
+          "file": "../docs/zh/connectors/telegram.md"
+        },
+        {
+          "title": "Telem.AI",
+          "file": "../docs/zh/connectors/telem.md"
+        },
+        {
+          "title": "Todoist",
+          "file": "../docs/zh/connectors/todoist.md"
+        },
+        {
+          "title": "理解 GitHub PR 审查机器人",
+          "file": "../docs/zh/connectors/understanding-github-review-bots.md"
+        },
+        {
+          "title": "验证连接器并修复故障连接器",
+          "file": "../docs/zh/connectors/verify-and-troubleshoot.md"
+        },
+        {
+          "title": "Webflow",
+          "file": "../docs/zh/connectors/webflow.md"
+        },
+        {
+          "title": "Windsor.ai",
+          "file": "../docs/zh/connectors/windsor-ai.md"
+        },
+        {
+          "title": "Wix",
+          "file": "../docs/zh/connectors/wix.md"
+        },
+        {
+          "title": "Grok",
+          "file": "../docs/zh/connectors/xai.md"
+        },
+        {
+          "title": "You.com",
+          "file": "../docs/zh/connectors/you-com.md"
+        },
+        {
+          "title": "You.com",
+          "file": "../docs/zh/connectors/youcom.md"
+        },
+        {
+          "title": "Zapier",
+          "file": "../docs/zh/connectors/zapier.md"
+        },
+        {
+          "title": "Zep",
+          "file": "../docs/zh/connectors/zep.md"
+        }
+      ]
+    },
+    {
       "tier": "Learn",
       "title": "Connectors",
       "icon": "unplug",
@@ -983,6 +1367,50 @@
               "file": "../docs/how-to/community-desktop-app.md"
             }
           ]
+        }
+      ]
+    },
+    {
+      "tier": "中文文档",
+      "title": "管理文档（简体中文）",
+      "icon": "shield",
+      "desc": "公司管理、角色权限、密钥、实例设置、插件和 CLI 身份认证的完整简体中文文档。",
+      "pages": [
+        {
+          "title": "公司管理",
+          "file": "../docs/zh/administration/company.md"
+        },
+        {
+          "title": "角色与权限",
+          "file": "../docs/zh/administration/roles-and-permissions.md"
+        },
+        {
+          "title": "密钥作用域",
+          "file": "../docs/zh/administration/secret-scopes.md"
+        },
+        {
+          "title": "密钥文件夹",
+          "file": "../docs/zh/administration/secret-folders.md"
+        },
+        {
+          "title": "设置",
+          "file": "../docs/zh/administration/settings.md"
+        },
+        {
+          "title": "智能体投诉与建议",
+          "file": "../docs/zh/administration/agent-commentary.md"
+        },
+        {
+          "title": "信任与低信任审查",
+          "file": "../docs/zh/administration/trust-and-low-trust-review.md"
+        },
+        {
+          "title": "插件",
+          "file": "../docs/zh/administration/plugins.md"
+        },
+        {
+          "title": "CLI 身份认证与董事会认领",
+          "file": "../docs/zh/administration/cli-auth.md"
         }
       ]
     },
