@@ -904,7 +904,14 @@ async function init() {
     // Server-rendered documents stay readable without the nav manifest; only
     // report a failure when there is nothing on the page to fall back to.
     if (document.getElementById('article')?.children.length) return;
-    showError('Could not load content.json. Check that the release bundle was uploaded intact and the base path is correct.', e.message);
+    if (window.location.protocol === 'file:') {
+      showError(
+        '不能直接用 file:// 打开此页面。请先在项目目录运行 npm run docs:build，再运行 npm run docs:serve，然后访问 http://localhost:4321/。',
+        '浏览器会阻止 file:// 页面读取 content.json 和文档文件。'
+      );
+    } else {
+      showError('Could not load content.json. Check that the release bundle was uploaded intact and the base path is correct.', e.message);
+    }
     return;
   }
 

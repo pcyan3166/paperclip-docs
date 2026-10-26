@@ -24,6 +24,14 @@
 npm run docs:build
 ```
 
+本地预览请通过 HTTP 服务打开，不能直接双击 `site/index.html`（`file://`）或 `.site/index.html`。浏览器会阻止本地页面读取站点所需的 `content.json` 和 Markdown 文件。构建后运行：
+
+```sh
+npm run docs:serve
+```
+
+然后访问 <http://localhost:4321/>。
+
 Cloudflare Pages 通过 GitHub 直接连接到 `paperclipai/paperclip-docs`，本仓库通常不使用 Wrangler 发布：
 
 - 推送到 `main` 会部署生产站点：[https://docs.paperclip.ing/](https://docs.paperclip.ing/)。
