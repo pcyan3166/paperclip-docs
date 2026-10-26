@@ -188,6 +188,54 @@
             }
           ]
         }
+      ],
+      "landingCards": [
+        {
+          "title": "快速入门",
+          "icon": "rocket",
+          "desc": "了解 Paperclip，完成安装并创建你的第一家公司，聘用智能体并观察它开始工作。",
+          "groups": [
+            "欢迎与核心概念",
+            "首次运行：从安装到第一位智能体"
+          ],
+          "firstFile": "zh/guides/getting-started/five-minute-path.md"
+        },
+        {
+          "title": "日常工作",
+          "icon": "layout-dashboard",
+          "desc": "了解仪表板、任务、审批、预算和工作记录等日常操作。",
+          "groups": [
+            "日常使用"
+          ],
+          "firstFile": "zh/guides/day-to-day/dashboard.md"
+        },
+        {
+          "title": "组织与智能体",
+          "icon": "network",
+          "desc": "规划组织结构、设置委派路径，并为智能体选择适配器。",
+          "groups": [
+            "组织与智能体"
+          ],
+          "firstFile": "zh/guides/org/agents.md"
+        },
+        {
+          "title": "项目与工作流",
+          "icon": "kanban-square",
+          "desc": "了解项目、目标、例程和执行工作区。",
+          "groups": [
+            "项目与工作流"
+          ],
+          "firstFile": "zh/guides/projects-workflow/projects.md"
+        },
+        {
+          "title": "高级功能",
+          "icon": "settings-2",
+          "desc": "为高级使用场景配置执行策略、导入导出和终端。",
+          "groups": [
+            "进阶指南"
+          ],
+          "firstFile": "zh/guides/power/execution-policy.md"
+        }
       ]
     },
     {

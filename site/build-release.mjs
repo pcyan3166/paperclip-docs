@@ -1400,12 +1400,35 @@ function buildLandingCardsHtml(nav, basePath, iconPaths) {
       const pageLabel = `${pageCount} 篇文档`;
       const href = firstPage ? routePathForSlug(basePath, firstPage.slug) : getPublicBasePath(basePath);
       const description = section.desc || `${pageLabel} in ${section.title}.`;
-      return `<a class="card" href="${escapeAttr(href)}" data-nav-section="${index}">`
+      const sectionCard = `<a class="card" href="${escapeAttr(href)}" data-nav-section="${index}">`
         + `<div class="card-icon">${sectionIconTag(section, iconPaths)}</div>`
         + `<div class="card-title">${escapeHtml(section.title)}</div>`
         + `<div class="card-desc">${escapeHtml(description)}</div>`
         + `<div class="card-meta"><span>${escapeHtml(pageLabel)}</span><span class="dot"></span><span>${escapeHtml(tierLabel(tier))}</span></div>`
         + `</a>`;
+      const extraCards = (section.landingCards || []).map((card) => {
+        const sourceSection = card.sectionTitle
+          ? nav.sections.find((candidate) => candidate.title === card.sectionTitle)
+          : section;
+        const groups = (card.groups || [])
+          .map((title) => getNavChildren(sourceSection).find((node) => !isNavPage(node) && node.title === title))
+          .filter(Boolean);
+        const pages = card.sectionTitle
+          ? getNavChildren(sourceSection)
+          : groups.flatMap((group) => getNavChildren(group));
+        const candidates = flattenNavPages({ sections: [{ ...section, pages }] }).map(({ page }) => page);
+        const cardPage = (card.firstFile && candidates.find((page) => page.file === card.firstFile)) || getFirstNavPage(pages);
+        if (!cardPage) return "";
+        const count = countNavPages(pages);
+        const cardHref = routePathForSlug(basePath, cardPage.slug);
+        return `<a class="card" href="${escapeAttr(cardHref)}" data-nav-file="${escapeAttr(cardPage.file)}">`
+          + `<div class="card-icon">${sectionIconTag(card, iconPaths)}</div>`
+          + `<div class="card-title">${escapeHtml(card.title)}</div>`
+          + `<div class="card-desc">${escapeHtml(card.desc || "")}</div>`
+          + `<div class="card-meta"><span>${count} 篇文档</span><span class="dot"></span><span>${escapeHtml(tierLabel(tier))}</span></div>`
+          + `</a>`;
+      }).join("");
+      return sectionCard + extraCards;
     }).join("");
     return `<section class="landing-tier" data-tier="${escapeAttr(tier)}">`
       + `<h2>${escapeHtml(tierLabel(tier))}</h2>`

@@ -1007,6 +1007,34 @@ function buildLanding() {
         <div class="card-meta"><span>${pageCount} 篇文档</span><span class="dot"></span><span>${escapeHtml(tierLabel(getSectionKind(section)))}</span></div>
       `;
       cardsWrap.appendChild(a);
+
+      (section.landingCards || []).forEach(card => {
+        const sourceSection = card.sectionTitle
+          ? navData.sections.find(candidate => candidate.title === card.sectionTitle)
+          : section;
+        const groups = (card.groups || [])
+          .map(title => getNavChildren(sourceSection).find(node => !isNavPage(node) && node.title === title))
+          .filter(Boolean);
+        const pages = card.sectionTitle
+          ? getNavChildren(sourceSection)
+          : groups.flatMap(group => getNavChildren(group));
+        const firstPage = card.firstFile
+          ? allPages.find(page => page.file === card.firstFile)
+          : getFirstNavPage(pages);
+        if (!firstPage) return;
+        const pageCount = countNavPages(pages);
+        const childCard = document.createElement('a');
+        childCard.className = 'card';
+        childCard.href = getPageUrl(firstPage);
+        childCard.dataset.navFile = firstPage.file;
+        childCard.innerHTML = `
+          <div class="card-icon">${sectionIconTag(card)}</div>
+          <div class="card-title">${escapeHtml(card.title)}</div>
+          <div class="card-desc">${escapeHtml(card.desc || '')}</div>
+          <div class="card-meta"><span>${pageCount} 篇文档</span><span class="dot"></span><span>${escapeHtml(tierLabel(tier))}</span></div>
+        `;
+        cardsWrap.appendChild(childCard);
+      });
     });
     grid.appendChild(block);
   });
