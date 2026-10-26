@@ -21,7 +21,7 @@ seo_description: 从仅限回环的受信任模式迁移，以便团队成员能
 - **`authenticated` + `private`** — 适用于 Tailscale、VPN 或局域网。服务器绑定到所有接口；私有主机名可能需要加入允许列表。
 - **`authenticated` + `public`** — 适用于面向互联网的部署。公共基础 URL 必须明确指定，且 `doctor` 会执行更严格的检查。
 
-完整对比，包括何时选择每种模式，请参阅 [部署模式](../../reference/deploy/deployment-modes.md)。
+完整对比，包括何时选择每种模式，请参阅 [部署模式](../reference/deploy/deployment-modes.md)。
 
 ---
 
@@ -51,7 +51,7 @@ PAPERCLIP_DEPLOYMENT_MODE=authenticated pnpm paperclipai run
 pnpm paperclipai allowed-hostname my-machine.tailnet.ts.net
 ```
 
-完整的私有网络工作流程请参阅 [Tailscale 私有访问](../../reference/deploy/tailscale-private-access.md)。
+完整的私有网络工作流程请参阅 [Tailscale 私有访问](../reference/deploy/tailscale-private-access.md)。
 
 ---
 
@@ -67,7 +67,7 @@ http://localhost:3000/board-claim/<token>?code=<code>
 
 > **警告：** 请将认领 URL 视为敏感信息——这是一次性的所有权转移，不应分享。如果在使用前过期，请重启服务器以生成新的 URL。
 
-该页面的完整操作指南请参阅 [CLI 认证与看板认领](../../administration/cli-auth.md)。
+该页面的完整操作指南请参阅 [CLI 认证与看板认领](../administration/cli-auth.md)。
 
 ---
 
@@ -80,7 +80,7 @@ paperclipai auth login     # opens an approval page in your browser
 paperclipai auth whoami    # confirms the resolved identity
 ```
 
-详细信息请参阅 [CLI 认证与看板认领 → 设备代码流程](../../administration/cli-auth.md#device-code-flow-paperclipai-auth-login)。
+详细信息请参阅 [CLI 认证与看板认领 → 设备代码流程](../administration/cli-auth.md#device-code-flow-paperclipai-auth-login)。
 
 ---
 
@@ -90,7 +90,7 @@ paperclipai auth whoami    # confirms the resolved identity
 
 **→ [添加人类团队成员](./add-a-human-teammate.md)**
 
-如果您在一个实例上托管多个公司，您也可以从 **Settings → Instance: Access** 集中授予人员访问权限——请参阅 [设置](../../administration/settings.md#instance-access)。
+如果您在一个实例上托管多个公司，您也可以从 **Settings → Instance: Access** 集中授予人员访问权限——请参阅 [设置](../administration/settings.md#instance-access)。
 
 ---
 
@@ -108,7 +108,7 @@ pnpm paperclipai doctor
 
 ## 相关
 
-- [部署模式](../../reference/deploy/deployment-modes.md) — 模式和暴露的权威参考。
-- [CLI 认证与看板认领](../../administration/cli-auth.md) — 看板认领页面和 CLI 登录的详细信息。
+- [部署模式](../reference/deploy/deployment-modes.md) — 模式和暴露的权威参考。
+- [CLI 认证与看板认领](../administration/cli-auth.md) — 看板认领页面和 CLI 登录的详细信息。
 - [添加人类团队成员](./add-a-human-teammate.md) — 启用登录后的人员入职。
-- [角色与权限](../../administration/roles-and-permissions.md) — 这些团队成员进入后可以执行的操作。
+- [角色与权限](../administration/roles-and-permissions.md) — 这些团队成员进入后可以执行的操作。

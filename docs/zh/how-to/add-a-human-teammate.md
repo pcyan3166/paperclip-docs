@@ -10,7 +10,7 @@ Paperclip 公司并非单人游戏。您可以将其他人作为董事会成员�
 
 整个往返过程只需几分钟。邀请仅支持**复制链接**——Paperclip 不会发送邮件，因此您需要自行分享链接。
 
-**开始之前：** 创建邀请需要 `users:invite` 权限。所有者和管理员默认拥有此权限。如果您不确定自己拥有什么权限，请参阅 [角色与权限](../../administration/roles-and-permissions.md)。
+**开始之前：** 创建邀请需要 `users:invite` 权限。所有者和管理员默认拥有此权限。如果您不确定自己拥有什么权限，请参阅 [角色与权限](../administration/roles-and-permissions.md)。
 
 ---
 
@@ -23,7 +23,7 @@ Paperclip 公司并非单人游戏。您可以将其他人作为董事会成员�
 - **管理员 (Admin)** — 还可以批准加入请求。
 - **所有者 (Owner)** — 完全控制，包括管理其他成员的权限。
 
-他们加入后您随时可以更改此设置（步骤 5），因此不必过度纠结。完整说明请参阅 [角色与权限](../../administration/roles-and-permissions.md)。
+他们加入后您随时可以更改此设置（步骤 5），因此不必过度纠结。完整说明请参阅 [角色与权限](../administration/roles-and-permissions.md)。
 
 ---
 
@@ -37,7 +37,7 @@ Paperclip 公司并非单人游戏。您可以将其他人作为董事会成员�
 2. 将 URL 复制到您的剪贴板（如果浏览器允许——否则会通过提示通知您手动复制）；
 3. 将链接放入 **最新邀请链接** 面板，并在下方的 **邀请历史** 表格中添加一行，带有 **活跃** 徽章。
 
-如果需要再次复制，请使用 URL 旁边的 **复制链接** 按钮。该链接是**一次性**的，并在 72 小时后过期——如果链接失效，只需重新创建一个。完整指南请参阅 [公司管理 → 邀请](../../administration/company.md#invites)。
+如果需要再次复制，请使用 URL 旁边的 **复制链接** 按钮。该链接是**一次性**的，并在 72 小时后过期——如果链接失效，只需重新创建一个。完整指南请参阅 [公司管理 → 邀请](../administration/company.md#invites)。
 
 ---
 
@@ -59,7 +59,7 @@ Paperclip 仍在后台记录一条加入请求，该请求已自动批准，因�
 
 ## 5. 微调其访问权限
 
-您的团队成员已经是具有邀请角色的**活跃**成员。要调整其角色或授予额外权限，请打开 **设置 → 成员**，点击其行的 **编辑**，在授权网格中设置角色、状态和任何显式授权，然后保存。（即使您稍后更改其角色，显式授权仍会保留——请参阅 [角色与权限](../../administration/roles-and-permissions.md#how-grants-combine-precedence)。）
+您的团队成员已经是具有邀请角色的**活跃**成员。要调整其角色或授予额外权限，请打开 **设置 → 成员**，点击其行的 **编辑**，在授权网格中设置角色、状态和任何显式授权，然后保存。（即使您稍后更改其角色，显式授权仍会保留——请参阅 [角色与权限](../administration/roles-and-permissions.md#how-grants-combine-precedence)。）
 
 > **仍然看到待处理请求？** 在人类邀请开始即时加入之前提交的请求可能仍在等待。如果您拥有 `joins:approve` 权限，成员列表上方会有一个 **待处理人类加入** 卡片，带有 **批准人类** / **拒绝人类** 按钮。完整的 **加入请求队列** (`/inbox/requests`) 涵盖人类和智能体请求，并带有 **状态** 和 **请求类型** 过滤器——目前它主要处理智能体请求。
 
@@ -75,7 +75,7 @@ Paperclip 仍在后台记录一条加入请求，该请求已自动批准，因�
 
 ## 偏好终端？CLI 等效命令
 
-上述每个步骤都有对应的 CLI 命令，便于脚本化入职流程。它们与 UI 使用的同一 API 一一对应。确切负载请参阅 [访问 CLI 参考](../../reference/cli/access.md#invites)。
+上述每个步骤都有对应的 CLI 命令，便于脚本化入职流程。它们与 UI 使用的同一 API 一一对应。确切负载请参阅 [访问 CLI 参考](../reference/cli/access.md#invites)。
 
 ```sh
 # Create the invite (returns the invite URL)
@@ -96,7 +96,7 @@ paperclipai member list --company-id <company-id>
 
 ## 相关
 
-- [公司管理](../../administration/company.md) — 成员页面（含邀请选项卡）和加入请求的完整说明。
-- [角色与权限](../../administration/roles-and-permissions.md) — 每个角色和授权实际允许的操作。
+- [公司管理](../administration/company.md) — 成员页面（含邀请选项卡）和加入请求的完整说明。
+- [角色与权限](../administration/roles-and-permissions.md) — 每个角色和授权实际允许的操作。
 - [移除成员](./offboard-a-member.md) — 当有人离开时的反向操作。
 - [启用多用户登录](./enable-multi-user-login.md) — 如果您的实例仍处于本地信任模式，这是必需的第一步。

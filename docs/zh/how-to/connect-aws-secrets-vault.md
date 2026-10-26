@@ -8,7 +8,7 @@ seo_description: 让 Paperclip 通过区域、命名空间和名称前缀自动�
 
 将 AWS Secrets Manager 接入 Paperclip 的“密钥”页面，使其能够自动发现您已使用的保险库——包括区域、命名空间和名称前缀——而无需您手动复制 ARN。完成本指南后，您将拥有一个已保存的提供商保险库，智能体可以针对该保险库进行轮换，且输入字段已根据您的实时 AWS 账户预填。
 
-如果您只需要了解概念模型——严格模式、本地加密提供商、环境变量覆盖——请先阅读 [密钥](../../reference/deploy/secrets.md)。本页是面向运维人员的设置操作指南。
+如果您只需要了解概念模型——严格模式、本地加密提供商、环境变量覆盖——请先阅读 [密钥](../reference/deploy/secrets.md)。本页是面向运维人员的设置操作指南。
 
 ---
 
@@ -86,6 +86,7 @@ Paperclip 使用草稿字段调用 `POST /companies/{companyId}/secret-provider-
 
 ---
 
+<a id="change-the-value-of-a-linked-aws-secret"></a>
 ## 更改关联 AWS 密钥的值
 
 过去，关联密钥是单向的：Paperclip 可以读取 AWS 值并重新指向链接，但如果凭证本身发生变化，您必须前往 AWS 控制台并自行放入新值。现在不再需要这样做了。AWS Secrets Manager 支持将值写入关联的密钥，因此您可以从“密钥”页面轮换凭证。
@@ -136,12 +137,12 @@ Paperclip 使用草稿字段调用 `POST /companies/{companyId}/secret-provider-
 
 **“Provide either a new value or a new external reference, not both”（请提供新值或新外部引用，而非两者兼有）** — 更新同时携带了新值*并*指向了不同的引用。请逐一执行：写入值，保存，然后在第二次更新中更改引用（或反之亦然）。
 
-**关联密钥仅提供“Update reference”（更新引用）** — 要么密钥尚未存储外部引用，要么其提供商未宣传值写入。仅支持该功能的提供商才会获得 **Write new value**（写入新值）选项卡。
+**关联密钥仅提供“Update reference”（更新引用）** — 要么密钥尚未存储外部引用，要么其提供商未提供写入密钥值的选项。仅支持该功能的提供商才会获得 **Write new value**（写入新值）选项卡。
 
 ---
 
 ## 相关
 
-- [密钥](../../reference/deploy/secrets.md) — 密钥存储模型、严格模式以及密钥引用在运行时如何解析。
-- [密钥 API](../../reference/api/secrets.md#rotating-an-external-reference-secret) — 通过 API 执行相同的值写入，包括所有验证规则。
+- [密钥](../reference/deploy/secrets.md) — 密钥存储模型、严格模式以及密钥引用在运行时如何解析。
+- [密钥 API](../reference/api/secrets.md#rotating-an-external-reference-secret) — 通过 API 执行相同的值写入，包括所有验证规则。
 - [更新或轮换提供商 API 密钥](rotate-provider-api-key.md) — 路径 B 使用如上创建的提供商保险库。

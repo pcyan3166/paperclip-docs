@@ -33,7 +33,7 @@ Paperclip 会自动注册其客户端，因此无需在开发者控制台中进�
 
 > **警告：** 内容和业务数据变更可能会公开显示，且商业或预订记录是真实的业务记录。请将写入操作保持在 **Ask first** 状态，并将任何删除记录的操作设置为 **Off**。恢复能力取决于 Wix 自身提供的历史记录。
 
-参见 [Set action permissions](action-permissions.md)。
+参见 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -64,5 +64,5 @@ Tell me the name and published status of the connected Wix site, and list its CM
 
 - [Webflow](webflow.md) — 另一个网站平台连接器。
 - [Shopify](shopify.md) — 专门用于店面商业。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Wix MCP server](https://www.wix.com/studio/developers/mcp-server)

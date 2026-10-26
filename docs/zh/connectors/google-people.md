@@ -20,7 +20,7 @@ seo_description: 允许智能体查找联系人和 Workspace 目录个人资料�
 
 - 一个已确认 Developer Preview 注册的 Google 账户。
 - 对于目录搜索，需要一个 Google Workspace 账户。目录的可用性取决于 Workspace 账户及其管理员的设置——个人 Google 账户有联系人，但没有组织目录。
-- 如果没有加入 Paperclip Cloud，则需要您自己的 Google OAuth 客户端，并启用 **People API** 和 **People MCP API**。[Set up your own Google OAuth app](google-setup.md) 是完整的操作程序——请在开始此处操作之前完成。
+- 如果没有加入 Paperclip Cloud，则需要您自己的 Google OAuth 客户端，并启用 **People API** 和 **People MCP API**。[配置您自己的 Google OAuth 应用](google-setup.md) 是完整的配置流程，请在开始本指南前完成。
 
 ## 连接 Google People
 
@@ -45,7 +45,7 @@ seo_description: 允许智能体查找联系人和 Workspace 目录个人资料�
 
 > **警告：** 此连接器返回关于真实个人的个人数据——姓名、电子邮件地址以及您的目录暴露的其他任何信息。请优先选择 **Just agents I pick**（仅我选择的智能体）而非 **Any agent**（任何智能体），并给智能体提供具体的查找指令，而不是枚举目录的指令。
 
-[How connector access works](access-model.md) 涵盖了身份和智能体选择。
+[连接器访问机制说明](access-model.md) 涵盖了身份和智能体选择。
 
 ## 尝试使用
 
@@ -67,7 +67,7 @@ that contact.
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | Developer Preview 注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未宣传 People 配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未提供 People 配置文件 | 使用您自己的 Google OAuth 应用 |
 | 目录搜索无结果，但联系人正常 | 账户不是 Workspace 账户，或管理员已限制目录共享 | 询问您的 Workspace 管理员关于目录可见性的问题 |
 | 目录结果中缺少某位同事 | 他们超出了管理员配置的共享目录范围 | Paperclip 中无需修复 |
 | 智能体无法添加或编辑联系人 | 预期行为——此连接器为仅读 | 在 Google Contacts 中操作 |
@@ -79,7 +79,7 @@ that contact.
 
 - [Connector overview](https://paperclip.ing/product/connectors/google-people/)
 
-- [Google Workspace Search](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一仅读搜索。
-- [How connector access works](access-model.md)
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md)
+- [Google Workspace 搜索](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一仅读搜索。
+- [连接器访问机制说明](access-model.md)
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md)
 - [Google People API MCP reference](https://developers.google.com/people/api/mcp)

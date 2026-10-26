@@ -166,7 +166,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/approvals/$APPROVAL_ID/request-revision" \
   -d '{"decisionNote": "Same intent, but try the Hobby tier first ($0). Resubmit with that as the action."}'
 ```
 
-有关完整的 UI 演练，包括队列过滤器和评论线程，参见 [Approvals (board guide)](../guides/day-to-day/approvals.md)。
+有关完整的 UI 演练，包括队列过滤器和评论线程，参见 [审批（董事会指南）](../guides/day-to-day/approvals.md)。
 
 ---
 
@@ -236,7 +236,7 @@ def handle_approval(approval_id, status):
 
 关于唤醒的两个重要细节：
 
-- **唤醒仅覆盖 `approved` 和 `rejected`。** `request-revision` 不会触发 `PAPERCLIP_APPROVAL_ID`。董事会的 `decisionNote` 存储在审批上；智能体在其下一次正常心跳时得知此事（或者如果你也在源问题上留下评论，则会更快触发唤醒——参见 [Debug a stuck heartbeat](./debug-stuck-heartbeat.md) 了解完整的唤醒原因集合）。
+- **唤醒仅覆盖 `approved` 和 `rejected`。** `request-revision` 不会触发 `PAPERCLIP_APPROVAL_ID`。董事会的 `decisionNote` 存储在审批上；智能体在其下一次正常心跳时得知此事（或者如果你也在源问题上留下评论，则会更快触发唤醒——参见 [调试卡住的心跳](./debug-stuck-heartbeat.md) 了解完整的唤醒原因集合）。
 - **重新获取审批和链接的问题。** 环境变量仅携带 id 和裁决。负载、`decisionNote` 和链接问题列表都存在于 API 上，自智能体提交请求以来可能已发生变化——特别是在修订轮次之后。
 
 对于完全无法获得 Paperclip 驱动唤醒的 BYO-智能体运行时（[Bring your own agent → Option C](./bring-your-own-agent.md#option-c-custom-script-no-paperclip-adapter) 中的轮询模式），直接轮询审批：`GET /api/approvals/$APPROVAL_ID` 返回当前状态。使用退避循环，并在 `status != "pending"` 时退出。
@@ -277,9 +277,9 @@ def handle_approval(approval_id, status):
 
 ## 另请参阅
 
-- [Set a monthly budget and enforce it](./set-monthly-budget.md) — 支出控制的被动响应部分。与此审批门并行运行。
-- [Approvals (board guide)](../guides/day-to-day/approvals.md) — 队列和决策按钮的完整 UI 演练。
-- [Approvals API](../../reference/api/approvals.md) — 此处触及的每个端点，加上生命周期图和重新提交语义。
-- [Handle board approvals for hires](./handle-board-approvals-for-hires.md) — 针对 `hire_agent` 审批类型的相同治理流程。
-- [Wire Slack/Discord notifications](./wire-slack-discord-notifications.md) — 将审批管道化到频道，以免队列闲置。
-- [Debug a stuck heartbeat](./debug-stuck-heartbeat.md) — 当唤醒触发但智能体未拾取审批时的第一站。
+- [设置月度预算并强制执行](./set-monthly-budget.md) — 支出控制的被动响应部分。与此审批门并行运行。
+- [审批（董事会指南）](../guides/day-to-day/approvals.md) — 队列和决策按钮的完整 UI 演练。
+- [审批 API](../reference/api/approvals.md) — 此处触及的每个端点，加上生命周期图和重新提交语义。
+- [处理招聘的董事会审批](./handle-board-approvals-for-hires.md) — 针对 `hire_agent` 审批类型的相同治理流程。
+- [为审批接入 Slack/Discord 通知](./wire-slack-discord-notifications.md) — 将审批管道化到频道，以免队列闲置。
+- [调试卡住的心跳](./debug-stuck-heartbeat.md) — 当唤醒触发但智能体未拾取审批时的第一站。

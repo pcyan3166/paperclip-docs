@@ -718,6 +718,33 @@
       ]
     },
     {
+      "tier": "中文文档",
+      "title": "实验性功能（简体中文）",
+      "icon": "flask-conical",
+      "desc": "了解 Paperclip 的实验性功能、启用方式、工作机制和注意事项。",
+      "pages": [
+        { "title": "实验性功能概览", "file": "../docs/zh/experimental/overview.md" },
+        { "title": "智能体聊天", "file": "../docs/zh/experimental/agent-chat.md" },
+        { "title": "Assistant 连接（MCP）", "file": "../docs/zh/experimental/assistant-connections.md" },
+        { "title": "自动创建恢复任务", "file": "../docs/zh/experimental/auto-create-recovery-tasks.md" },
+        { "title": "空闲时自动重启开发服务器", "file": "../docs/zh/experimental/auto-restart-dev-server.md" },
+        { "title": "案例", "file": "../docs/zh/experimental/cases.md" },
+        { "title": "Cloud Sync（已退役）", "file": "../docs/zh/experimental/cloud-sync.md" },
+        { "title": "Connections v3 基础架构", "file": "../docs/zh/experimental/connections-apps.md" },
+        { "title": "环境", "file": "../docs/zh/experimental/environments.md" },
+        { "title": "外部智能体：OpenAI Dot", "file": "../docs/zh/experimental/external-agents.md" },
+        { "title": "外部对象", "file": "../docs/zh/experimental/external-objects.md" },
+        { "title": "实验性文件查看器", "file": "../docs/zh/experimental/file-viewer.md" },
+        { "title": "隔离工作区", "file": "../docs/zh/experimental/isolated-workspaces.md" },
+        { "title": "任务计划分解", "file": "../docs/zh/experimental/plan-decomposition-panel.md" },
+        { "title": "服务器信息调试视图", "file": "../docs/zh/experimental/server-info-debug-view.md" },
+        { "title": "状态卡片", "file": "../docs/zh/experimental/status-cards.md" },
+        { "title": "聊天式任务", "file": "../docs/zh/experimental/task-chat.md" },
+        { "title": "任务固定的 AI 路由", "file": "../docs/zh/experimental/task-pinned-ai-routing.md" },
+        { "title": "任务看护器", "file": "../docs/zh/experimental/task-watchdogs.md" }
+      ]
+    },
+    {
       "tier": "Learn",
       "title": "Connectors",
       "icon": "unplug",

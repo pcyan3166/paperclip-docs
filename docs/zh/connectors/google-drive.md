@@ -29,7 +29,7 @@ seo_description: 允许智能体搜索和读取 Drive 文件，并可选择创�
 | **仅读取** | 搜索文件，读取元数据和内容，列出最近文件，读取文件的权限 | `drive.readonly` |
 | **读取与创建** | 上述操作，外加创建新文件和复制现有文件 | `drive.readonly`, `drive.file` |
 
-群组在连接的生命周期内是固定的；若要更改，需建立新的连接。
+能力组在连接的生命周期内固定不变；若要更改，需建立新的连接。
 
 ## 连接 Google Drive
 
@@ -44,7 +44,7 @@ seo_description: 允许智能体搜索和读取 Drive 文件，并可选择创�
 
 已审查的操作：
 
-| 操作 | 群组 |
+| 操作 | 能力组 |
 | --- | --- |
 | `search-files`, `list-recent-files` | 两者 |
 | `get-file-metadata`, `read-file-content`, `download-file-content` | 两者 |
@@ -53,9 +53,9 @@ seo_description: 允许智能体搜索和读取 Drive 文件，并可选择创�
 
 有两个值得注意的区别。元数据和内容是独立的操作，因此智能体可以列出它无法有效解析的文件。并且 `get-file-permissions` 读取共享列表——它不更改该列表。
 
-> **注意：** 写入群组的 `drive.file` 作用域仅覆盖应用本身创建或打开的文件，这就是为什么创建和复制可用，但编辑任意现有文件不可用的原因。连接器的指导原则是文件创建和复制应获得批准；请将它们保持在 **Ask first**（先询问）状态。
+> **注意：** “读取与创建”能力组的 `drive.file` 作用域仅覆盖应用本身创建或打开的文件，因此可以创建和复制文件，但不能编辑任意现有文件。连接器的指导原则是文件创建和复制应获得批准；请将它们保持在 **Ask first**（先询问）状态。
 
-[How connector access works](access-model.md) 涵盖了身份和智能体选择。
+[连接器访问机制说明](access-model.md) 涵盖了身份和智能体选择。
 
 ## 尝试使用
 
@@ -72,7 +72,7 @@ Search my Google Drive for a document containing "quarterly plan" and tell me it
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | 在同意屏幕之前 Google 拒绝 | Developer Preview 注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未宣传 Drive 配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未提供 Drive 配置文件 | 使用您自己的 Google OAuth 应用 |
 | 搜索未找到预期的内容 | 文件未与授权账户共享，或位于其不属于的共享云盘中 | 共享该文件或将该账户添加到共享云盘 |
 | 文件已列出但内容无法读取 | 文件类型没有可提取的文本，或它是指向外部项目的链接 | 检查文件类型；元数据和内容是独立的能力 |
 | 缺少创建或复制功能 | 连接是以 **仅读取** 方式建立的 | 建立 **读取与创建** 连接 |
@@ -86,6 +86,6 @@ Search my Google Drive for a document containing "quarterly plan" and tell me it
 - [Connector overview](https://paperclip.ing/product/connectors/google-drive/)
 
 - [Google Docs](google-docs.md)、[Google Sheets](google-sheets.md)、[Google Slides](google-slides.md) — 编辑特定文件类型内的内容。
-- [Google Workspace Search](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
-- [How connector access works](access-model.md)
+- [Google Workspace 搜索](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
+- [连接器访问机制说明](access-model.md)
 - [Google Drive API MCP reference](https://developers.google.com/workspace/drive/api/reference/mcp)

@@ -6,7 +6,7 @@ seo_description: 连接托管的 Executor 端点并管理其暴露的操作。�
 
 # Executor
 
-Executor 在已配置集成之前放置一个端点。Paperclip 连接到该端点；Executor 处理上游连接及其自身策略。
+Executor 为已配置的集成提供统一的前置端点。Paperclip 连接到该端点；Executor 处理上游连接及其自身策略。
 
 Executor 在每个实例上均可用；无需启用实验性设置。
 
@@ -23,7 +23,7 @@ Executor 在每个实例上均可用；无需启用实验性设置。
 
 1. **未经验证：** 在 Executor 中配置预期的集成、凭据和策略。获取该部署的远程端点 URL。
 2. **未经验证：** 打开 **Connectors**（连接器）并选择 **Executor**。
-3. **未经验证：** 阅读主按钮上方的访问行。选择 **Change**（更改）以选择身份或缩小可使用该身份的**智能体**范围。
+3. **未经验证：** 阅读主按钮上方的访问行。选择 **Change**（更改）以选择身份或限制可使用该连接身份的**智能体**范围。
 4. **未经验证：** 粘贴端点 URL。如果需要，请登录，或者根据您部署的说明，在 **Authentication**（身份验证）下添加令牌或标头，方法是先选择 **Change**（更改）。
 5. **未经验证：** 选择 **Connect Executor**（连接 Executor）并检查暴露的操作列表。
 
@@ -39,7 +39,7 @@ Executor 在每个实例上均可用；无需启用实验性设置。
 
 当您的部署暴露受支持的账户清单时，其 **Permissions**（权限）页面会列出 **Connected apps**（已连接应用）并提供 **Refresh Executor**（刷新 Executor）。Paperclip 读取部署的连接和集成清单；它不执行生成的代码来猜测连接了什么。
 
-账户显示在其应用卡片下，标记为 **Managed by Executor**（由 Executor 管理）。未知集成保留其自身身份，而不是接收猜测的品牌标识。如果无法发现，Paperclip 会说明这一点；仅成功访问工具并不能验证账户的授权。
+账户显示在其应用卡片下，标记为 **Managed by Executor**（由 Executor 管理）。未知集成仍保留自身身份，不会被套用推测出的品牌标识。如果无法发现，Paperclip 会说明这一点；仅成功访问工具并不能验证账户的授权。
 
 可选的 **Console URL**（控制台 URL）告诉 Paperclip **Open in Executor**（在 Executor 中打开）应发送您到哪里。请使用您受信任的 HTTPS 集成页面，包括其工作区或自托管路径。您可以在设置期间设置，或从已保存网关的 **Console URL** 菜单项中设置。
 

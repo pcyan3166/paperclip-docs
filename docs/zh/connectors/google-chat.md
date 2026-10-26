@@ -27,7 +27,7 @@ seo_description: 允许智能体搜索和阅读 Google Chat 对话，并可选�
 
 | 路径 | 所需条件 | 提供时机 |
 | --- | --- | --- |
-| **Connect with Paperclip**（通过 Paperclip 连接） | 仅需登录，无需 Cloud 控制台操作 | 仅当实例已注册 Paperclip Cloud *且* Cloud 宣传 Chat 配置文件时。如果设置屏幕上没有显示，则对您不可用 |
+| **Connect with Paperclip**（通过 Paperclip 连接） | 仅需登录，无需 Cloud 控制台操作 | 仅当实例已注册 Paperclip Cloud *且* Cloud 提供 Chat 配置文件时。如果设置屏幕上没有显示，则对您不可用 |
 | **Use your own Google OAuth app**（使用您自己的 Google OAuth 应用） | 一个启用了 **Chat API** 和 **Chat MCP API** 的 Cloud 项目，一个已注册的回调 URI，**以及一个已配置的 Chat 应用** | 始终提供 |
 
 **Chat 是唯一需要配置 Chat 应用的 Google 连接器**，而不仅仅是启用 API。在 Cloud 控制台中，打开 **Chat API** → **Configuration**（配置）并完成应用的标识信息——应用名称、头像 URL 和描述——然后设置其功能和可见性。Google 不会针对没有配置应用的 Chat API 进行授权，且失败会出现在同意屏幕而非更早的阶段。
@@ -63,7 +63,7 @@ seo_description: 允许智能体搜索和阅读 Google Chat 对话，并可选�
 
 > **警告：** 发送的消息对空间中的每个人可见，并以授权账户的名义到达，而非智能体的名义。连接器的指导原则是发送应经过批准——请将 `send-message` 保持为 **Ask first**（先询问）。
 
-[How connector access works](access-model.md) 涵盖了身份和智能体选择。
+[连接器访问机制说明](access-model.md) 涵盖了身份和智能体选择。
 
 ## 尝试使用
 
@@ -86,7 +86,7 @@ sent it and when. Do not send a message.
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | Developer Preview 注册未完成 | 完成注册并重试 |
 | 自管理客户端授权失败 | Cloud 项目中未配置 Google Chat 应用 | 配置 Chat 应用，然后重试 |
-| 未提供 **Connect with Paperclip**（通过 Paperclip 连接） | 实例未注册 Paperclip Cloud，或 Cloud 未宣传 Chat 配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip**（通过 Paperclip 连接） | 实例未注册 Paperclip Cloud，或 Cloud 未提供 Chat 配置文件 | 使用您自己的 Google OAuth 应用 |
 | 结果中缺少某个空间 | 授权账户不是该空间的成员 | 在 Google Chat 中加入该空间；无需重新连接 |
 | `send-message` 缺失 | 连接是以 **Read only**（仅读取）方式建立的 | 建立 **Read & send**（读取与发送）连接 |
 | 人员期望向智能体发消息但得不到回复 | Google Chat 不是 Paperclip 对话渠道 | 改用受支持的渠道 |
@@ -99,6 +99,6 @@ sent it and when. Do not send a message.
 - [Connector overview](https://paperclip.ing/product/connectors/google-chat/)
 
 - [Slack](slack.md)、[Discord](discord.md)、[Microsoft Teams](microsoft-teams.md)、[Telegram](telegram.md) — 人员可用于联系智能体的渠道。
-- [Google Workspace Search](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
-- [How connector access works](access-model.md)
+- [Google Workspace 搜索](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
+- [连接器访问机制说明](access-model.md)
 - [Google Chat API MCP reference](https://developers.google.com/workspace/chat/api/reference/mcp)

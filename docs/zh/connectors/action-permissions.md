@@ -34,7 +34,7 @@ seo_description: 将每个连接器操作切换为“允许”、“先询问”
 
 ## 为什么新连接可以做出更改
 
-连接服务时，Paperclip 会向提供商请求其读取 **and** 写入操作所需的权限；如果连接器提供只读版和读写版，设置将从能够做出更改的版本开始。这样可避免智能体日后因凭据无法完成任务而被阻止。连接时，只读选项仍可在 **Change** 下找到。
+连接服务时，Paperclip 会向提供商请求其读取和写入操作所需的权限；如果连接器提供只读版和读写版，设置将从能够做出更改的版本开始。这样可避免智能体日后因凭据无法完成任务而被阻止。连接时，只读选项仍可在 **Change** 下找到。
 
 智能体实际可执行的操作仍在此处逐个决定。以写入权限连接不会将任何操作从 **Off** 或 **Ask first** 切换为 **Allowed**，重新连接或更改登录设置也永远不会这样做。
 
@@ -57,7 +57,7 @@ seo_description: 将每个连接器操作切换为“允许”、“先询问”
 - **PostHog** — 未注释的工具被视为 **write**，而非 read。其 `exec` 工具始终为 **destructive**。
 - **Notion** — 名称不使用 create/update/delete 动词（move、duplicate、convert）的变更被明确枚举为写入。
 - **Shopify** — `cancel-cart`、`cancel-checkout` 和 `complete-checkout` 始终为 **destructive**。
-- **Memory providers** — 经过审查的检索工具为读取，存储和更新为写入，遗忘或重置工具为破坏性。Supermemory 的 `add_memory` 也可以遗忘，因此整个操作为 **destructive**。
+- **记忆服务提供商** — 经过审查的检索工具为读取，存储和更新为写入，遗忘或重置工具为破坏性。Supermemory 的 `add_memory` 也可以遗忘，因此整个操作为 **destructive**。
 
 ## 刷新操作列表
 
@@ -72,6 +72,7 @@ POST /api/tool-connections/{connectionId}/catalog/refresh
 
 刷新报告会显示发现了多少个操作——*“Found 24 actions”*——以及如果有操作被保留，有多少需要您确认：*“3 new actions need your OK.”*
 
+<a id="what-happens-to-a-brand-new-action"></a>
 ## 全新操作的处理方式
 
 **这取决于连接的创建方式。** 在刷新生产连接之前，了解您处于哪种情况是值得的。
@@ -99,7 +100,7 @@ POST /api/tool-connections/{connectionId}/catalog/refresh
 
 权限开关不能授予连接器从未被允许执行的操作。
 
-- **Gmail** 永久阻止发送、垃圾邮件、垃圾邮件标记和标签变更。没有设置可以启用发送邮件。参见 [Gmail](gmail.md)。
+- **Gmail** 永久禁止发送邮件、移至垃圾箱、标记为垃圾邮件以及修改标签。没有设置可以启用发送邮件。参见 [Gmail](gmail.md)。
 - **Google Workspace** 连接器仅允许您连接的 capability group 中经过审查的读取和写入工具。列表之外的预览工具将被拒绝。
 - 使用只读 capability group 创建的连接不会通过更改开关获得写入操作；您应改为使用写入组重新连接。
 
@@ -111,10 +112,10 @@ POST /api/tool-connections/{connectionId}/catalog/refresh
 
 ## 相关
 
-- [How connector access works](access-model.md)
-- [Answer a connector review request](review-requests.md)
-- [Tool Gateway](../../reference/api/tool-gateway.md)
-- [Execution policy](../guides/power/execution-policy.md)
+- [连接器访问机制说明](access-model.md)
+- [回复连接器审核请求](review-requests.md)
+- [工具网关](../reference/api/tool-gateway.md)
+- [执行策略](../guides/power/execution-policy.md)
 
 ## 来源
 

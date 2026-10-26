@@ -27,15 +27,15 @@ API 密钥是唯一的方法。Paperclip 将密钥作为机密存储，并在每
 
 ## 选择访问权限
 
-每个操作默认均为 **Allowed**，因此这一步骤比平时更重要。Superagent 暴露了一个庞大的工具列表，其中一些操作会产生费用或无法撤销：
+每个操作默认均为 **Allowed**，因此这一步骤比平时更重要。Superagent 提供了大量工具，其中一些操作会产生费用或无法撤销：
 
 - **计费工作。** 启动报告和分诊发现会消耗组织积分。
 - **永久删除。** 删除发现后无法恢复。
-- **对智能体保护的更改。** 某些操作会更改规则或撤销 Superagent 所保护的智能体的凭据。
+- **更改智能体保护设置。** 某些操作会更改规则或撤销 Superagent 所保护的智能体的凭据。
 
 Paperclip 对 Superagent 的操作采取保守的分类方式以提供帮助。只有列出或获取某项内容，或被 Superagent 标记为只读的操作才计为读取。任何删除、移除或撤销的操作都计为破坏性操作。其他所有操作都计为写入操作，即使名称听起来无害也是如此——`triage_finding` 和 `restore_agent_builtin_rule` 是写入操作，因为它们启动了计费工作或更改了策略。
 
-这使得安全设置变得快速：将写入和破坏性操作设置为 **Ask first**（或 **Off**），并保留读取操作为 **Allowed**。参见 [Set action permissions](action-permissions.md)。
+这使得安全设置变得快速：将写入和破坏性操作设置为 **Ask first**（或 **Off**），并保留读取操作为 **Allowed**。参见 [设置操作权限](action-permissions.md)。
 
 ## 尝试使用
 
@@ -65,10 +65,10 @@ Using Superagent, list our five most recent open security findings with their se
 
 ## 相关指南
 
-- [How connector access works](access-model.md)
-- [Set action permissions](action-permissions.md)
-- [Reauthorize, revoke, or disconnect](reauthorize-and-disconnect.md)
-- [Superagent MCP documentation](https://www.superagent.sh/docs/mcp)
+- [连接器访问机制说明](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [重新授权、撤销或断开连接](reauthorize-and-disconnect.md)
+- [Superagent MCP 文档](https://www.superagent.sh/docs/mcp)
 
 ## 来源
 

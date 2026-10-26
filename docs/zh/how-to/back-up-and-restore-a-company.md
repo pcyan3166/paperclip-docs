@@ -57,6 +57,7 @@ my-company/
 
 ---
 
+<a id="keep-agent-files-in-your-instance-backup"></a>
 ## 在实例备份中保留智能体文件
 
 如果您希望智能体的笔记、记忆和其他个人文件在实例恢复后依然存在，请在备份数据库的同时备份持久化的实例文件系统。托管的智能体文件是磁盘上的当前字节，而不是新的数据库修订行。仅靠数据库转储无法恢复这些字节。
@@ -238,6 +239,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/import?async=1" \
 
 轮询该 URL，直到 `job.status` 为 `succeeded` 或 `failed`；成功的董事会作业在 `job.importResult` 下携带完整的导入结果。作业仅对创建它的身份可读，并驻留在内存中——服务器重启、未知 ID 或他人的 ID 都会返回相同的 `404`。每个账户一次只运行一个导入：在作业仍在运行时重新提交 *相同* 的请求会返回 `409`，指向已在途中的作业以便您接管它，而 *不同* 的导入会返回 `409` 且不附带作业。
 
+<a id="the-two-integrity-guards"></a>
 ### 两个完整性保护
 
 恢复失败时是封闭的，而不是半写入公司。
@@ -362,6 +364,6 @@ curl -X POST "$PAPERCLIP_API_URL/api/routines/<routine-id>/triggers" \
 
 - [导出与导入](../guides/power/export-import.md) — CLI 演练和包格式。
 - [心跳与例程](../guides/projects-workflow/routines.md) — 每日食谱的计划、并发和追赶策略。
-- [例程 API](../../reference/api/routines.md) — 创建和管理例程的每个端点。
-- [公司 API](../../reference/api/companies.md#export-and-import) — 包括董事会级路径的完整路由表。
+- [例程 API](../reference/api/routines.md) — 创建和管理例程的每个端点。
+- [公司 API](../reference/api/companies.md#export-and-import) — 包括董事会级路径的完整路由表。
 - [部署到 VPS 或 Fly.io](./deploy-to-vps-or-fly.md) — 与 Postgres 备份和主机外包存储配合使用。

@@ -8,7 +8,7 @@ seo_description: 编写一个小型 Markdown 包，将其安装到公司技能�
 
 编写一个小型 Markdown 包，使公司中的任何智能体都能按需加载，将其安装到公司技能库中，并将其附加到实际应当使用它的一两个智能体上。在一个全新技能上端到端完成大约需要 10 分钟。
 
-当你希望某个*例程*——例如代码审查清单、发布说明格式、客户回复模板——能够供多个智能体使用，而无需将其硬编码到每个智能体的主要指令中时，技能就是合适的工具。它**不是**用来分发代码的地方（那是[插件](../../administration/plugins.md)），也**不是**运行时桥接（那是[适配器](../../reference/adapters/overview.md)）。如果一个聪明的人类能够按照文件所写的内容操作并产生正确的输出，那么它就是一个技能。
+当你希望某个*例程*——例如代码审查清单、发布说明格式、客户回复模板——能够供多个智能体使用，而无需将其硬编码到每个智能体的主要指令中时，技能就是合适的工具。它**不是**用来分发代码的地方（那是[插件](../administration/plugins.md)），也**不是**运行时桥接（那是[适配器](../reference/adapters/overview.md)）。如果一个聪明的人类能够按照文件所写的内容操作并产生正确的输出，那么它就是一个技能。
 
 ---
 
@@ -89,9 +89,9 @@ A release note has three sections, in this order:
 See `references/example.md` for a known-good output you can pattern-match against.
 ```
 
-然后在 `references/example.md` 旁边放置一个参考示例，以便智能体有具体的内容可供复制。您放在 `references/` 下的任何内容都会随技能一起捆绑，并在导入父文件夹时作为 `reference` 分类到文件清单中——参见[技能参考 → 支持文件](../../reference/skills.md#supporting-files)。
+然后在 `references/example.md` 旁边放置一个参考示例，以便智能体有具体的内容可供复制。您放在 `references/` 下的任何内容都会随技能一起捆绑，并在导入父文件夹时作为 `reference` 分类到文件清单中——参见[技能参考 → 支持文件](../reference/skills.md#supporting-files)。
 
-> **Frontmatter 风格。** Paperclip 使用其自身的窄范围 YAML 读取器解析 frontmatter。请坚持使用扁平标量、嵌套对象和 `- ` 列表项。不要对描述使用 YAML 块标量（`>` 或 `|`）；当前读取器将它们视为字面值，而不是折叠后续行。完整的 frontmatter 模式位于[技能参考 → Frontmatter 字段](../../reference/skills.md#frontmatter-fields)。
+> **Frontmatter 风格。** Paperclip 使用其自身的窄范围 YAML 读取器解析 frontmatter。请坚持使用扁平标量、嵌套对象和 `- ` 列表项。不要对描述使用 YAML 块标量（`>` 或 `|`）；当前读取器将它们视为字面值，而不是折叠后续行。完整的 frontmatter 模式位于[技能参考 → Frontmatter 字段](../reference/skills.md#frontmatter-fields)。
 
 ---
 
@@ -99,15 +99,15 @@ See `references/example.md` for a known-good output you can pattern-match agains
 
 如果智能体使用 Paperclip 的原生 Runner，您可以要求它保存刚刚学到的例程：“将你刚才做的发布说明审查转化为一个公司技能。”在 Auto 模式下，其 `create_skill` 工具会将完整的单文件 `SKILL.md` 保存到库中。您仍然需要将新技能分配给应当使用它的智能体。
 
-对于现有的可编辑技能，直接要求改进：“在我们的发布审查技能中添加一个检查变更日志的步骤。”智能体读取当前版本，然后使用 `update_skill` 将完整的主文件替换为带有版本守卫的版本。如果其他人先保存，智能体必须重新读取并重新应用其编辑；使用相同输入的重试不会创建重复版本。Ask 和预接受 Plan 模式不暴露这些写入工具。
+对于现有的可编辑技能，直接要求改进：“在我们的发布审查技能中添加一个检查变更日志的步骤。”智能体读取当前版本，然后使用 `update_skill` 将完整的主文件替换为带有版本守卫的版本。如果其他人先保存，智能体必须重新读取并重新应用其编辑；使用相同输入的重试不会创建重复版本。`Ask`（提问）模式和尚未获批的 `Plan`（计划）模式不会提供这些写入工具。
 
-您可以从任务中的 **Skill created** 卡片审查新技能，然后使用 **Open in Skill Studio** 编辑实时库副本。有关确切的输入和重试规则，参见[原生 Runner 技能工具](../../reference/skills.md#native-runner-skill-tools)。实现参考：[工具验证和 API 绑定](https://github.com/paperclipai/paperclip/blob/467125fafb47a8520856504fecc48d6e32055db1/server/src/services/skill-tools.ts)。
+您可以从任务中的 **Skill created** 卡片审查新技能，然后使用 **Open in Skill Studio** 编辑实时库副本。有关确切的输入和重试规则，参见[原生 Runner 技能工具](../reference/skills.md#native-runner-skill-tools)。实现参考：[工具验证和 API 绑定](https://github.com/paperclipai/paperclip/blob/467125fafb47a8520856504fecc48d6e32055db1/server/src/services/skill-tools.ts)。
 
 ---
 
 ## 3. 在公司级别安装技能
 
-`POST /api/companies/{companyId}/skills/import` 是唯一的路线。它接受一个 `source` 字符串并处理其余部分。
+`POST /api/companies/{companyId}/skills/import` 是唯一支持的导入接口。它接受一个 `source` 字符串并处理其余部分。
 
 ### 从本地路径
 
@@ -154,7 +154,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/skills/import" \
 
 每个 `github.com` 导入都记录在 **Skills → Sources** 下作为 GitHub 技能源，因此您稍后可以刷新它，从同一仓库获取新技能，或从一处停止同步。如果您更愿意浏览仓库并手动勾选技能，请在 UI 中使用 **Skills → Sources → Import from GitHub**——参见[从 GitHub 仓库同步技能](../guides/org/skills.md#sync-skills-from-a-github-repository)。
 
-接受的源形式完整列表（npx 命令、gist URL、raw URL、`owner/repo/skill` 简写）位于[公司技能 → 源类型](../../reference/skills.md#import-accepted-sources)。
+接受的源形式完整列表（npx 命令、gist URL、raw URL、`owner/repo/skill` 简写）位于[公司技能 → 源类型](../reference/skills.md#import-accepted-sources)。
 
 ### 验证安装
 
@@ -194,7 +194,7 @@ curl "$PAPERCLIP_API_URL/api/agents/$CODER_AGENT_ID/skills" \
   -H "Authorization: Bearer $PAPERCLIP_API_KEY"
 ```
 
-响应（一个 `AgentSkillSnapshot`）列出智能体当前拥有的每个条目，带有 `state`（`configured`、`installed`、`available` 等）和 `mode`（运行时同步策略——见下文）。完整模式位于[技能参考 → 将技能分配给智能体](../../reference/skills.md#4-assigning-skills-to-agents)。
+响应（一个 `AgentSkillSnapshot`）列出智能体当前拥有的每个条目，带有 `state`（`configured`、`installed`、`available` 等）和 `mode`（运行时同步策略——见下文）。完整模式位于[技能参考 → 将技能分配给智能体](../reference/skills.md#4-assigning-skills-to-agents)。
 
 每个 `desiredSkills` 条目可以是：
 
@@ -220,7 +220,7 @@ curl "$PAPERCLIP_API_URL/api/agents/$CODER_AGENT_ID/skills" \
 
 ## 5. 在雇佣时使用 `desiredSkills` 复用
 
-一旦技能进入公司库，您可以在创建或雇佣新智能体的第一天就附加它。相同的 `desiredSkills` 字段在两条路线上都被接受：
+一旦技能进入公司库，您可以在创建或雇佣新智能体的第一天就附加它。创建接口和雇佣接口都接受相同的 `desiredSkills` 字段：
 
 ```bash
 # Direct create (no approval)
@@ -251,7 +251,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/agent-hires" \
   }'
 ```
 
-相同的解析规则适用——传递键、ID 或唯一 slug。未知或歧义的引用将以 `422` 拒绝请求。如果您正在为新公司脚本化入职流程，这就是在单次调用中复现已知智能体设置的方法。当雇佣路线通过审批时，参见[处理雇佣的董事会审批](./handle-board-approvals-for-hires.md)。
+相同的解析规则适用——传递键、ID 或唯一 slug。未知或歧义的引用将以 `422` 拒绝请求。如果您正在为新公司脚本化入职流程，这就是在单次调用中复现已知智能体设置的方法。当雇佣接口需要经过审批时，参见[处理雇佣的董事会审批](./handle-board-approvals-for-hires.md)。
 
 ---
 
@@ -275,12 +275,13 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/issues" \
 - 运行工具/上下文输出中的 `SKILL.md` 正文，或
 - 智能体的响应明显遵循技能的章节顺序和语气规则。
 
-如果两者都不成立，请按照[技能参考](../../reference/skills.md#9-troubleshooting-why-a-skill-isnt-loading)中的故障排除清单逐步排查。两个最常见的失败原因：路由描述对智能体来说太模糊无法匹配，或适配器的同步模式是 `unsupported`。
+如果两者都不成立，请按照[技能参考](../reference/skills.md#9-troubleshooting-why-a-skill-isnt-loading)中的故障排除清单逐步排查。两个最常见的失败原因：路由描述对智能体来说太模糊无法匹配，或适配器的同步模式是 `unsupported`。
 
 > **收紧描述是关键，而非正文。** 如果智能体在应当加载技能时未加载，正文很少是问题所在。重写 `description` 以更具体地命名触发器（“当用户要求*发布说明*或*变更日志*时使用……”）。只有当技能实际加载后，正文才重要。
 
 ---
 
+<a id="7-versioning-and-updates"></a>
 ## 7. 版本控制和更新
 
 行为取决于技能的来源。
@@ -335,14 +336,14 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/skills/$SKILL_ID/inst
 - **捆绑技能强制开启。** `paperclipai/paperclip/*` 技能联合到每个解析集合中；您无法移除它们。
 - **适配器同步模式是运行时门控。** 如果 `mode: "unsupported"`，分配存在但没有文件到达运行时。要么切换适配器，要么在远程运行时管理技能。
 
-完整的规则集——必需与可选、捆绑必需、实例化策略、冲突解决——位于[技能参考 → 作用域规则](../../reference/skills.md#5-scoping-rules)。
+完整的规则集——必需与可选、捆绑必需、实例化策略、冲突解决——位于[技能参考 → 作用域规则](../reference/skills.md#5-scoping-rules)。
 
 ---
 
 ## 9. 故障排除
 
 **`Missing permission: can create agents`。**
-该路线需要 `agents:create` 权限。以董事会用户、CEO 智能体或具有 `permissions.canCreateAgents=true` 的智能体身份运行调用。相同的门控适用于导入、扫描、同步以及每技能详情/文件路线。
+该接口需要 `agents:create` 权限。以 Paperclip 控制台用户、CEO 智能体或具有 `permissions.canCreateAgents=true` 的智能体身份运行调用。导入、扫描、同步以及每项技能的详情/文件接口也使用相同的权限门控。
 
 **`Local skill source is outside approved company workspace roots`。**
 本地路径不在项目工作区、项目管理的检出目录或公司的管理技能文件夹内（代码 `skill_workspace_boundary_denied`）。将技能文件夹移动到项目工作区——或注册其文件夹为工作区——然后重新导入。
@@ -357,7 +358,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/skills/$SKILL_ID/inst
 检查快照：`GET /api/agents/{agentId}/skills`。如果 `mode` 是 `unsupported`，适配器（例如 `openclaw_gateway`）无法同步；分配仅为元数据。如果 `mode` 是 `ephemeral`，文件仅在运行期间存在——工作区在静止时看起来是空的。这是正确行为。
 
 **Frontmatter 更改未生效。**
-Paperclip 的 YAML 读取器故意窄范围。使用空格（而非制表符）、`- ` 用于列表项，以及 `name` 和 `description` 的纯单行字符串值。避免使用块标量（`>` 和 `|`），因为当前解析器不折叠它们。如果您将其简化为支持的子集后值仍然解析不正确，请提交 bug；内部解析器记录在[技能参考 → Frontmatter 字段](../../reference/skills.md#frontmatter-fields)。
+Paperclip 的 YAML 读取器故意窄范围。使用空格（而非制表符）、`- ` 用于列表项，以及 `name` 和 `description` 的纯单行字符串值。避免使用块标量（`>` 和 `|`），因为当前解析器不折叠它们。如果您将其简化为支持的子集后值仍然解析不正确，请提交 bug；内部解析器记录在[技能参考 → Frontmatter 字段](../reference/skills.md#frontmatter-fields)。
 
 **`references/example.md` 在导入的文件清单中缺失。**
 从包含技能目录的父文件夹重新导入（本指南中为 `/Users/me/skills`），而不是 `release-note-writer` 文件夹本身。父文件夹导入会一起遍历 `release-note-writer/SKILL.md` 以及相邻的 `references/`、`scripts/` 和 `assets/` 文件夹。
@@ -365,15 +366,15 @@ Paperclip 的 YAML 读取器故意窄范围。使用空格（而非制表符）�
 **删除后捆绑技能不断重新出现。**
 这是设计使然——`paperclip` 和其他 `paperclipai/paperclip/*` 技能在每次列表调用时重新导入。要抑制其中一个，请运行不附带它的分叉 Paperclip 构建。
 
-对于更深入的调试——错误的工具列表、同步模式混淆、GitHub 固定卡在旧提交——请遍历[完整故障排除列表](../../reference/skills.md#9-troubleshooting-why-a-skill-isnt-loading)。
+对于更深入的调试——错误的工具列表、同步模式混淆、GitHub 固定卡在旧提交——请遍历[完整故障排除列表](../reference/skills.md#9-troubleshooting-why-a-skill-isnt-loading)。
 
 ---
 
 ## 另请参阅
 
 - [技能指南](../guides/org/skills.md) — UI 演练、文件清单、编写良好技能的清单、信任级别。
-- [技能参考](../../reference/skills.md) — 文件形状、安装管道、规范键、作用域、版本控制。
-- [智能体 API → 技能](../../reference/api/agents.md#skills) — `GET` 和 `POST /agents/{id}/skills/sync` 的请求/响应形状。
+- [技能参考](../reference/skills.md) — 文件形状、安装管道、规范键、作用域、版本控制。
+- [智能体 API → 技能](../reference/api/agents.md#skills) — `GET` 和 `POST /agents/{id}/skills/sync` 的请求/响应形状。
 - [自带智能体](./bring-your-own-agent.md) — OpenClaw / HTTP webhook / 自定义脚本路径，包括 `unsupported` 技能同步注意事项。
 - [处理雇佣的董事会审批](./handle-board-approvals-for-hires.md) — 当 `desiredSkills` 进入审批工作流而非直接创建时。
 - [为智能体添加 MCP 服务器](./add-mcp-server-to-agent.md) — 不适合技能的*可执行*工具的运行时替代方案。

@@ -16,7 +16,7 @@ seo_description: 几乎涵盖所有“智能体无法正常工作”报告的几
 
 **原因。** 收件箱为空，且存在定时器。
 
-**修复。** 进入智能体 → **Run Policy → Heartbeat on interval**（运行策略 → 按间隔心跳）。将其关闭，并依赖由任务分配驱动的唤醒。参见 [Heartbeats & Routines](../guides/projects-workflow/routines.md)。
+**修复。** 进入智能体 → **Run Policy → Heartbeat on interval**（运行策略 → 按间隔心跳）。将其关闭，并依赖由任务分配驱动的唤醒。参见 [心跳与例程](../guides/projects-workflow/routines.md)。
 
 ---
 
@@ -114,6 +114,6 @@ seo_description: 几乎涵盖所有“智能体无法正常工作”报告的几
 
 ## 另请参阅
 
-- [Watching Agents Work](../guides/getting-started/watching-agents-work.md) — 健康的首次心跳是什么样子的。
-- [Heartbeats & Routines](../guides/projects-workflow/routines.md) — 定时器与任务分配驱动的唤醒。
-- [Audit: Activity](../guides/day-to-day/activity-log.md) — 当评论无法讲述完整故事时的结构性事件。
+- [观察智能体工作](../guides/getting-started/watching-agents-work.md) — 健康的首次心跳是什么样子的。
+- [心跳与例程](../guides/projects-workflow/routines.md) — 定时器与任务分配驱动的唤醒。
+- [审计：活动](../guides/day-to-day/activity-log.md) — 当评论无法讲述完整故事时的结构性事件。

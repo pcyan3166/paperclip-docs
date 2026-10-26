@@ -47,7 +47,7 @@ Shopify 提供两种服务器，Paperclip 同时暴露这两种选项：
 
 > **警告：** `cancel-cart`、`cancel-checkout` 和 `complete-checkout` 被归类为破坏性操作。完成结账即视为购买。除非智能体确实需要这些功能，否则请将其保持为 **Off**，并至少使用 **Ask first**。
 
-产品和政策查询属于读取操作，保持为 **Allowed** 是安全的。参见 [Set action permissions](action-permissions.md)。
+产品和政策查询属于读取操作，保持为 **Allowed** 是安全的。参见 [设置操作权限](action-permissions.md)。
 
 一个连接对应一个商店。若要连接第二个商店，请再次连接 Shopify。
 
@@ -81,6 +81,6 @@ Search the store for a product called "canvas tote" and tell me its price and wh
 - [Connector overview](https://paperclip.ing/product/connectors/shopify/)
 
 - [Stripe](stripe.md) — 支付数据，具有其自身的边界。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Shopify Storefront MCP documentation](https://shopify.dev/docs/apps/build/storefront-mcp/servers/storefront)

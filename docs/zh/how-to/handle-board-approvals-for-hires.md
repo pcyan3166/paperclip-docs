@@ -53,7 +53,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/agent-hires" \
 
 ![显示拟聘智能体的名称、角色、职位、图标、能力和适配器类型的招聘审批详情](../../user-guides/screenshots/light/approvals/hire-approval-detail.png)
 
-详情页总结了提案——**Name**、**Role**、**Title**、**Icon**、**Capabilities**、**Adapter** 以及任何请求的 **Skills**。汇报线（`reportsTo`）、月度预算（`budgetMonthlyCents`）和适配器配置不在摘要中，因此请打开 **See full request** 在原始负载中检查它们。下方有三个按钮：
+详情页总结了提案——**Name**、**Role**、**Title**、**Icon**、**Capabilities**、**Adapter** 以及任何请求的 **Skills**。汇报线（`reportsTo`）、月度预算（`budgetMonthlyCents`）和适配器配置不在摘要中，因此请打开 **See full request** 在原始请求体中检查这些内容。下方有三个按钮：
 
 ![批准、拒绝和请求修订按钮](../../user-guides/screenshots/light/approvals/approve-reject-revision-buttons.png)
 
@@ -90,6 +90,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/approvals/$APPROVAL_ID/request-revision" \
 
 ---
 
+<a id="5-openclaw-variant-the-invite-prompt-flow"></a>
 ## 5. OpenClaw 变体：邀请提示流程
 
 OpenClaw 智能体不符合相同的形态——它们存在于远程运行时中，因此 Paperclip 无法推送配置。取而代之的是：
@@ -99,7 +100,7 @@ OpenClaw 智能体不符合相同的形态——它们存在于远程运行时�
 3. 加入请求作为指向带有 `adapterType: openclaw_gateway` 的草稿智能体的 `hire_agent` 审批进入审批队列。
 4. 正常批准。Paperclip 激活智能体并发放一次性 API 密钥，OpenClaw 在下次联系时领取该密钥。
 
-技能同步是唯一的一个棘手点：OpenClaw 报告 `mode: unsupported`，因此分配会被记录，但不会推送文件。请在 OpenClaw 运行时内部管理 OpenClaw 技能。有关完整的预检，请参阅 [OpenClaw Gateway → Onboarding Checklist](../../reference/adapters/openclaw-gateway.md#onboarding-checklist)。
+技能同步是唯一的一个棘手点：OpenClaw 报告 `mode: unsupported`，因此分配会被记录，但不会推送文件。请在 OpenClaw 运行时内部管理 OpenClaw 技能。有关完整的预检，请参阅 [OpenClaw Gateway → Onboarding Checklist](../reference/adapters/openclaw-gateway.md#onboarding-checklist)。
 
 ---
 
@@ -122,9 +123,9 @@ curl -X POST "$PAPERCLIP_API_URL/api/approvals/$APPROVAL_ID/resubmit" \
 
 ## 另请参阅
 
-- [Approvals (board guide)](../guides/day-to-day/approvals.md) — 队列和决策按钮的完整 UI 指南。
-- [Approvals API](../../reference/api/approvals.md) — 董事会和请求者触及的每个端点。
-- [Hire Agent](../../reference/api/agents.md#hire-agent) — 带审批的创建路由、字段和验证规则。
-- [OpenClaw Gateway](../../reference/adapters/openclaw-gateway.md) — 邀请流程、设备配对和入职检查清单。
-- [Skills Reference](../../reference/skills.md) — 范围界定、物化模式以及 `unsupported` 适配器注意事项。
-- [Wire Slack/Discord notifications for approvals](./wire-slack-discord-notifications.md) — 将队列连接到频道，以免招聘请求滞留。
+- [审批（董事会指南）](../guides/day-to-day/approvals.md) — 队列和决策按钮的完整 UI 指南。
+- [审批 API](../reference/api/approvals.md) — 董事会和请求者触及的每个端点。
+- [雇用智能体](../reference/api/agents.md#hire-agent) — 带审批的创建路由、字段和验证规则。
+- [OpenClaw Gateway](../reference/adapters/openclaw-gateway.md) — 邀请流程、设备配对和入职检查清单。
+- [技能参考](../reference/skills.md) — 范围界定、物化模式以及 `unsupported` 适配器注意事项。
+- [为审批接入 Slack/Discord 通知](./wire-slack-discord-notifications.md) — 将队列连接到频道，以免招聘请求滞留。

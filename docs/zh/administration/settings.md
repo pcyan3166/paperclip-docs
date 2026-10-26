@@ -36,6 +36,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 
 > **注意：** 头像作为资产存储在 *所选公司* 下，但个人资料本身是用户级别的记录。如果您稍后在侧边栏中切换所选公司，您的头像仍会继续正常工作——只是新的上传将归属于上传时处于活动状态的公司。
 
+<a id="keyboard-shortcuts"></a>
 ### 键盘快捷键
 
 键盘快捷键对所有已登录用户始终开启——此处或任何地方都没有需要开启的开关。这涵盖了收件箱和任务列表导航以及全局快捷键：`c` 用于创建任务，`/` 用于搜索，`?` 用于快捷键速查表，以及 `[` 和 `]` 用于切换侧边栏和侧面板。
@@ -46,6 +47,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 
 ---
 
+<a id="instance-general"></a>
 ## 实例：常规
 
 ![常规设置页面，顶部为组织字段；实例级部分位于同一页面的下方](../../user-guides/screenshots/light/settings/instance-general.png)
@@ -68,7 +70,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 - **引导状态** — 如果初始 CEO/董事会设置尚未完成，则显示 "需要设置"，否则显示 "就绪"。
 - **引导邀请** — 是否有待处理的活跃首次运行邀请链接。
 
-这些字段仅提供信息。要更改它们，您需要更改部署本身——参见 [环境变量](../../reference/deploy/environment-variables.md)。
+这些字段仅提供信息。要更改它们，您需要更改部署本身——参见 [环境变量](../reference/deploy/environment-variables.md)。
 
 ### 在日志中隐藏用户名
 
@@ -84,6 +86,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 
 每个层级都是预设选择器，因此您只能从经过审核的保留窗口中进行选择。备份在磁盘上以 gzip 格式压缩。更长的保留时间意味着更多的存储空间——仅根据磁盘空间和合规性要求提高保留窗口。
 
+<a id="ai-feedback-sharing"></a>
 ### AI 反馈共享
 
 控制 AI 输出的点赞/点踩投票是否可以将被投票的输出发送至 Paperclip Labs。有两个按钮，外加一个初始状态：
@@ -100,6 +103,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 
 ---
 
+<a id="instance-access"></a>
 ## 实例：访问权限
 
 ![实例访问权限](../../user-guides/screenshots/light/settings/instance-access.png)
@@ -154,7 +158,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 页面分为两个部分，从上到下堆叠：
 
 - **外部适配器** — 您自行添加的任何内容，无论是来自 npm 包还是本地路径。每一行显示适配器的显示标签、其注册的 `type`、包名称、版本以及适配器暴露的模型数量。
-- **内置适配器** — 随 Paperclip 本身一起提供的适配器。它们不能被移除，只能被隐藏。如果外部适配器覆盖了内置适配器（例如，从 npm 安装的 Claude 适配器分支版本），您还会看到一个合成的 "内置" 行，标记为 **被……覆盖**，以便明确哪个内置适配器被遮蔽。
+- **内置适配器** — 随 Paperclip 本身一起提供的适配器。它们不能被移除，只能被隐藏。如果外部适配器覆盖了内置适配器（例如，从 npm 安装的 Claude 适配器分支版本），您还会看到一个动态生成的“内置”行，标记为 **被……覆盖**，以便明确哪个内置适配器被遮蔽。
 
 每个外部适配器旁边有一个小来源图标：从本地路径安装的适配器显示为文件夹图标，从 npm 安装的适配器显示为包图标。版本以等宽字体的 `v1.2.3` 徽章形式显示。
 
@@ -194,7 +198,7 @@ Paperclip 拥有两个设置界面，明确您正在查看哪一个至关重要�
 
 在这两种情况下，适配器包必须导出 `createServerAdapter()` — 对话框会提醒您这一契约。
 
-有关 Paperclip 开箱即用的适配器完整目录，以及每个适配器期望的每个智能体字段，请参阅参考文档：[适配器概述](../../reference/adapters/overview.md)。
+有关 Paperclip 开箱即用的适配器完整目录，以及每个适配器期望的每个智能体字段，请参阅参考文档：[适配器概述](../reference/adapters/overview.md)。
 
 ---
 
@@ -212,65 +216,66 @@ Paperclip 中的实验性开关是一个具有以下特征的功能：
 - 在成为默认设置之前正在根据实际使用情况进行评估，并且
 - 可能在未来的版本中被重命名、重构或提升为核心设置。
 
-开启它并不危险（指 "这会破坏您的数据" 意义上的危险）——但实验性功能 **没有兼容性保证**。它们随时可能中断、更改或被移除，且 Paperclip 不承诺为它们提供迁移或长期支持。页面顶部带有此效果的警告。在有理由时切换开关，而非出于好奇；不要依赖实验性功能来维持必须保持稳定的工作流，并在升级时预期需要重读发布说明。
+开启它并不危险（指 "这会破坏您的数据" 意义上的危险）——但实验性功能 **没有兼容性保证**。它们随时可能中断、更改或被移除，且 Paperclip 不承诺为它们提供迁移或长期支持。页面顶部有相关警告。在有理由时切换开关，而非出于好奇；不要依赖实验性功能来维持必须保持稳定的工作流，并在升级时预期需要重读发布说明。
 
 ### 可用的开关
 
-打开 **设置 → 实验性**。该页面将其开关分为最多三个部分，并在每个部分内按字母顺序列出卡片。如果某个开关在 [实验性](../../experimental/overview.md) 部分（或本文档的其他地方）拥有自己的页面，其名称将链接到该页面。
+打开 **设置 → 实验性**。该页面将其开关分为最多三个部分，并在每个部分内按字母顺序列出卡片。如果某个开关在 [实验性](../experimental/overview.md) 部分（或本文档的其他地方）拥有自己的页面，其名称将链接到该页面。
 
 **实验性功能** — *"仍在评估中的可选产品功能。"*
 
-- **[智能体聊天](../../experimental/agent-chat.md)** — 每个智能体一个持续对话。**聊天** 位于 **工作** 组的首位，并在导航旁打开智能体栏；智能体澄清您的目标并将实际工作交给任务。
-- **[助手连接 (MCP)](../../experimental/assistant-connections.md)** — 将 Codex、Claude 和其他助手连接到您的 Paperclip 组织，以便人员可以审查工作、委派任务并提供反馈。需要具有配置了公共 URL 的已认证实例。
+- **[智能体聊天](../experimental/agent-chat.md)** — 每个智能体一个持续对话。**聊天** 位于 **工作** 组的首位，并在导航旁打开智能体栏；智能体澄清您的目标并将实际工作交给任务。
+- **[助手连接 (MCP)](../experimental/assistant-connections.md)** — 将 Codex、Claude 和其他助手连接到您的 Paperclip 组织，以便人员可以审查工作、委派任务并提供反馈。需要具有配置了公共 URL 的已认证实例。
 - **Beta 技能** — 允许智能体固定 Paperclip 核心技能的 Beta 版本。关闭它会将每个智能体恢复为默认实时技能，而不会移除您保存的固定项。
-- **[内置智能体](../../reference/api/built-in-agents.md)** — 显示 Paperclip 管理的内置智能体界面（内置名册徽章、**内置智能体** 选项卡以及内置智能体设置控件），并使内置智能体 API 可用。在配置 `briefs`、`learning` 或 `reflection-coach` 之前请开启它；关闭时，内置智能体路由将返回 `404 Not Found`。
-- **[案例](../../reference/api/cases.md)** — 任务创建并迭代的持久性工作产品（博客文章、推文风暴……）。添加 **案例** 选项卡和智能体案例 API。关闭它会隐藏选项卡并阻止 API；现有案例数据会被保留。
-- **[聊天连接器](../../connectors.md#chat-channels-experimental)** — 将智能体连接到 Slack、Discord、Microsoft Teams 和 Telegram 对话。关闭它会隐藏聊天设置，但现有聊天连接会继续运行。GitHub 审查机器人拥有下方的独立开关。
-- **[合并收件箱 + 任务列表](../../experimental/task-chat.md#an-optional-combined-task-list)** — 将收件箱折叠到 **任务** 中：一个任务行携带未读徽章，**视图** 菜单可到达每个收件箱和任务视图。
+- **[内置智能体](../reference/api/built-in-agents.md)** — 显示 Paperclip 管理的内置智能体界面（内置名册徽章、**内置智能体** 选项卡以及内置智能体设置控件），并使内置智能体 API 可用。在配置 `briefs`、`learning` 或 `reflection-coach` 之前请开启它；关闭时，内置智能体路由将返回 `404 Not Found`。
+- **[案例](../reference/api/cases.md)** — 任务创建并迭代的持久性工作产品（博客文章、推文风暴……）。添加 **案例** 选项卡和智能体案例 API。关闭它会隐藏选项卡并阻止 API；现有案例数据会被保留。
+- **[聊天连接器](../connectors.md#chat-channels-experimental)** — 将智能体连接到 Slack、Discord、Microsoft Teams 和 Telegram 对话。关闭它会隐藏聊天设置，但现有聊天连接会继续运行。GitHub 审查机器人拥有下方的独立开关。
+- **[合并收件箱 + 任务列表](../experimental/task-chat.md#an-optional-combined-task-list)** — 将收件箱折叠到 **任务** 中：一个任务行携带未读徽章，**视图** 菜单可到达每个收件箱和任务视图。
 - **[决策](../guides/day-to-day/decisions.md)** — 在主侧边栏中显示 **决策** 项，这是展示等待您输入的任务的关注中心。
-- **[启用环境](../../experimental/environments.md)** — 公司设置中的环境管理，以及项目和智能体环境分配（包括自定义沙箱镜像）。
-- **[启用外部对象](../../experimental/external-objects.md)** — 在问题中检测外部 URL，并为引用的拉取请求、工单和其他工作对象显示实时状态。
-- **[启用隔离工作区](../../experimental/isolated-workspaces.md)** — 项目配置中的执行工作区控制，以及任务运行的隔离（git-worktree）签出。如果您不使用隔离工作区，请保持关闭。一旦开启，此部分底部会出现一个 **默认使用隔离工作区** 卡片。
+- **[启用环境](../experimental/environments.md)** — 公司设置中的环境管理，以及项目和智能体环境分配（包括自定义沙箱镜像）。
+- **[启用外部对象](../experimental/external-objects.md)** — 在问题中检测外部 URL，并为引用的拉取请求、工单和其他工作对象显示实时状态。
+- **[启用隔离工作区](../experimental/isolated-workspaces.md)** — 项目配置中的执行工作区控制，以及任务运行的隔离（git-worktree）签出。如果您不使用隔离工作区，请保持关闭。一旦开启，此部分底部会出现一个 **默认使用隔离工作区** 卡片。
 - **实验性快速响应** — 在公司设置中显示 **连接**，并允许在智能体开始工作时进行简短确认。参见 [成本](../guides/day-to-day/costs.md#fast-responses)。
-- **[实验性文件查看器](../../experimental/file-viewer.md)** — 用于浏览和预览工作区文件的任务详情控件。
+- **[实验性文件查看器](../experimental/file-viewer.md)** — 用于浏览和预览工作区文件的任务详情控件。
 - **首个任务：使用计划文档提议** — 当某人的第一个请求是单个任务时，参谋长会编写一个简短的计划文档和一个复选框卡片，而不是单卡片确认。适用于在您切换此开关后创建的组织。
-- **[GitHub 审查机器人](../../connectors/understanding-github-review-bots.md)** — 使用其自身的 App 身份将智能体连接到 GitHub，以审查拉取请求并响应问题。它独立于聊天连接器：关闭它会隐藏设置和管理，现有机器人继续运行，且 GitHub 工具连接保持可用。
-- **[内存连接器](../../connectors/memory-connectors.md)** — 暴露 Mem0、Zep、Supermemory、Cognee 和 Honcho 的设置。隐藏设置不会停止已保存的连接。
-- **[OpenAI Dot](../../experimental/external-agents.md)** — 将 OpenAI Dot 添加为独立的智能体选择。在分配工作之前，请配对您的 Dot 并验证事件传递。需要助手连接 (MCP) 以及具有公共 HTTPS URL 的已认证实例。关闭它会阻止 Dot 调用和新工作，但已保存的连接会被保留。
-- **[Paperclip Runner](../../reference/adapters/paperclip-runner.md)** — 允许新的 Codex 智能体选择实验性 Rust Paperclip Runner。在自托管实例上默认开启，在 Cloud 上默认关闭，除非管理配置更改它。关闭它会隐藏该选择，而不影响现有原生运行。
-- **[简化英语交互](../../reference/skills/optional/content/simplified-english.md)** — 指示智能体使用 ASD-STE100 简化技术英语编写确认、问题、建议任务和复选框提示，并附带关于每个决策所需内容的简要上下文。
-- **[状态卡片](../../experimental/status-cards.md)** — 共享状态卡片板及其受限 API。启用状态卡片也会启用摘要。
+- **[GitHub 审查机器人](../connectors/understanding-github-review-bots.md)** — 使用其自身的 App 身份将智能体连接到 GitHub，以审查拉取请求并响应问题。它独立于聊天连接器：关闭它会隐藏设置和管理，现有机器人继续运行，且 GitHub 工具连接保持可用。
+- **[内存连接器](../connectors/memory-connectors.md)** — 暴露 Mem0、Zep、Supermemory、Cognee 和 Honcho 的设置。隐藏设置不会停止已保存的连接。
+- **[OpenAI Dot](../experimental/external-agents.md)** — 将 OpenAI Dot 添加为独立的智能体选择。在分配工作之前，请配对您的 Dot 并验证事件传递。需要助手连接 (MCP) 以及具有公共 HTTPS URL 的已认证实例。关闭它会阻止 Dot 调用和新工作，但已保存的连接会被保留。
+- **[Paperclip Runner](../reference/adapters/paperclip-runner.md)** — 允许新的 Codex 智能体选择实验性 Rust Paperclip Runner。在自托管实例上默认开启，在 Cloud 上默认关闭，除非管理配置更改它。关闭它会隐藏该选择，而不影响现有原生运行。
+- **[简化英语交互](../reference/skills/optional/content/simplified-english.md)** — 指示智能体使用 ASD-STE100 简化技术英语编写确认、问题、建议任务和复选框提示，并附带关于每个决策所需内容的简要上下文。
+- **[状态卡片](../experimental/status-cards.md)** — 共享状态卡片板及其受限 API。启用状态卡片也会启用摘要。
 - **简化 UI** — **默认开启**。简化的主侧边栏、共享的任务和收件箱呈现、专注的任务详情布局，以及跨智能体、例程、技能和设置的上下文导航。关闭它会恢复旧版外壳和导航；任务和页面数据保持不变。
-- **[摘要](../../reference/api/summary-slots.md)** — 项目和页面页面上由摘要生成器生成的状态槽，支持按需刷新和修订历史。状态卡片需要摘要，因此禁用摘要也会禁用状态卡片。
+- **[摘要](../reference/api/summary-slots.md)** — 项目和工作区页面上由摘要生成器生成的状态槽，支持按需刷新和修订历史。状态卡片需要摘要，因此禁用摘要也会禁用状态卡片。
 
 **Paperclip 开发者模式** — *"用于开发、测试和调试 Paperclip 的内部工具。"* 日常使用不需要这些。
 
-- **[空闲时自动重启开发服务器](../../experimental/auto-restart-dev-server.md)** — 仅在 `pnpm dev:once` 下相关；一旦所有本地智能体运行完成，重启过期的开发启动。
+- **[空闲时自动重启开发服务器](../experimental/auto-restart-dev-server.md)** — 仅在 `pnpm dev:once` 下相关；一旦所有本地智能体运行完成，重启过期的开发启动。
 - **仅管理环境** — 隐藏本地环境，并在平台管理的环境中运行所有智能体。
 - **Paperclip 开发者模式** — 显示内部维护者工具和可观测性链接，包括运行页面上的 Honeycomb 跟踪查询。
 - **在此工作树中运行任务** — 仅在服务器在 git 工作树内运行时出现。
-- **[服务器信息调试视图](../../experimental/server-info-debug-view.md)** — 账户抽屉中的 "服务器" 部分，包含服务器重启时间和运行中的提交。
-- **冒烟实验室** — 在 **应用 → 开发者** 下添加 **冒烟实验室** 选项卡，并在仪表板上添加 **集成冒烟** 卡片，用于针对本地固件测试集成路径。仅限私有（非公共）部署。
-- **[任务计划分解](../../experimental/plan-decomposition-panel.md)** — 任务详情页面上的已接受计划分解历史，用于调试子任务创建。
+- **[服务器信息调试视图](../experimental/server-info-debug-view.md)** — 账户抽屉中的 "服务器" 部分，包含服务器重启时间和运行中的提交。
+- **冒烟实验室** — 在 **应用 → 开发者** 下添加 **冒烟实验室** 选项卡，并在仪表板上添加 **集成冒烟** 卡片，用于使用本地测试夹具验证集成流程。仅限私有（非公共）部署。
+- **[任务计划分解](../experimental/plan-decomposition-panel.md)** — 任务详情页面上的已接受计划分解历史，用于调试子任务创建。
 
 **遗留** — *"这些功能将被移除。"*
 
-- **[经典任务界面](../../experimental/task-chat.md)** — 恢复先前的任务详情页面：页面级标题、普通评论线程和固定的属性侧边栏。
+- **[经典任务界面](../experimental/task-chat.md)** — 恢复先前的任务详情页面：页面级标题、普通评论线程和固定的属性侧边栏。
 - **[目标侧边栏链接](../guides/projects-workflow/goals.md)** — 在评估目标界面期间，恢复主侧边栏中的 **目标** 项。
 
 #### 不再在此页面上
 
 如果您来自旧版本，您可能记得的几个开关已消失：
 
-- **[任务看门狗](../../experimental/task-watchdogs.md)** — 不再有开关。看门狗控件始终在任务上可用。
-- **[自动创建恢复任务](../../experimental/auto-create-recovery-tasks.md)** — 已退役，连同其预览和运行操作。
-- **[云同步](../../experimental/cloud-sync.md)** — 已退役，包括开关。要在实例之间移动公司，请使用 [公司导入/导出](../how-to/back-up-and-restore-a-company.md)。
+- **[任务看门狗](../experimental/task-watchdogs.md)** — 不再有开关。看门狗控件始终在任务上可用。
+- **[自动创建恢复任务](../experimental/auto-create-recovery-tasks.md)** — 已退役，连同其预览和运行操作。
+- **[云同步](../experimental/cloud-sync.md)** — 已退役，包括开关。要在实例之间移动公司，请使用 [公司导入/导出](../how-to/back-up-and-restore-a-company.md)。
 - **简化左侧导航栏** — 已被 **简化 UI** 取代。
 
 开关在保存时立即生效。如果某个开关行为异常，请将其切换回关闭状态——无需迁移。
 
 ---
 
+<a id="operator-controls-for-hosted-deployments"></a>
 ## 托管部署的操作员控制
 
 如果您为其他人运行 Paperclip——托管云、内部共享服务器——您可以塑造用户看到的设置界面以及默认值，而无需触及任何用户的数据。两个环境变量实现了这一点。两者均在启动时读取，在读取时应用，且 **从不持久化**：清除变量后，在用户未另行选择的地方，标准行为将恢复。当两者均未设置时，UI 和 API 的行为与本页面描述完全一致。
@@ -284,7 +289,7 @@ Paperclip 中的实验性开关是一个具有以下特征的功能：
 - **实例页面** — `instance.profile`、`instance.environments`、`instance.access`、`instance.experimental`、`instance.plugins`、`instance.adapters`。（实例常规页面是设置根，无法隐藏；请单独隐藏其部分。）
 - **公司页面** — `company.members`、`company.invites`、`company.secrets`、`company.export`、`company.import`。隐藏 `company.import` 也会限制导入 API；其他公司键仅针对 UI。
 - **公司子选项卡** — `company.secrets.vaults`、`company.secrets.proposals`（在保持密钥页面开启的同时隐藏一个选项卡）。
-- **实例常规部分** — `instance.general.deploymentStatus`、`instance.general.censorUsernameInLogs`、`instance.general.backupRetention`、`instance.general.feedbackDataSharingPreference`、`instance.general.signOut`。字段支持的部分也会限制对该字段的写入；`deploymentStatus` 和 `signOut` 是只读 UI。旧的 `instance.general.keyboardShortcuts` 键不再存在——键盘快捷键始终开启——因此如果它仍在您的列表中，Paperclip 将忽略它并记录警告。
+- **实例常规部分** — `instance.general.deploymentStatus`、`instance.general.censorUsernameInLogs`、`instance.general.backupRetention`、`instance.general.feedbackDataSharingPreference`、`instance.general.signOut`。字段支持的部分也会限制对该字段的写入；`deploymentStatus` 和 `signOut` 是只读 UI。旧的 `instance.general.keyboardShortcuts` 配置项已不再存在——键盘快捷键始终开启——因此如果它仍在您的列表中，Paperclip 将忽略它并记录警告。
 - **实验性开关** — `instance.experimental.<flagKey>` 用于任何单个开关，或使用 `instance.experimental` 隐藏整个页面。
 - **所有实验性开关，现在及未来** — `instance.experimental.*`。通配符隐藏服务器自身功能目录中的每个开关，因此未来升级添加的开关也将以隐藏状态到达，无需更改您的环境。实验性页面本身仍可达。若要保留几个开关可用，请添加以 `!` 为前缀的例外，例如 `!instance.experimental.enableEnvironments`。
 
@@ -315,5 +320,5 @@ PAPERCLIP_SETTING_DEFAULTS='{"feedbackDataSharingPreference":"allowed"}'
 ## 下一步去哪里
 
 - [心跳与例程](../guides/projects-workflow/routines.md) — 定时器与事件驱动唤醒的全貌，以及如何配置单个智能体。
-- [环境变量](../../reference/deploy/environment-variables.md) — 常规页面报告的部署级设置（身份验证模式、引导状态、暴露）。
+- [环境变量](../reference/deploy/environment-variables.md) — 常规页面报告的部署级设置（身份验证模式、引导状态、暴露）。
 - [智能体投诉与建议](agent-commentary.md) — 存储在您的实例数据库中的智能体提交反馈，独立于 AI 反馈共享偏好。

@@ -58,9 +58,9 @@ Treat older memories as background context when the current task differs.
 }
 ```
 
-当前编辑器仅出现在具有显式模板元数据的连接中。它不是每个自定义服务器上的通用文本框。Paperclip 不会自动信任远程 MCP 服务器的初始化文本作为连接说明。
+当前编辑器仅适用于包含明确模板元数据的连接。它不是每个自定义服务器上的通用文本框。Paperclip 不会自动信任远程 MCP 服务器的初始化文本作为连接说明。
 
-对于自定义 HTTP 或进程适配器，请将服务器提供的说明快照与智能体的常规提示一起传递，并将更改的快照视为会话更改。[HTTP 适配器](../../reference/adapters/http.md#connection-instructions) 和 [进程适配器](../../reference/adapters/process.md#connection-instructions) 参考文档描述了快照到达的确切方式。
+对于自定义 HTTP 或进程适配器，请将服务器提供的说明快照与智能体的常规提示一起传递，并将更改的快照视为会话更改。[HTTP 适配器](../reference/adapters/http.md#connection-instructions) 和 [进程适配器](../reference/adapters/process.md#connection-instructions) 参考文档描述了快照到达的确切方式。
 
 ## 相关指南
 

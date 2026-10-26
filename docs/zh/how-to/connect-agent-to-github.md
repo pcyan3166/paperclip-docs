@@ -8,7 +8,7 @@ seo_description: 将编码智能体连接到真实仓库，使您分配的每个
 
 将 `claude_local`（或 `codex_local`）编码智能体连接到真实的 GitHub 仓库，使您分配的每个问题都能生成一个分支、一个可用的提交以及一个拉取请求——这些内容在 Paperclip 问题线程和 GitHub PR 页面中均可见。在一个全新仓库上端到端完成此操作大约需要 20 分钟。
 
-这是每个“智能体连夜交付 PR”故事背后的配方。其中的活动部件都很平常：一个指向正确 git 远程的项目工作区、一个智能体可用于推送的凭据、一个告知智能体在 PR 中工作的 `AGENTS.md`，以及 Paperclip 的审查阶段与 GitHub 的审查相匹配。
+这是每个“智能体连夜交付 PR”故事背后的配方。其中的涉及的环节都很常见：一个指向正确 git 远程的项目工作区、一个智能体可用于推送的凭据、一个告知智能体在 PR 中工作的 `AGENTS.md`，以及 Paperclip 的审查阶段与 GitHub 的审查相匹配。
 
 ---
 
@@ -117,7 +117,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/secrets" \
   }'
 ```
 
-然后在编码智能体的适配器配置中引用该密钥——与 [Claude Code → 示例](../../reference/adapters/claude-code.md#example) 中使用的相同 `env` 块：
+然后在编码智能体的适配器配置中引用该密钥——与 [Claude Code → 示例](../reference/adapters/claude-code.md#example) 中使用的相同 `env` 块：
 
 ```json
 "env": {
@@ -141,7 +141,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/secrets" \
 
 将 App ID、安装 ID 和私钥存储为 Paperclip 密钥，并让智能体在每次运行开始时通过心跳将其交换为安装令牌。令牌有效期为一小时，这恰好足够一次心跳使用。
 
-**权衡：** 活动部件更多，需要一次性设置，额外花费 15 分钟。一旦您拥有多个编码智能体或关心审计追踪，这就值得了。
+**权衡：** 涉及的环节更多，需要一次性设置，额外花费 15 分钟。一旦您拥有多个编码智能体或关心审计追踪，这就值得了。
 
 对于运行几个智能体的单开发人员团队，选项 A 就足够了。对于任何看起来像真实团队的情况，请直接使用选项 B——或下方的选项 C，它将令牌完全从您手中移除。
 
@@ -172,6 +172,7 @@ Paperclip 还通过此连接接收 GitHub webhooks——参见 [审查工作流]
 
 将主机密钥环身份验证视为冒烟测试选项。一旦您拥有第二个智能体或离开笔记本电脑，请立即升级到选项 A。
 
+<a id="the-credential-preflight-catches-a-missing-token-before-the-work"></a>
 ### 凭据预检在工作前捕获缺失的令牌
 
 在智能体实现并审查更改*之后*才被告知令牌缺失，是听到这个消息的最糟糕时机。因此，在本地、git 敏感适配器上分发运行之前，Paperclip 会检查该运行是否需要推送凭据——如果需要，检查 `GH_TOKEN` 或 `GITHUB_TOKEN` 是否实际绑定在智能体或项目范围。如果两者都没有，运行将在前端被阻止，原因为 `push_write_credential_missing` 并附带此补救措施：
@@ -245,6 +246,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/issues" \
 
 ---
 
+<a id="6-review-workflow"></a>
 ## 6. 审查工作流
 
 您有两个并行的审查界面。将它们用于不同的事情——它们不是冗余的。
@@ -266,6 +268,8 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/issues" \
 
 ---
 
+<a id="7-troubleshooting"></a>
+<a id="troubleshooting"></a>
 ## 7. 故障排除
 
 **推送时出现 `Permission denied (publickey)`。**
@@ -281,7 +285,7 @@ worktree 的远程是 HTTPS，但智能体环境未设置 `GITHUB_TOKEN`。检�
 编码智能体应拒绝盲目解决冲突。正确的循环是：智能体检测到冲突 → 将问题标记为 `blocked` 并附带评论命名冲突文件 → 人类（或高级审查智能体）变基或解决。不要让智能体运行 `git checkout --theirs` 来“让冲突消失”。
 
 **PR 上 CI 失败，但智能体仍将问题移动到 `in_review`。**
-收紧 `AGENTS.md`（步骤 4）中的规则：“仅在 `gh pr checks --watch` 退出 0 后移动到 `in_review`”。重新提示已切割 PR 的智能体。
+收紧 `AGENTS.md`（步骤 4）中的规则：“仅在 `gh pr checks --watch` 退出 0 后移动到 `in_review`”。重新提示已经创建 PR 的智能体。
 
 **PR 显示提交作者为 `noreply@github.com` 而非智能体身份。**
 在项目工作区的 worktree 配置命令中设置 `git config user.name` 和 `user.email`。许多团队使用 `Paperclip Coder <noreply@paperclip.example.com>` 以便 PR 明显为机器作者。如果您使用托管 GitHub 连接（第 3 节，选项 C），Paperclip 已用连接的 GitHub 身份及其 `…@users.noreply.github.com` 地址为每个提交盖章，因此您可以跳过此步。
@@ -297,8 +301,8 @@ worktree 的远程是 HTTPS，但智能体环境未设置 `GITHUB_TOKEN`。检�
 
 - [工作区](../guides/projects-workflow/workspaces.md) — `cwd`、`repoUrl`、`branchName` 和 worktree 生命周期的完整参考。
 - [智能体 → 推荐捆绑结构](../guides/org/agents.md#recommended-bundle-structure-agents-soul-heartbeat-tools) — `AGENTS.md` 如何与 `SOUL.md`、`HEARTBEAT.md` 和 `TOOLS.md` 协同工作。
-- [Claude Code](../../reference/adapters/claude-code.md) — 适配器字段、环境变量和会话持久性。
-- [Codex](../../reference/adapters/codex.md) — 相同配方，使用 OpenAI 的 Codex CLI。
+- [Claude Code](../reference/adapters/claude-code.md) — 适配器字段、环境变量和会话持久性。
+- [Codex](../reference/adapters/codex.md) — 相同配方，使用 OpenAI 的 Codex CLI。
 - [执行策略](../guides/power/execution-policy.md) — 具有命名参与者的分阶段审查。
 - [调试卡住的心跳](./debug-stuck-heartbeat.md) — 智能体不推送时的第一站。
 - [处理招聘的董事会批准](./handle-board-approvals-for-hires.md) — 何时要求对获得仓库写权限的新智能体进行批准。

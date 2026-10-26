@@ -48,9 +48,9 @@ seo_description: 允许智能体读取 Google Slides 演示文稿并可选地更
 | `read-presentation` | 两者 |
 | `update-presentation` | 仅限 **读取与编辑** |
 
-对这里的编辑含义要有现实的认识。整个写入表面是一个操作，`update-presentation`，它通过 Slides API 应用更改，而不是驱动 Slides 编辑器。由此产生两个后果，其中只有第一个是能力声明：
+对这里的编辑含义要有现实的认识。写入能力仅通过一个操作 `update-presentation` 提供，它通过 Slides API 应用更改，而不是驱动 Slides 编辑器。由此产生两个后果，其中只有第一个是能力声明：
 
-- **支持的编辑取决于连接器的操作模式。** 不要假设该操作暴露了每个 Slides API 请求。在依赖特定编辑之前，检查其当前的输入模式。
+- **支持哪些编辑取决于连接器定义的操作结构。** 不要假设该操作暴露了每个 Slides API 请求。在依赖某项具体编辑功能之前，请检查该操作当前的输入参数结构。
 - **它无法提供的是设计判断。** 即使 API 接受更改，智能体在看不见结果的情况下放置元素，也不会像人那样安排幻灯片。将智能体的编辑视为初稿，之后由某人在 Slides 中打开。
 
 > **注意：** 连接器的指导原则是演示文稿更新应经过批准。请将 `update-presentation` 保持在 **Ask first**（先询问）状态。
@@ -66,7 +66,7 @@ Read this presentation — https://docs.google.com/presentation/d/YOUR_DECK_ID/e
 
 将标题与演示文稿进行比较。
 
-> **警告：** 不要使用“名为 X 的演示文稿”进行测试。已审查的操作是 `read-presentation`，它接受演示文稿标识符——此连接器没有演示文稿搜索工具，因此基于标题的请求测试的是发现功能而非您的连接。标题搜索属于 [Google Drive](google-drive.md) 或 [Google Workspace Search](google-workspace-search.md)。
+> **警告：** 不要使用“名为 X 的演示文稿”进行测试。已审查的操作是 `read-presentation`，它接受演示文稿标识符——此连接器没有演示文稿搜索工具，因此基于标题的请求测试的是发现功能而非您的连接。标题搜索属于 [Google Drive](google-drive.md) 或 [Google Workspace 搜索](google-workspace-search.md)。
 
 如果您想确认编辑功能，请在副本上操作，而不是在即将由某人展示的演示文稿上操作。
 
@@ -77,7 +77,7 @@ Read this presentation — https://docs.google.com/presentation/d/YOUR_DECK_ID/e
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | 开发者预览版注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未宣传 Slides 配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未提供 Slides 配置文件 | 使用您自己的 Google OAuth 应用 |
 | 找不到演示文稿 | 它未与授权账户共享 | 在 Google Drive 中共享；无需重新连接 |
 | 缺少 `update-presentation` | 连接是以 **仅读取** 建立的 | 建立 **读取与编辑** 连接 |
 | 编辑已落地但看起来不对 | Slides API 不涵盖每种布局和设计功能 | 在 Google Slides 中调整 |
@@ -91,5 +91,5 @@ Read this presentation — https://docs.google.com/presentation/d/YOUR_DECK_ID/e
 
 - [Google Drive](google-drive.md) — 查找和创建文件。
 - [Google Docs](google-docs.md)
-- [How connector access works](access-model.md)
+- [连接器访问机制说明](access-model.md)
 - [Google Slides API MCP reference](https://developers.google.com/workspace/slides/api/reference/mcp)

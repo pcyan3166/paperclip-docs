@@ -51,7 +51,7 @@ seo_description: 让智能体搜索 Hugging Face 模型、数据集和论文。�
 
 **已登录方法** 需要谨慎处理。由于此处的大部分价值在于公共内容，一旦关闭其写入权限，它便是风险较低的连接器之一。例外情况是拥有私有组织仓库访问权限的账户——该账户的访问范围将成为智能体的访问范围。
 
-对于已登录连接，Paperclip 向 Hugging Face 请求 `read-mcp`、`read-repos`、`contribute-repos` 和 `jobs` 作用域。这涵盖了读取，但也包括向仓库贡献内容和运行作业，因此默认情况下这不是只读连接。请阅读 **Permissions** 选项卡上的操作列表，并将任何非读取操作设置为 **Ask first** 或 **Off**，直到您需要它们为止。请参阅 [Set action permissions](action-permissions.md)。
+对于已登录连接，Paperclip 向 Hugging Face 请求 `read-mcp`、`read-repos`、`contribute-repos` 和 `jobs` 作用域。这涵盖了读取，但也包括向仓库贡献内容和运行作业，因此默认情况下这不是只读连接。请阅读 **Permissions** 选项卡上的操作列表，并将任何非读取操作设置为 **Ask first** 或 **Off**，直到您需要它们为止。请参阅 [设置操作权限](action-permissions.md)。
 
 > **注意：** 已登录连接针对 Hub 自身的工具，且 Paperclip 请求端点时已关闭 Gradio 工具——因此托管在 Spaces 上的交互式应用程序不属于此连接的界面范围。
 
@@ -84,5 +84,5 @@ Search Hugging Face for recent text embedding models under 500M parameters and s
 - [Connector overview](https://paperclip.ing/product/connectors/hugging-face/)
 
 - [Anthropic](anthropic.md)、[OpenAI](openai.md)、[OpenRouter](openrouter.md)、[Grok](xai.md) — 实际运行模型的连接。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Hugging Face MCP documentation](https://huggingface.co/docs/hub/agents-mcp)

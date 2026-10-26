@@ -44,7 +44,7 @@ Cloudflare 的 API 令牌非常精确——您可以将其范围限定为特定�
 
 > **警告：** 此处的配置更改会对实时流量生效。DNS 或防火墙编辑可能在几秒钟内使网站离线，而配置新资源可能会在账户上产生费用。请将写入操作置于审批之后。
 
-参见 [Set action permissions](action-permissions.md)。
+参见 [设置操作权限](action-permissions.md)。
 
 ## 尝试使用
 
@@ -68,7 +68,7 @@ List the Cloudflare zones this account can see and tell me the DNS record count 
 | 操作被拒绝 | 令牌缺少该权限组 | 在 Cloudflare 中添加权限，或保持该功能关闭 |
 | 预期功能缺失 | Cloudflare 服务器未向此凭据暴露该功能 | 使用 **Refresh actions**；否则该功能不可用 |
 | 配置更改破坏了实时流量 | 写入操作被设置为 **Allowed** | 在 Cloudflare 仪表板中回滚，然后将写入操作设置为 **Ask first** |
-| 出现意外费用 | 配置操作创建了可计费资源 | 审查 Cloudflare 账单；将配置操作设置为 **Off** |
+| 出现意外费用 | 资源创建操作创建了可计费资源 | 审查 Cloudflare 账单；将资源创建操作设为 **Off** |
 | **Needs attention** | 令牌已被撤销或登录已过期 | 选择 **Reconnect** |
 
 限制：每个连接仅支持一个 Cloudflare 凭据。Paperclip 内部没有区域过滤器。Paperclip 无法撤销 Cloudflare 配置更改。
@@ -78,6 +78,6 @@ List the Cloudflare zones this account can see and tell me the DNS record count 
 - [Connector overview](https://paperclip.ing/product/connectors/cloudflare/)
 
 - [Netlify](netlify.md) — 另一个托管和部署连接器。
-- [Set action permissions](action-permissions.md)
-- [Answer a connector review request](review-requests.md)
+- [设置操作权限](action-permissions.md)
+- [回复连接器审核请求](review-requests.md)
 - [Cloudflare MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/)

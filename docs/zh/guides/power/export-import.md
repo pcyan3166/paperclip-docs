@@ -41,10 +41,10 @@ seo_description: 将已配置的公司打包，以便备份、分享或迁移到
 
 ```
 my-company/
-├── README.md           ← 软件包的人类可读摘要
-├── COMPANY.md          ← 公司名称、目标和元数据
+├── README.md           ← A human-readable summary of the package
+├── COMPANY.md          ← Company name, goal, and metadata
 ├── agents/
-│   ├── ceo/AGENTS.md   ← 智能体身份、角色和指令
+│   ├── ceo/AGENTS.md   ← Agent identity, role, and instructions
 │   └── cto/AGENTS.md
 ├── projects/
 │   └── main/PROJECT.md
@@ -54,9 +54,9 @@ my-company/
 │   └── onboarding/
 │       ├── TASK.md
 │       └── documents/brief.md
-├── images/             ← 公司徽标和行内图片
-├── blobs/              ← 按内容哈希命名的附件数据
-└── .paperclip.yaml     ← 适配器类型、环境变量声明和预算
+├── images/             ← Company logo and inline images
+├── blobs/              ← Attachment bytes, named by content hash
+└── .paperclip.yaml     ← Adapter types, environment variable declarations, budgets
 ```
 
 除了 `blobs/` 中的内容，其余文件都是文本，因此可在 Git 中清晰比较，也能用任何编辑器阅读。
@@ -92,7 +92,7 @@ paperclipai company export <company-id> --out ./my-export
 默认情况下，命令会导出公司元数据和智能体。要包含更多内容：
 
 ```sh
-# 导出所有内容：公司、智能体、项目、技能和任务
+# Export everything: company, agents, projects, skills, and tasks
 paperclipai company export <company-id> --out ./full-export \
   --include company,agents,projects,tasks,skills
 ```
@@ -119,16 +119,16 @@ paperclipai company export <company-id> --out ./full-export \
 导入来源可以是本地路径、URL 或 GitHub：
 
 ```sh
-# 从本地文件夹导入
+# From a local folder
 paperclipai company import ./my-export
 
-# 从本地 .zip 软件包导入
+# From a local .zip package
 paperclipai company import ./my-export.zip
 
-# 从 GitHub 仓库 URL 导入
+# From a GitHub repository URL
 paperclipai company import https://github.com/org/repo
 
-# 使用 owner/repo 简写，从 GitHub 子目录导入
+# From a GitHub subfolder, using owner/repo shorthand
 paperclipai company import org/repo/companies/acme
 ```
 
@@ -191,7 +191,7 @@ paperclipai company import ./my-export --target new --dry-run
 
 大型软件包也不必依赖一次性、不稳定的上传。软件包足够大时，Paperclip 会把 `.zip` 切分成多个部分，逐个上传，并显示类似 `Uploading part X of Y — N MB of M MB uploaded.` 的进度。无论从界面导入还是运行 `paperclipai company import`，这个过程都会自动进行，无需设置额外参数。如果上传因刷新页面、断开网络、某个分片失败或服务器重启而中断，只需重试或刷新同一导入页面。Paperclip 会继续同一传输，并只重新发送缺失部分，无需从头开始。传输完成后，该软件包即视为已导入；再次导入同一包时会提示 `This exact package was already imported by a completed transfer. Re-export the package to import it again.`。如果再次导入看似没有效果，原因就在这里；请重新导出公司以导入最新副本。
 
-服务器默认接受最大 **1 GB** 的导入软件包。若导出文件更大，管理员可以通过 `PAPERCLIP_IMPORT_ZIP_MAX_BYTES` 环境变量提高上限（单位为字节，最高 64 GiB），详见[环境变量](../../../reference/deploy/environment-variables.md)。
+服务器默认接受最大 **1 GB** 的导入软件包。若导出文件更大，管理员可以通过 `PAPERCLIP_IMPORT_ZIP_MAX_BYTES` 环境变量提高上限（单位为字节，最高 64 GiB），详见[环境变量](../../reference/deploy/environment-variables.md)。
 
 ---
 
@@ -199,7 +199,7 @@ paperclipai company import ./my-export --target new --dry-run
 
 **备份公司配置**
 
-定期完整导出，并保存到安全的位置，例如云盘或私有 Git 仓库。发生问题时，可以从软件包恢复。包含计划夜间导出的完整备份与恢复方法，见[备份和恢复公司](../../../how-to/back-up-and-restore-a-company.md)。
+定期完整导出，并保存到安全的位置，例如云盘或私有 Git 仓库。发生问题时，可以从软件包恢复。包含计划夜间导出的完整备份与恢复方法，见[备份和恢复公司](../../how-to/back-up-and-restore-a-company.md)。
 
 **将公司迁移到另一个实例**
 
@@ -214,10 +214,10 @@ paperclipai company import ./my-export --target new --dry-run
 如果你创建了一支配置良好的团队（例如由 CEO、CTO 和工程师组成的标准工程团队），可以只导出智能体并分享软件包。其他人可以将其导入自己的公司。
 
 ```sh
-# 分享：只导出智能体
+# Share: export agents only
 paperclipai company export <company-id> --out ./engineering-team --include agents
 
-# 接收：导入到新公司
+# Receive: import into a new company
 paperclipai company import org/shared-templates/engineering-team \
   --target new \
   --new-company-name "My Engineering Team"

@@ -16,7 +16,7 @@ seo_description: 只需描述一次重复性工作，附加一个 cron 触发器
 
 ## 所需条件
 
-- 在 `PAPERCLIP_API_KEY` 中配置一个看板 API 令牌，并在 `PAPERCLIP_API_URL` 中配置 URL（[CLI 认证](../../administration/cli-auth.md)）。
+- 在 `PAPERCLIP_API_KEY` 中配置一个看板 API 令牌，并在 `PAPERCLIP_API_URL` 中配置 URL（[CLI 认证](../administration/cli-auth.md)）。
 - 你正在使用的 `companyId`（见下文 `COMPANY_ID`）。
 - 应执行每次触发的智能体的 id（`AGENT_ID`）。智能体只能创建分配给自己的例程；看板调用者可以指定任何智能体。
 - 一个 `projectId` 用于锚定工作——每个例程都是项目范围的，运行记录会继承它。
@@ -102,6 +102,7 @@ Cron 采用标准的 5 字段语法。以下五个值得记忆：
 
 ---
 
+<a id="4-optional-give-the-routine-an-env-map"></a>
 ## 4. （可选）为例程提供 `env` 映射
 
 例程携带一个 `routines.env` 映射，其结构与智能体适配器环境变量相同。每个值要么是字面字符串，要么是指向公司密钥的 `secret_ref`——当例程调用需要 API 密钥的工具，或你想在预发布和生产环境之间切换标志而无需编辑智能体时，这非常有用。
@@ -122,7 +123,7 @@ curl -X PATCH "$PAPERCLIP_API_URL/api/routines/$ROUTINE_ID" \
   }'
 ```
 
-在 UI 中，任何 `env` 值为 `type: "secret_ref"` 的字段都通过密钥绑定选择器渲染——与智能体配置中看到的组件相同——因此你可以从现有公司密钥中选择，而不是粘贴明文。有关驱动选择器的 JSON 模式标志，请参阅 [`secret-ref` 表单字段](../../reference/api/secrets.md#secret-ref-form-fields)。
+在 UI 中，任何 `env` 值为 `type: "secret_ref"` 的字段都通过密钥绑定选择器渲染——与智能体配置中看到的组件相同——因此你可以从现有公司密钥中选择，而不是粘贴明文。有关驱动选择器的 JSON 模式标志，请参阅 [`secret-ref` 表单字段](../reference/api/secrets.md#secret-ref-form-fields)。
 
 **每次运行都固定在其例程修订版上。** 当例程触发时，运行记录 `routine_runs.routine_revision_id`，指向分发时当前的 `routine_revisions` 行。稍后编辑例程会生成新修订版；正在进行的和历史运行保留其最初执行时的环境变量（及快照的其余部分）。这意味着通过 `version: "latest"` 轮换密钥值会自动流向未来运行，但重命名环境变量键或移除绑定仅影响编辑后创建的运行——运行历史如实记录每次触发实际看到的内容。
 
@@ -397,8 +398,8 @@ curl -X POST "$PAPERCLIP_API_URL/api/routines/$ROUTINE_ID/run" \
 
 ## 另请参阅
 
-- [Heartbeats & Routines](../guides/projects-workflow/routines.md) —— 完整 UI 演练，并发和追赶深入介绍，变量模板。
-- [Routines API](../../reference/api/routines.md) —— 每个端点、每个字段、每个状态。
-- [Wire Slack/Discord notifications](./wire-slack-discord-notifications.md) —— 使用相同的例程模式将待批准和阻塞工单管道到频道。
-- [Debug a stuck heartbeat](./debug-stuck-heartbeat.md) —— 如果例程触发但智能体无动作，首先查看此处。
-- [Glossary](../guides/welcome/glossary.md) —— 例程、心跳、执行工单的定义。
+- [心跳与例程](../guides/projects-workflow/routines.md) —— 完整 UI 演练，并发和追赶深入介绍，变量模板。
+- [例程 API](../reference/api/routines.md) —— 每个端点、每个字段、每个状态。
+- [为审批接入 Slack/Discord 通知](./wire-slack-discord-notifications.md) —— 使用相同的例程模式将待批准和阻塞工单管道到频道。
+- [调试卡住的心跳](./debug-stuck-heartbeat.md) —— 如果例程触发但智能体无动作，首先查看此处。
+- [术语表](../guides/welcome/glossary.md) —— 例程、心跳、执行工单的定义。

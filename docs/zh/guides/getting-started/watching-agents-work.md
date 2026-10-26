@@ -151,4 +151,4 @@ seo_description: 启用 CEO 的心跳并跟进首次运行：查看运行记录�
 
 你的公司现在已经开始运行。CEO 有了策略，任务也已加入看板，工作正在推进。接下来可以聘用更多智能体、在仪表板上监控进度，并处理后续审批。
 
-[前往仪表板 →](../../../guides/day-to-day/dashboard.md)
+[前往仪表板 →](../day-to-day/dashboard.md)

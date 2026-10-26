@@ -43,13 +43,13 @@ pnpm paperclipai feedback report
 常用参数：
 
 ```sh
-# 已安装的 CLI
+# Installed CLI
 paperclipai feedback report
 
-# 指定服务器或公司
+# Point to a specific server or company
 pnpm paperclipai feedback report --api-base http://127.0.0.1:3000 --company-id <company-id>
 
-# 包含原始数据
+# Include raw payloads
 pnpm paperclipai feedback report --payloads
 ```
 
@@ -107,22 +107,22 @@ pnpm paperclipai feedback export
 
 ```
 feedback-export-20260331T120000Z/
-  index.json                    # 包含汇总统计的清单
+  index.json                    # manifest with summary stats
   votes/
-    PAP-123-a1b2c3d4.json       # 单条投票记录
+    PAP-123-a1b2c3d4.json       # one vote record
   traces/
-    PAP-123-e5f6g7h8.json       # Paperclip 反馈封装
+    PAP-123-e5f6g7h8.json       # Paperclip feedback envelope
   full-traces/
     PAP-123-e5f6g7h8/
-      bundle.json               # 完整导出清单
-      ...原始适配器文件          # 可用时包含 Codex/Claude/OpenCode 会话文件
+      bundle.json               # full export manifest
+      ...raw adapter files      # codex/claude/opencode session artifacts when available
 feedback-export-20260331T120000Z.zip
 ```
 
 默认执行完整导出。`traces/` 包含 Paperclip 封装；`full-traces/` 保存更完整的逐条跟踪数据包以及可恢复的适配器原生文件。
 
 ```sh
-# 指定服务器和输出目录
+# Custom server and output directory
 pnpm paperclipai feedback export --api-base http://127.0.0.1:3000 --company-id <company-id> --out ./my-export
 ```
 

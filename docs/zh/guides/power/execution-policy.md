@@ -26,10 +26,10 @@ Paperclip 的执行策略系统让任务流转更加可靠。它不依赖智能�
 ## 标准流程：审查 → 审批
 
 ```
-┌────────┐   执行者       ┌───────────┐   审查者       ┌───────────┐   审批者       ┌──────┐
-│ todo   │──完成工作────▶│ in_review │──批准───────▶│ in_review │──批准───────▶│ done │
-│(编码者)│               │   (QA)    │              │  (CTO)    │              │      │
-└────────┘               └───────────┘              └───────────┘              └──────┘
+┌────────┐   executor    ┌───────────┐   reviewer    ┌───────────┐   approver    ┌──────┐
+│  todo  │──completes───▶│ in_review │──approves────▶│ in_review │──approves────▶│ done │
+│(Coder) │    work       │   (QA)    │               │   (CTO)   │               │      │
+└────────┘               └───────────┘               └───────────┘               └──────┘
 ```
 
 1. 创建任务时，通过 `executionPolicy` 指定审查阶段（例如 QA）和审批阶段（例如 CTO）。
@@ -51,10 +51,10 @@ Paperclip 的执行策略系统让任务流转更加可靠。它不依赖智能�
 ## 要求修改后的循环
 
 ```
-┌───────────┐   审查者要求       ┌─────────────┐   执行者         ┌───────────┐
-│ in_review │──修改────────────▶│ in_progress │──重新提交──────▶│ in_review │
-│   (QA)    │                   │   (编码者)  │                │   (QA)    │
-└───────────┘                   └─────────────┘                └───────────┘
+┌───────────┐   reviewer requests   ┌─────────────┐   executor    ┌───────────┐
+│ in_review │───changes────────────▶│ in_progress │───resubmits──▶│ in_review │
+│   (QA)    │                       │   (Coder)   │               │   (QA)    │
+└───────────┘                       └─────────────┘               └───────────┘
 ```
 
 1. 审查者发表评论，说明需要修改之处，并将任务转换为 `done` 以外的任意状态（通常是 `in_progress`）。
@@ -167,15 +167,15 @@ Paperclip 的执行策略系统让任务流转更加可靠。它不依赖智能�
 ```ts
 interface IssueExecutionPolicy {
   mode: "normal" | "auto";
-  commentRequired: boolean;       // 始终为 true，由运行时强制执行
-  stages: IssueExecutionStage[];  // 有顺序的审查/审批阶段列表
-  maxReviewRounds?: number | null; // 1–50；null 使用服务器默认值 3
+  commentRequired: boolean;       // always true, enforced by runtime
+  stages: IssueExecutionStage[];  // ordered list of review/approval stages
+  maxReviewRounds?: number | null; // 1–50; null uses the server default of 3
 }
 
 interface IssueExecutionStage {
-  id: string;                     // 自动生成的 UUID
+  id: string;                     // auto-generated UUID
   type: "review" | "approval";
-  approvalsNeeded: 1;             // 暂不支持多重批准
+  approvalsNeeded: 1;             // multi-approval not yet supported
   participants: IssueExecutionStageParticipant[];
 }
 
@@ -200,7 +200,7 @@ interface IssueExecutionState {
   completedStageIds: string[];
   lastDecisionId: string | null;
   lastDecisionOutcome: "approved" | "changes_requested" | null;
-  changesRequestedCount?: number;  // 本阶段由智能体连续发起的修改轮数
+  changesRequestedCount?: number;  // consecutive agent-initiated rounds on this stage
 }
 ```
 
@@ -216,7 +216,7 @@ interface IssueExecutionDecision {
   actorAgentId: string | null;
   actorUserId: string | null;
   outcome: "approved" | "changes_requested";
-  body: string;              // 必填评论，用于说明决策原因
+  body: string;              // required comment explaining the decision
   createdByRunId: string | null;
   createdAt: Date;
 }

@@ -6,7 +6,7 @@ seo_description: 存在于 Paperclip 目录中但未在连接器列表中显示�
 
 # Paperclip 识别但不列出的提供商
 
-这是目录背后库存的参考文档。如果您正在寻找要设置的连接器，请从 [Connectors](../../connectors.md) 开始——本页面上的所有内容要么被排除在 **Connectors** 列表之外，要么被提供商阻止，因此目前都无法从目录中进行设置。
+这是目录背后库存的参考文档。如果您正在寻找要设置的连接器，请从 [连接器](../connectors.md) 开始——本页面上的所有内容要么被排除在 **Connectors** 列表之外，要么被提供商阻止，因此目前都无法从目录中进行设置。
 
 这里容易混淆两个不同的概念，因此将它们分开列出。**被扣留（withheld）** 的提供商拥有完整的定义，Paperclip 仍然识别它，但它被故意排除在面向客户的列表之外。**提供商门控（provider-gated）** 的提供商则是因为提供商本身不允许独立注册的客户端连接，因此不予提供。
 
@@ -14,9 +14,9 @@ seo_description: 存在于 Paperclip 目录中但未在连接器列表中显示�
 
 ## 从 Connectors 列表中扣留
 
-Paperclip 将识别和可见性作为两件事处理：一个定义可以保留在目录中，同时从商店中隐藏。应用程序源代码中关于隐藏集合的注释给出了原因——将两者分开意味着将提供商从列表中移除并不一定需要破坏某人已经保存的连接。
+Paperclip 将识别和可见性作为两件事处理：一个定义可以保留在目录中，同时从商店中隐藏。应用程序源码中关于隐藏项目集合的注释解释了原因——将两者分开意味着将提供商从列表中移除并不一定需要破坏某人已经保存的连接。
 
-在此提交版本中我们可以确认的是：以下定义存在，Paperclip 仍然解析它们，并且它们被过滤出您浏览的列表。我们并没有连接或运行其中任何一个，因此之前保存的连接是否仍然有效在此处未经验证。如果您有一个这样的连接，[Verify a connector and fix a broken one](verify-and-troubleshoot.md) 是查明情况的方法，答案具体取决于您的实例。
+在此提交版本中我们可以确认的是：以下定义存在，Paperclip 仍然解析它们，并且它们被过滤出您浏览的列表。我们并没有连接或运行其中任何一个，因此之前保存的连接是否仍然有效在此处未经验证。如果您有一个这样的连接，[验证连接器并修复故障连接器](verify-and-troubleshoot.md) 是查明情况的方法，答案具体取决于您的实例。
 
 这些提供商都没有连接器页面，也无法从目录中添加。
 
@@ -45,6 +45,7 @@ Paperclip 将识别和可见性作为两件事处理：一个定义可以保留�
 | TickTick | `ticktick` |
 | Xero | `xero` |
 
+<a id="composio-listed-again-old-connections-retired"></a>
 ## Composio：重新列出，旧连接已退役
 
 Composio 曾位于上述扣留列表中。它现在作为通过 Composio Connect 的常规远程 MCP 连接重新回到 **Connectors** 列表中——参见 [Connect apps through an MCP aggregator](mcp-aggregators.md)。
@@ -66,10 +67,10 @@ Composio 曾位于上述扣留列表中。它现在作为通过 Composio Connect
 | monday.com (`monday`) | monday.com 在自动客户端注册期间拒绝 Paperclip 的回调地址。monday.com 必须将回调地址加入白名单，登录才能工作；账户管理员可能也需要批准。它也被扣留在上述列表中。 |
 | Zomato (`zomato`) | Zomato 限制第三方客户端，并要求将每个重定向 URI 加入白名单。这两个步骤都在 Zomato 一侧进行。 |
 
-如果您现在需要其中之一，不依赖于提供商客户端审批的路径在 [Can't find your app?](../../connectors.md#cant-find-your-app) 中——包括提供商允许的自定义服务器、您已拥有的自动化，或工作区和 CLI。
+如果您现在需要其中之一，不依赖于提供商客户端审批的路径在 [Can't find your app?](../connectors.md#cant-find-your-app) 中——包括提供商允许的自定义服务器、您已拥有的自动化，或工作区和 CLI。
 
 ## 相关
 
-- [Connectors](../../connectors.md) — 您可以实际从中设置的目录。
-- [Connect a custom MCP server](custom-mcp-servers.md) — 适用于没有目录条目的服务的路径。
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md) — 检查您已有的连接是否仍然有效。
+- [连接器](../connectors.md) — 您可以实际从中设置的目录。
+- [连接自定义 MCP 服务器](custom-mcp-servers.md) — 适用于没有目录条目的服务的路径。
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md) — 检查您已有的连接是否仍然有效。

@@ -1,83 +1,149 @@
 ---
 paperclip_version: v2026.1012.0
 seo_title: 自定义沙盒镜像
-seo_description: 不必在每次运行时重新安装 CLI 和依赖。构建并捕获沙盒镜像，管理后续运行使用的镜像。
+seo_description: 不必在每次运行时重新安装相同的 CLI 和依赖。构建并捕获沙盒镜像，然后管理后续运行使用的镜像。
 ---
 
 # 自定义沙盒镜像
 
-智能体在沙盒中运行时，通常会从干净的基础镜像启动，并在每次运行时重新安装 CLI、语言运行环境、项目依赖和登录会话。自定义沙盒镜像可以把准备好的机器保存为可复用镜像，让之后的运行直接从已配置的环境启动。
+智能体在沙盒环境中运行时，通常会从干净的基础镜像启动，并在每次运行时安装所需内容——CLI、语言运行环境、项目依赖、登录会话等。偶尔运行一次时这样没有问题；但如果每次都要重复相同的设置，过程就会缓慢而繁琐。
 
-整个流程可在浏览器中完成：启动临时设置沙盒，在内嵌终端安装工具、登录并准备环境，然后捕获当前机器。后续运行会沿用这些配置，无需反复设置。
+自定义沙盒镜像可以解决这个问题。你可以启动一个临时设置沙盒，在浏览器中直接打开终端，安装并登录所需工具，然后将运行中的机器捕获为可复用镜像。之后，该环境中的运行会从已准备好的镜像启动，而不是从纯净基础镜像启动；所需工具已经就位。
 
-## 启用环境功能
+更方便的是，整个流程都不必离开浏览器。内嵌终端会直接连接设置沙盒，因此无需将 SSH 命令复制到外部终端，也无需在本机处理密钥。你可以完全通过环境配置页面准备并捕获镜像。
 
-自定义镜像属于沙盒环境；环境管理是实验性功能，默认隐藏。
+本指南介绍如何启用此功能、在哪里找到相关设置、如何构建并捕获镜像，以及如何长期管理捕获的镜像。
 
-1. 打开 **设置（Settings）→ 实验性功能（Experimental）**。
-2. 启用 **启用环境（Enable Environments）**。
+---
 
-然后，在 **设置（Settings）→ 实例设置（Instance settings）** 下会出现 **环境（Environments）** 页面，可创建和编辑智能体运行的环境。自定义镜像只适用于由沙盒提供程序插件支持的 `sandbox` 环境，不适用于 `local` 或 `ssh` 环境。详见[沙盒提供程序](../../../reference/adapters/sandbox-providers.md)。
+## 开始之前：启用 Environments
 
-## 找到自定义镜像设置
+自定义镜像属于沙盒环境，而环境是一项**实验性**功能——启用前，整个环境 UI 都会隐藏。
 
-自定义镜像控件只会在编辑已有沙盒环境时显示：打开 **设置 → 实例设置 → 环境**，创建并保存一个沙盒环境，然后重新打开它进行编辑，滚动至 **自定义镜像（Custom image）** 区域。
+1. 前往 **Settings → Experimental**。
+2. 打开 **Enable Environments**。
 
-提供程序需支持交互式设置和镜像捕获。面板可能显示完整的 **模板设置（Template setup）** 流程；也可能提示提供程序不支持交互式模板设置，或虽支持设置但无法捕获镜像。后两种情况下，请改用支持捕获的提供程序，或在 Paperclip 外准备镜像。
+界面中对该开关的说明是 *“Show environment management in company settings and allow project and agent environment assignment controls.”* 启用后，**Settings → Instance settings** 下会出现 **Environments** 页面，你可以在这里创建和编辑智能体运行所使用的环境。
+
+> **注意：**自定义镜像仅适用于 **sandbox** 环境，即由沙盒提供程序插件支持的环境（参见[沙盒提供程序](../../reference/adapters/sandbox-providers.md)）。它们不适用于 `local` 或 `ssh` 环境。
+
+---
+
+## 自定义镜像区域的位置
+
+自定义镜像控件只会在你**编辑已有的沙盒环境**时出现，首次创建环境时不会显示。操作流程如下：
+
+1. 打开 **Settings → Instance settings → Environments**。
+2. 创建一个沙盒环境（或打开已有环境）并保存。
+3. 再次打开该环境进行编辑。
+4. 滚动到 **Custom image** 区域。
+
+该区域的说明文字是：*“Start a setup sandbox, SSH in to customize the instance, then capture the running machine as a reusable image for future runs.”* 以下所有操作都在这个面板中完成。
+
+### 提供程序不支持时
+
+并非所有沙盒提供程序都支持交互式设置和镜像捕获，因此面板会根据环境提供程序声明的能力显示不同内容：
+
+- **Template setup**——提供程序同时支持交互式设置和镜像捕获，因此可以使用下文介绍的完整流程。
+- **Unsupported provider**——显示 *“This provider does not advertise interactive template setup.”* 该环境没有可配置的相关选项。
+- **Setup capture unavailable**——显示 *“This provider advertises setup, but image capture is unavailable.”* 你可以打开终端，但提供程序无法将运行中的机器转换为可复用镜像。
+
+如果看到后两种状态，本指南其余内容不适用于该环境。请切换到支持捕获的提供程序，或在 Paperclip 之外准备镜像。
+
+---
 
 ## 构建并捕获镜像
 
+在受支持的环境中首次打开 **Custom image** 区域时，状态会显示 **Not configured**，并出现类似 *“Capture a custom Daytona image with your tools already logged in.”* 的提示（其中提供程序名称会与环境匹配）。完整流程如下。
+
 ### 1. 启动设置会话
 
-在受支持的环境中点击 **配置镜像（Configure image）**。Paperclip 会创建新的设置沙盒并启动限时的 **设置会话（setup session）**。状态从 **正在启动设置（Setup starting）** 变为 **设置运行中（Setup running）**。会话默认最长约一小时；过期后状态会变为 **设置已过期（Setup expired）**，可重新启动会话。
+点击 **Configure image**。Paperclip 会为你启动一个全新的设置沙盒，并打开一个**设置会话（setup session）**——这是一个有时限的会话，仅用于准备机器。你会看到状态行从 **Setup starting** 开始，沙盒准备好连接后变为 **Setup running**。
 
-### 2. 在浏览器终端准备机器
+设置会话有时限（默认最长约一小时），面板会显示当前会话的过期时间。如果你离开后会话过期，状态会变为 **Setup expired**，此时只需重新启动会话。
 
-会话运行后，面板内会打开 **浏览器终端（Browser terminal）** 并连接到设置沙盒。你可以像使用普通 Shell 一样安装软件包、克隆仓库、登录 CLI、准备缓存等。安装和配置的内容都会包含在随后捕获的镜像中。终端提供连接状态、**打开终端（Open terminal）**、**重新连接（Reconnect）** 和 **断开连接（Disconnect）** 等操作。
+### 2. 在浏览器终端中准备机器
 
-若浏览器终端无法连接当前提供程序，可改用下方的 SSH 备用方式。
+会话运行后，面板中会打开内嵌的 **Browser terminal** 并连接到设置沙盒。这是机器上的真实 Shell——你可以安装软件包、克隆仓库、登录 CLI、设置缓存，或执行平时手动完成的任何操作：
+
+- 终端标题栏会显示连接状态，以及 **Open terminal** / **Reconnect** 按钮；连接后还会显示 **Disconnect**。
+- 在此安装或配置的所有内容都会包含在下一步捕获的镜像中，因此你可以在这里将机器准备到所需状态。
+
+如果浏览器终端无法连接某个提供程序连接，面板会改为显示原始连接详情（见下方[浏览器终端不可用时](#if-the-browser-terminal-isnt-available)）。
 
 ### 3. 捕获镜像
 
-准备好后点击 **完成（Finished）**。状态先变为 **正在捕获模板（Capturing template）**，完成后变为 **模板已捕获（Template captured）**。新镜像会成为环境的活动模板，取代旧镜像；旧镜像仍会保留，供回滚使用。若捕获前改变主意，可点击 **取消（Cancel）**；现有活动镜像不会受影响。
+机器准备好后，点击 **Finished**。Paperclip 会将运行中的沙盒捕获为镜像——状态先变为 **Capturing template**，完成后变为 **Template captured**。在后台，捕获的镜像会提升为环境的**活动模板（active template）**；之前处于活动状态的镜像会被取代，但仍会保留，供你回滚使用。
 
-只有状态为 **设置运行中（Setup running）** 时才能点击 **完成**。捕获过程中按钮会禁用，避免中断操作。
+如果在捕获前改变主意，请点击 **Cancel**。状态会变为 **Setup cancelled**；已有的活动镜像（如果存在）不会受到影响。
 
-## 捕获后的镜像
+> **注意：**只有在会话处于 **Setup running** 状态（等待你操作）时，才能点击 **Finished**。捕获过程中按钮会被禁用，避免你中断捕获。
 
-每个环境最多有一个活动自定义镜像。镜像仅适用于构建它的环境。启用后，所有通过该环境运行的任务都会自动使用捕获镜像，而不是提供程序的基础镜像。提供程序可能将其称为快照、镜像或模板，面板会标明类型。
+---
 
-智能体仍在相同的沙盒环境中运行，只是启动时已包含你准备的工具和登录状态，因此速度更快、运行结果也更可预测。
+## “已捕获”对后续运行的含义
+
+捕获的镜像只属于构建它的特定环境——每个环境最多有一个活动自定义镜像。环境启用活动镜像后，Paperclip 会自动应用它：所有通过该环境解析的运行都会从你捕获的镜像启动，而不是从提供程序基础镜像启动；Paperclip 也会记录此次运行使用了该镜像。
+
+根据提供程序不同，捕获的镜像可能以**快照（snapshot）**、**镜像（image）**或提供程序的**模板（template）**形式存储。面板会标明活动镜像的类型，供你识别。此类型由提供程序决定；Paperclip 会捕获提供程序生成的内容。
+
+正在运行的智能体没有任何变化——它仍然使用原来的沙盒。区别在于，启动时机器已经具备你的工具和登录状态，比每次运行都重新安装更快，也更可预测。
+
+---
 
 ## 管理活动镜像
 
-捕获后，面板会显示 **活动模板（Active template）**、提供程序、镜像类型、捕获时间和最近使用时间，并提供三种操作：
+捕获镜像后，**Custom image** 区域会切换为 **Active template** 视图。它会显示提供程序、镜像类型、镜像捕获时间和最近使用时间，并提供三种操作：
 
-- **刷新（Refresh）**：以当前活动镜像为基础启动新的设置会话。添加工具或更新登录后再次点击 **完成**，捕获的新镜像会替代当前镜像。
-- **回滚（Rollback）**：恢复到之前活动的镜像，后续运行会使用旧镜像。
-- **停用（Disable）**：停用活动自定义镜像，后续运行改用提供程序的基础配置。
+**Refresh（刷新）**
+基于当前活动镜像启动一个新的设置会话。如果你想在现有镜像基础上添加内容（例如安装其他工具或更新登录状态），可以使用此操作。完成后再次点击 **Finished**，捕获的新镜像会取代旧镜像。流程与首次构建和捕获相同，只是从现有镜像而不是基础镜像启动。
 
-操作完成后，界面会显示提示，说明后续运行将使用新模板、旧模板或基础配置。
+**Rollback（回滚）**
+恢复到当前镜像之前的活动镜像。后续运行会重新使用之前的镜像。如果新捕获的镜像不如被替换的版本，此操作就相当于撤销。
 
+**Disable（停用）**
+停用当前活动自定义镜像。后续运行会回退到环境的提供程序基础配置，效果与从未捕获过自定义镜像相同。
+
+每项操作完成后都会显示简短提示，例如 *“Future runs can use the promoted template,”*、*“Future runs will use the previous template,”* 或 *“Future runs will use the base provider configuration”*，让你始终清楚下一次运行将使用什么启动。
+
+---
+
+<a id="if-the-browser-terminal-isnt-available"></a>
 ## 浏览器终端不可用时
 
-面板会提供 **SSH 命令备用方式（SSH command fallback）**，展开后可复制设置沙盒的 SSH 命令，在外部终端中准备机器。准备好之后返回面板，点击 **完成** 或 **取消**。若该连接不支持浏览器终端，面板也会显示说明，提醒你使用提供程序的设置指引。
+内嵌浏览器终端是推荐方式，但某些提供程序连接无法使用它。此时面板会提供两种备用方案，避免流程中断：
 
-## 会话与镜像状态
+- **SSH command fallback** 折叠项。展开后可以看到设置沙盒的原始 SSH 命令，你可以在外部终端中运行该命令，以传统方式准备机器。
+- 一条提示：*“Browser terminal is not available for this provider connection. Use the provider setup instructions, then finish or cancel here.”* 它会提醒你使用提供程序的设置说明，并在机器准备好后返回面板点击 **Finished**（或 **Cancel**）。
 
-设置会话可能处于以下状态：
+无论采用哪种方式，捕获步骤仍然要在面板中完成：通过你能使用的方式准备机器，然后回到这里结束会话。
 
-- **正在启动设置（Setup starting）**：正在创建沙盒。
-- **设置运行中（Setup running）**：沙盒已就绪，可使用终端并点击“完成”。
-- **正在捕获模板（Capturing template）**：Paperclip 正在将机器捕获为镜像。
-- **模板已捕获（Template captured）**：镜像已捕获并启用。
-- **设置已取消（Setup cancelled）**：捕获前已取消。
-- **设置已过期（Setup expired）**：设置会话超时。
-- **设置失败（Setup failed）**：操作失败，面板会显示原因。
+---
 
-镜像状态包括 `active`（后续运行使用）、`superseded`（旧镜像，保留用于回滚）、`revoked`（已停用）和 `failed`（捕获失败）。
+## 会话与镜像状态一览
 
-## 相关指南
+面板中会反复出现两组状态术语，了解它们会更容易操作。
 
-- [沙盒提供程序](../../../reference/adapters/sandbox-providers.md)：了解支持沙盒环境的提供程序及其能力。
-- [工作区](../../../guides/projects-workflow/workspaces.md)：了解智能体运行期间使用的执行工作区。
+构建镜像时，**设置会话（setup session）**会经过以下状态：
+
+- **Setup starting**——正在配置沙盒。
+- **Setup running**——沙盒已就绪，等待你准备环境；此时可以使用终端和 **Finished**。
+- **Capturing template**——你已点击 **Finished**，Paperclip 正在将机器转换为镜像。
+- **Template captured**——镜像已捕获并提升为活动镜像。
+- **Setup cancelled**——你在捕获前取消了操作。
+- **Setup expired**——会话的时限在你完成前已结束。
+- **Setup failed**——操作发生错误；面板会显示失败原因。
+
+捕获的**镜像**始终处于以下某种状态，不过你主要会与活动镜像交互：
+
+- **active**——后续运行将从该镜像启动。
+- **superseded**——之前的镜像，保留下来供 **Rollback** 恢复。
+- **revoked**——已停用的镜像。
+- **failed**——未能完成捕获的镜像。
+
+---
+
+## 相关内容
+
+- [沙盒提供程序](../../reference/adapters/sandbox-providers.md)——为沙盒环境提供支持的提供程序，以及各自提供的能力。
+- [工作区](./workspaces.md)——了解智能体开始运行后使用的执行工作区。

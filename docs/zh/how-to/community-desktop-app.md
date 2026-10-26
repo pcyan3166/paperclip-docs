@@ -10,7 +10,7 @@ seo_description: 一款非官方的 macOS 应用，封装了完整的 Paperclip 
 
 社区桌面应用将完整的 Paperclip 实例封装在一个标准的 macOS 应用程序中：将其拖入“应用程序”文件夹，打开它，Paperclip 即可运行——无需终端。有些人喜欢这种便利性，本页面汇总了安装、运行和更新该应用所需的一切信息。
 
-**官方支持的运行 Paperclip 方式**是 [终端和服务器 / VPS 安装](../guides/getting-started/installation.md)。本文档中的其他所有内容均假设您已采用其中一种方式。不过，一旦应用运行起来，产品体验是完全一致的——无论实例是如何启动的，公司、智能体、例程和预算的工作方式都相同。
+**官方支持的运行 Paperclip 方式**是 [终端和服务器 / VPS 安装](../guides/getting-started/installation.md)。本文档中的其他所有内容均假设您已采用其中一种方式。不过，一旦应用运行起来，产品体验是完全一致的——无论实例是如何启动的，公司、智能体、任务和预算的工作方式都相同。
 
 ---
 
@@ -68,10 +68,11 @@ seo_description: 一款非官方的 macOS 应用，封装了完整的 Paperclip 
 3. 输入您的实例 URL（例如 `https://paperclip.example.com`）。
 4. 使用您在该实例上的账户登录。
 
-以这种方式连接的每个人都会看到相同的公司、智能体和例程——服务器是数据的唯一真实来源。
+以这种方式连接的每个人都会看到相同的公司、智能体和任务——服务器是数据的唯一真实来源。
 
 ---
 
+<a id="updating"></a>
 ## 更新
 
 应用会自动更新自身；您无需运行任何命令。
@@ -96,7 +97,7 @@ seo_description: 一款非官方的 macOS 应用，封装了完整的 Paperclip 
 
 **您已更新但想回滚** — 从 [发布页面](https://github.com/aronprins/paperclip-desktop/releases) 下载上一个安装程序，并覆盖安装当前应用。对于代码而言，回滚是安全的，但单向迁移可能已经重写了您的数据库——如果是这种情况，请恢复更新前的数据库备份（参见 [备份和恢复公司](./back-up-and-restore-a-company.md)）。
 
-**其他任何问题** — 对于应用外壳本身的问题，请在 [社区仓库](https://github.com/aronprins/paperclip-desktop/issues) 中提交 issue。对于 Paperclip 产品本身的问题（智能体、例程、预算、UI），本文档的其余部分和 [主仓库](https://github.com/paperclipai/paperclip) 照常适用。
+**其他任何问题** — 对于应用外壳本身的问题，请在 [社区仓库](https://github.com/aronprins/paperclip-desktop/issues) 中提交 issue。对于 Paperclip 产品本身的问题（智能体、任务、预算和 UI），本文档的其余部分和 [主仓库](https://github.com/paperclipai/paperclip) 照常适用。
 
 ---
 

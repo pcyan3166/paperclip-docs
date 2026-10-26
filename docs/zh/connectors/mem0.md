@@ -12,7 +12,7 @@ Mem0 为智能体提供持久化记忆存储，其生命周期超越单次任务
 
 ## 连接前准备
 
-- 开启 **Memory connectors**（记忆连接器）实验性设置。该设置默认关闭，在开启之前，Mem0 不会出现在 **Connectors**（连接器）列表中——参见 [Connections and Apps](../../experimental/connections-apps.md)。稍后关闭该设置会阻止新的精选设置；已保存的 Mem0 连接将继续运行，并可重新连接或轮换其密钥。有关完整的提供商系列，请参见 [Memory connectors](memory-connectors.md)。
+- 开启 **Memory connectors**（记忆连接器）实验性设置。该设置默认关闭，在开启之前，Mem0 不会出现在 **Connectors**（连接器）列表中——参见 [Connections and Apps](../experimental/connections-apps.md)。稍后关闭该设置会阻止新的精选设置；已保存的 Mem0 连接将继续运行，并可重新连接或轮换其密钥。有关完整的提供商系列，请参见 [Memory connectors](memory-connectors.md)。
 - 一个 Mem0 账户及其仪表板中的 API 密钥。
 - 关于如何为记忆命名空间的决定——按智能体、按用户、按项目——以及智能体应使用哪些标识符。
 
@@ -28,12 +28,12 @@ Mem0 为智能体提供持久化记忆存储，其生命周期超越单次任务
 
 两个实际后果：
 
-- 如果不同的智能体不应看到彼此的记忆，请为它们提供 **separate connections with separate Mem0 projects and keys**（具有单独 Mem0 项目和密钥的独立连接）。不要仅依赖标识符纪律。
+- 如果不同的智能体不应看到彼此的记忆，请为它们提供 **使用各自的 Mem0 项目和密钥分别创建连接**。不要仅依赖标识符纪律。
 - 请谨慎决定写入内容。记忆会在任务之间持久存在，并且持有密钥的任何内容稍后都可以读取，因此写入 Mem0 的个人数据或机密信息将比产生它们的对话存在更久。
 
 活动操作初始状态为 **Allowed**（允许），包括写入和删除。
 
-记忆写入容易进行且会累积。如果在每次运行时都写入的智能体将构建一个无人整理的存储库，这既会增加成本，也会降低检索质量。建议在开始时将写入设置为 **Ask first**（先询问），以便您可以查看智能体想要记住什么。参见 [Set action permissions](action-permissions.md)。
+记忆写入容易进行且会累积。如果在每次运行时都写入的智能体将构建一个无人整理的存储库，这既会增加成本，也会降低检索质量。建议在开始时将写入设置为 **Ask first**（先询问），以便您可以查看智能体想要记住什么。参见 [设置操作权限](action-permissions.md)。
 
 删除操作会移除记忆；如果智能体不应遗忘已存储的信息，请将其设置为 **Off**（关闭）。
 
@@ -69,9 +69,9 @@ Return the stored fact and its memory ID. Do not add, update, or delete anything
 
 ## 相关指南
 
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
-- [Mem0 MCP documentation](https://docs.mem0.ai/platform/mem0-mcp)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
+- [Mem0 MCP 文档](https://docs.mem0.ai/platform/mem0-mcp)
 
 ## 来源
 

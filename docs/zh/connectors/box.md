@@ -20,7 +20,7 @@ Box 不支持此服务器的自动客户端注册，因此必须使用您自己�
 
 ## 连接 Box
 
-此过程的大部分操作需在 Box 的管理控制台中完成，且需要管理员权限。仅在 Paperclip 中开始操作以读取回调 URI。
+此过程的大部分操作需在 Box 的管理控制台中完成，且需要管理员权限。此处只需先在 Paperclip 中读取回调 URI。
 
 ### 1. 读取 Paperclip 的回调 URI
 
@@ -61,7 +61,7 @@ Box 的官方参考文档为 [Managing Box MCP Servers](https://support.box.com/
 
 Box 企业通常会在上述基础上施加更多限制——分类标签、共享链接策略和应用访问规则均可能导致内容无法通过集成访问，即使用户在 Box 网页应用中可以看到该内容。这通常是智能体在看似正常的设置后找不到任何内容的主要原因。
 
-文件写入和删除操作具有重大影响，且并非总能从 Paperclip 中恢复。请将其设置为 **Ask first** 或 **Off**，并依赖 Box 的回收站和版本历史进行恢复。参见 [Set action permissions](action-permissions.md)。
+文件写入和删除操作具有重大影响，且并非总能从 Paperclip 中恢复。请将其设置为 **Ask first** 或 **Off**，并依赖 Box 的回收站和版本历史进行恢复。参见 [设置操作权限](action-permissions.md)。
 
 ## 尝试使用
 
@@ -69,7 +69,7 @@ Box 企业通常会在上述基础上施加更多限制——分类标签、共�
 Search Box for a file named "supplier agreement" and tell me its folder and last modified date. Do not download, move, or change anything.
 ```
 
-与 Box 进行对比。元数据读取可在不将文档内容拉取到任务记录中的情况下，确认凭据及企业的 AI 访问权限。
+将结果与 Box 网页端显示的内容进行核对。元数据读取可在不将文档内容拉取到任务记录中的情况下，确认凭据及企业的 AI 访问权限。
 
 > **注意：** 此为示例任务，并非记录在案的测试结果。请替换为您自己能够找到的文件名。
 
@@ -91,6 +91,6 @@ Search Box for a file named "supplier agreement" and tell me its folder and last
 - [Connector overview](https://paperclip.ing/product/connectors/box/)
 
 - [Google Drive](google-drive.md) — 另一个文件存储连接器。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Managing Box MCP servers](https://support.box.com/hc/en-us/articles/43847256139923-Managing-Box-MCP-Servers)

@@ -13,7 +13,7 @@ Grok 连接为智能体提供用于运行 xAI Grok 模型的凭据。这是模�
 ## 连接前准备
 
 - 要么拥有涵盖 Grok CLI 登录的订阅，要么拥有来自 [xAI 控制台](https://console.x.ai/) 的 xAI API 密钥。
-- 一个运行 Grok 的智能体：要么使用 **Grok** 适配器，要么使用 **Paperclip Runner** 并将 **ACP agent** 设置为 **Grok Build**（参见 [Grok Build On Paperclip Runner](../../reference/adapters/grok-local.md#grok-build-on-paperclip-runner)）。这是一个容易让人出错的要求：指向其他任何提供方的运行时智能体都不会获取该凭据。
+- 一个运行 Grok 的智能体：要么使用 **Grok** 适配器，要么使用 **Paperclip Runner** 并将 **ACP agent** 设置为 **Grok Build**（参见 [Grok Build On Paperclip Runner](../reference/adapters/grok-local.md#grok-build-on-paperclip-runner)）。这是一个容易让人出错的要求：指向其他提供商的运行器智能体将无法获取该凭据。
 - 仅限订阅登录：需要一个登录环境——要么是 Paperclip 服务器主机，要么是支持交互式登录的沙箱环境。参见 [使用订阅](#with-a-subscription)。
 
 ## 选择登录方式
@@ -36,6 +36,7 @@ Grok 连接为智能体提供用于运行 xAI Grok 模型的凭据。这是模�
 
 粘贴密钥。Paperclip 将其存储为机密，之后不可读取。
 
+<a id="with-a-subscription"></a>
 ### 使用订阅
 
 登录在 **登录环境** 中运行，有两种类型。您的实例提供哪些类型属于配置事项：
@@ -77,26 +78,26 @@ Grok 连接为智能体提供用于运行 xAI Grok 模型的凭据。这是模�
 
 | 要求 | 缺少该项导致运行失败的原因 |
 | --- | --- |
-| 所选绑定与账户匹配 | 具名的 **Personal** 账户使用显式个人绑定；**Company shared** 账户使用共享绑定。两种选择都不绕过人工访问 |
-| 运行具有 **责任人**，且该责任人可以使用凭据 | 人工共享受众控制每个绑定——*"This credential is not shared with the responsible user"* |
-| 连接已 **为该智能体安装**（或全公司范围） | 否则 *"This connection is not permitted for this agent"* |
+| 所选绑定与账户匹配 | 具名的 **Personal** 账户使用显式个人绑定；**Company shared** 账户使用共享绑定。两种选择都不会绕过人员访问权限检查 |
+| 运行任务必须有可使用该凭据的**责任人** | 凭据的适用人员范围决定每个绑定是否可用——*“此凭据未与该责任人共享”* |
+| 连接已 **为该智能体安装**（或全公司范围） | 否则会提示 *“此智能体无权使用该连接”* |
 
 因此，绑定 **不能替代责任人**。
 
-**Personal** 保持凭据属于您；**Company shared** 使一个账户可供符合条件的智能体使用，前提是运行的责任人在其人工受众中。模型在智能体配置中选择。
+**Personal** 保持凭据属于您；**Company shared** 会向符合条件的智能体开放同一个账户，但运行任务的责任人必须属于该凭据的适用人员范围。模型在智能体配置中选择。
 
 ### 从智能体设置中连接
 
 您还可以在不离开智能体的情况下连接账户。在智能体的 **Connection** 字段中：
 
-- 当您当前的个人默认需要关注时，会出现 **Reconnect account**。它会再次登录您并修复该同一账户，因此其默认设置及其智能体访问权限保持不变。
-- **Connect an account…** 打开 **Connect account**，它会预先告知您新账户 *"will become your default for this provider."* 您的任务将使用它；其他人保留他们自己的默认设置。
+- 当您当前的个人默认连接需要处理时，会出现 **Reconnect account**。选择后，您可以重新登录并修复该账户，其默认设置和智能体访问权限都会保持不变。
+- **Connect an account…** 打开 **Connect account**，它会预先告知您新账户 *“将成为此提供商的默认连接。”* 您的任务将使用它；其他人保留他们自己的默认设置。
 
-当您以此方式连接全新账户时，您还会看到 **Allow all agents in this company to use this account for my tasks**。如果您可以管理连接，它默认勾选。取消勾选可将该账户仅保留给此智能体。无论哪种方式，该账户仅支持您负责任的任务，且重新连接永远不会扩大账户已有的访问权限。如果登录成功但无法保存默认设置，**Retry default selection** 会在无需再次登录的情况下重试。
+当您以此方式连接全新账户时，您还会看到 **Allow all agents in this company to use this account for my tasks**。如果您有权管理连接，此选项会默认勾选。取消勾选可将该账户仅保留给此智能体。无论采用哪种方式，该账户都只用于由您担任责任人的任务；重新连接也绝不会扩大该账户原有的访问范围。如果登录成功但无法保存默认设置，**Retry default selection** 会在无需再次登录的情况下重试。
 
 ### 从任务中重新连接
 
-如果任务显示身份验证卡片，请选择 **Fix connection** 以在不离开任务的情况下修复所选账户。账户所有者再次登录；卡片会说明何时需要其他所有者执行此操作。设置完成后，任务通过正常准入恢复。重新连接会保留账户的受众和智能体访问权限。
+如果任务显示身份验证卡片，请选择 **Fix connection** 以在不离开任务的情况下修复所选账户。账户所有者再次登录；卡片会说明何时需要其他所有者执行此操作。设置完成后，任务通过正常准入恢复。重新连接会保留账户的适用人员范围和智能体访问权限。
 
 如果您是责任人且尚未连接自己的 Grok 账户，任务聊天将显示 **AI connection needed** 而非失败，并带有标题为 **Connect your Grok account** 的卡片。选择 **Connect Grok**，在卡片内连接您自己的账户，任务将自动恢复。Paperclip 永远不会借用队友的凭据来填补空缺。
 

@@ -58,7 +58,7 @@ Search the web with Tavily for three recent articles about a topic we care about
 
 ## 相关指南
 
-- [Exa](exa.md) 和 [Parallel Search](parallel-search.md) — 无需密钥的网络搜索连接器。
+- [Exa](exa.md) 和 [并行搜索](parallel-search.md) — 无需密钥的网络搜索连接器。
 - [Telem.AI](telem.md) — 使用一个密钥跨多个提供商进行搜索。
 - [连接器访问机制](access-model.md)
 - [设置操作权限](action-permissions.md)
@@ -67,4 +67,4 @@ Search the web with Tavily for three recent articles about a topic we care about
 ## 来源
 
 - [Tavily 定义](https://github.com/paperclipai/paperclip/blob/1b4c803816e82b0265c8422e1a804327a7ed8c54/packages/shared/src/app-definitions/tavily.json) — 方法、权限范围、HTTPS 回调规则及密钥选择警告。
-- [权限审查](https://github.com/paperclipai/paperclip/blob/1b4c803816e82b0265c8422e1a804327a7ed8c54/doc/connections/tool-method-permission-reviews.json) — 只读操作界面。
+- [权限审查](https://github.com/paperclipai/paperclip/blob/1b4c803816e82b0265c8422e1a804327a7ed8c54/doc/connections/tool-method-permission-reviews.json) — 只读操作范围。

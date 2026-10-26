@@ -84,7 +84,7 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 
 > **信息：** 正在从 Claude.ai 订阅登录迁移到控制台 API 密钥吗？这是打开本文档的最常见原因。`claude_local` 的旧版本接受 Claude Code 的订阅身份验证；新版本需要来自 [console.anthropic.com](https://console.anthropic.com) 的显式 `ANTHROPIC_API_KEY`。生成控制台密钥，通过路径 A 或路径 B 存储，适配器将开始使用它而不是订阅会话。
 
-`claude_local` 适配器也可以通过 Bedrock 设置或 Claude Code 自身的登录状态进行身份验证。如果您切换到其中一种，请清除 `ANTHROPIC_API_KEY` 条目，而不是保留旧值。参见 [Claude Code](../../reference/adapters/claude-code.md)。
+`claude_local` 适配器也可以通过 Bedrock 设置或 Claude Code 自身的登录状态进行身份验证。如果您切换到其中一种，请清除 `ANTHROPIC_API_KEY` 条目，而不是保留旧值。参见 [Claude Code](../reference/adapters/claude-code.md)。
 
 <!-- tab: OpenAI -->
 
@@ -99,7 +99,7 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 **环境变量：** `GEMINI_API_KEY` 或 `GOOGLE_API_KEY`（两者均可接受）
 **控制台：** [aistudio.google.com](https://aistudio.google.com) → **获取 API 密钥**
 
-被 `gemini_local` 使用。适配器还接受 Google 账户登录或 Gemini CLI 身份验证，因此在开发机器上您可能根本不需要密钥。参见 [Gemini CLI](../../reference/adapters/gemini-cli.md)。
+被 `gemini_local` 使用。适配器还接受 Google 账户登录或 Gemini CLI 身份验证，因此在开发机器上您可能根本不需要密钥。参见 [Gemini CLI](../reference/adapters/gemini-cli.md)。
 
 > **注意：** 测试环境确认二进制文件已安装且环境变量已设置。它不会检测配额耗尽或 Google 账户被撤销——通过的检查并不能保证运行会成功。
 
@@ -108,13 +108,13 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 **环境变量：** `XAI_API_KEY`
 **控制台：** [console.x.ai](https://console.x.ai) → **API 密钥**
 
-被 `grok_local` 使用。将其与其他提供商密钥同等对待——生成，存储为密钥引用，绑定到适配器的环境变量中。参见 [Grok Local](../../reference/adapters/grok-local.md)。
+被 `grok_local` 使用。将其与其他提供商密钥同等对待——生成，存储为密钥引用，绑定到适配器的环境变量中。参见 [Grok Local](../reference/adapters/grok-local.md)。
 
 <!-- tab: Cursor -->
 
 **本地 (`cursor`)：** 没有 API 密钥字段。本地适配器使用 Cursor Agent CLI 自身的登录会话——通过在主机终端上运行 `cursor login` 重新进行身份验证。无需更改 Paperclip。
 
-**云端 (`cursor_cloud`)：** 环境变量 `CURSOR_API_KEY`。通过路径 A 或路径 B 轮换；从您的 Cursor 账户设置中生成密钥。参见 [Cursor Cloud](../../reference/adapters/cursor-cloud.md)。
+**云端 (`cursor_cloud`)：** 环境变量 `CURSOR_API_KEY`。通过路径 A 或路径 B 轮换；从您的 Cursor 账户设置中生成密钥。参见 [Cursor Cloud](../reference/adapters/cursor-cloud.md)。
 
 <!-- tab: OpenCode -->
 
@@ -125,7 +125,7 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 - `google/...` → `GEMINI_API_KEY` 或 `GOOGLE_API_KEY`
 - `xai/...` → `XAI_API_KEY`
 
-如果智能体使用两个提供商（例如一个模型提供商和一个嵌入提供商），请轮换两者。参见 [OpenCode](../../reference/adapters/opencode.md)。
+如果智能体使用两个提供商（例如一个模型提供商和一个嵌入提供商），请轮换两者。参见 [OpenCode](../reference/adapters/opencode.md)。
 
 <!-- /tabs -->
 
@@ -149,7 +149,7 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 
 **轮换后测试环境仍然失败** — 智能体可能持有缓存的进程。停止并重新启用心跳，以便下一次运行以新环境启动新的子进程。对于 `cursor` 等长期运行的适配器，结束现有会话，以免恢复缓存重用旧身份验证。
 
-**严格模式拒绝内联值** — 您正在使用 `PAPERCLIP_SECRETS_STRICT_MODE=true`，这会阻止持久化环境变量绑定中的内联敏感值。请改用路径 B（密钥引用）。参见 [密钥](../../reference/deploy/secrets.md)。
+**严格模式拒绝内联值** — 您正在使用 `PAPERCLIP_SECRETS_STRICT_MODE=true`，这会阻止持久化环境变量绑定中的内联敏感值。请改用路径 B（密钥引用）。参见 [密钥](../reference/deploy/secrets.md)。
 
 **旧订阅登录持续被使用** — Claude Code、Codex CLI 和 Gemini CLI 各自在 Paperclip 外部缓存其登录状态。如果您希望 API 密钥优先，请在主机上注销 CLI（`claude logout`, `codex logout` 等），以便适配器回退到环境变量。
 
@@ -160,5 +160,5 @@ Paperclip 允许您以两种形式将提供商密钥绑定到智能体的 `adapt
 ## 相关
 
 - [智能体适配器](../guides/org/agent-adapters.md) — 每个适配器的完整配置参考。
-- [密钥](../../reference/deploy/secrets.md) — 密钥存储的工作原理及严格模式的行为。
+- [密钥](../reference/deploy/secrets.md) — 密钥存储的工作原理及严格模式的行为。
 - [雇佣您的第一个智能体](../guides/getting-started/your-first-agent.md) — 首次设置，包括生成 API 密钥。

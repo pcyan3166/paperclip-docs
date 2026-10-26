@@ -18,7 +18,7 @@ seo_description: 将公司的智能体、项目、议题、技能及可移植文
 
 ## 所需条件
 
-- 一个正在运行的本地 Paperclip 实例，您可以以董事会用户身份访问。
+- 一个正在运行的本地 Paperclip 实例，您可以以Paperclip 控制台用户身份访问。
 - 一个 Paperclip 云端堆栈 URL，该堆栈在 `/.well-known/paperclip-upstream` 处宣传 `cloud_sync` 传输功能标志。
 - 您想要推送的本地 `companyId`。
 - 在云端堆栈上拥有足够的权限以批准授权授予——CLI 请求 `upstream_import:preview`、`upstream_import:write` 和 `upstream_import:read` 范围。
@@ -135,7 +135,7 @@ curl -X POST \
 
 `entityType` 接受 `agents`、`routines` 或 `monitors`——其他任何值将返回 `400`。响应是一个 `CloudUpstreamActivationDecision`，包含已切换的计数和 `activatedAt` 时间戳。
 
-董事会的云端上游页面暴露了三个按钮，映射到相同的调用。先激活智能体，然后例程，最后监视器是安全的默认顺序：智能体是执行者，例程触发工作，监视器只有在有工作可监视时才有意义。
+Board 的 Cloud Upstream 页面提供三个按钮，分别对应同一个调用。先激活智能体，然后例程，最后监视器是安全的默认顺序：智能体是执行者，例程触发工作，监视器只有在有工作可监视时才有意义。
 
 ---
 
@@ -174,6 +174,6 @@ curl -sS "$PAPERCLIP_API_URL/api/cloud-upstreams?companyId=$LOCAL_COMPANY_ID" \
 
 ## 另请参阅
 
-- [CLI 参考中的云端命令](../../reference/cli/cloud.md) — `paperclipai cloud connect` 和 `paperclipai cloud push` 的所有标志。
+- [CLI 参考中的云端命令](../reference/cli/cloud.md) — `paperclipai cloud connect` 和 `paperclipai cloud push` 的所有标志。
 - [备份和恢复公司](./back-up-and-restore-a-company.md) — 云端推送所包装的本地可移植导出。
 - [术语表](../guides/welcome/glossary.md) — 公司、智能体、例程、监视器的定义。

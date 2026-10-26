@@ -53,7 +53,7 @@ seo_description: 允许智能体读取 Google Docs 文档，并可选择更新�
 
 > **注意：** 连接器的指南是文档更新应经过批准。请将 `update-doc` 保持为 **Ask first**（先询问）；编辑会落入其他人可能正在使用的真实文档中。
 
-[How connector access works](access-model.md) 涵盖了身份和智能体选择。
+[连接器访问机制说明](access-model.md) 涵盖了身份和智能体选择。
 
 ## 尝试使用
 
@@ -66,7 +66,7 @@ tell me the text of its first heading. Do not edit it.
 
 预期结果是您自己可以看到的标题。
 
-> **警告：** 不要使用“标题为 X 的文档”进行测试。此处已审查的操作是 `read-doc`，它需要一个文档标识符——此连接器上没有文档搜索工具。基于标题的请求会使智能体猜测或因与您设置无关的原因失败。如果您确实需要标题搜索，请使用 [Google Drive](google-drive.md) 或 [Google Workspace Search](google-workspace-search.md)。
+> **警告：** 不要使用“标题为 X 的文档”进行测试。此处已审查的操作是 `read-doc`，它需要一个文档标识符——此连接器上没有文档搜索工具。基于标题的请求会使智能体猜测或因与您设置无关的原因失败。如果您确实需要标题搜索，请使用 [Google Drive](google-drive.md) 或 [Google Workspace 搜索](google-workspace-search.md)。
 
 如果您想确认编辑功能，请在为此目的创建的草稿文档上进行操作，而不是在实时文档上操作。
 
@@ -77,7 +77,7 @@ tell me the text of its first heading. Do not edit it.
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | Developer Preview 注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未宣传 Docs 配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未提供 Docs 配置文件 | 使用您自己的 Google OAuth 应用 |
 | 找不到文档 | 它未与授权账户共享 | 在 Google Drive 中共享；无需重新连接 |
 | `update-doc` 缺失 | 连接是以 **Read only** 建立的 | 建立一个 **Read & edit** 连接 |
 | 编辑未产生预期的格式 | 更新通过 Docs API 进行，该 API 不涵盖每个编辑器功能 | 在 Google Docs 中完成格式设置 |
@@ -90,6 +90,6 @@ tell me the text of its first heading. Do not edit it.
 - [Connector overview](https://paperclip.ing/product/connectors/google-docs/)
 
 - [Google Drive](google-drive.md) — 查找和创建文件。
-- [How connector access works](access-model.md)
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md)
+- [连接器访问机制说明](access-model.md)
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md)
 - [Google Docs API MCP reference](https://developers.google.com/workspace/docs/api/reference/mcp)

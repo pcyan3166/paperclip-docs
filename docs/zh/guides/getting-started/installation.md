@@ -31,7 +31,7 @@ Paperclip 有两种安装方式，请根据你的使用场景选择：
 
 ```bash
 node --version
-# 应显示 v24.11.0 或更高版本
+# Should print v24.11.0 or higher
 ```
 
 ---
@@ -94,7 +94,7 @@ paperclipai service install
 
 第一条命令会正式安装 Paperclip（以后可进行更新或回滚），并询问是否将它加入 shell 的 `PATH`。请选择是，然后打开新的终端窗口，以便使用 `paperclipai` 命令。第二条命令会将 Paperclip 注册为后台服务，使它在你登录时启动，并在崩溃后自动重启。这些操作不需要管理员权限；运行 `paperclipai service status` 可查看服务状态。
 
-完整命令列表见 [Service（服务）](../../../reference/cli/service.md)；服务器部署方式见[高级部署文档](../../../reference/deploy/overview.md)。
+完整命令列表见 [Service（服务）](../../reference/cli/service.md)；服务器部署方式见[高级部署文档](../../reference/deploy/overview.md)。
 
 ---
 
@@ -179,13 +179,13 @@ ssh ubuntu@your.server.ip
 
 | 类型 | 名称 | 值 |
 |---|---|---|
-| A | `paperclip.example.com` | `<服务器的公网 IPv4 地址>` |
+| A | `paperclip.example.com` | `<your server's public IPv4>`（服务器的公网 IPv4 地址） |
 
 等待一两分钟，然后确认域名解析正确：
 
 ```bash
 dig +short paperclip.example.com
-# 应显示服务器的 IP 地址
+# Should print your server's IP
 ```
 
 第 8 步申请 HTTPS 证书时，如果 DNS 尚未指向服务器，申请会失败。因此请先确认这一设置正确。
@@ -197,7 +197,7 @@ dig +short paperclip.example.com
 Paperclip 需要 **Node.js 24 或更高版本**（24.11.0 或更高）以及 **pnpm**。通过 NodeSource 安装 Node.js：
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs git ca-certificates
 ```
 
@@ -212,8 +212,8 @@ corepack prepare pnpm@latest --activate
 验证安装：
 
 ```bash
-node --version     # v24.11.0 或更高
-pnpm --version     # 9.x 或更高
+node --version     # v24.11.0 or higher
+pnpm --version     # 9.x or higher
 ```
 
 ---
@@ -248,7 +248,7 @@ npx paperclipai onboard --yes
 
 这些变量的作用：
 
-- **`PAPERCLIP_AUTH_PUBLIC_BASE_URL`**——用户访问实例时使用的外部 URL。它会成为 Better Auth 的规范基础 URL，并自动将 `auth.baseUrlMode` 设为 `explicit`。
+- **`PAPERCLIP_AUTH_PUBLIC_BASE_URL`**——用户访问实例时使用的外部 URL。它会成为 Better Auth 的规范基础 URL，并自动将 `auth.baseUrlMode=explicit`。
 - **`PAPERCLIP_ALLOWED_HOSTNAMES`**——Paperclip 接受请求的主机名列表，多个名称以逗号分隔。基础 URL 中的主机名会自动加入；如有其他别名，请一并填写（例如 `paperclip.example.com,www.paperclip.example.com`）。不在列表中的主机会被拒绝。
 - 服务器默认绑定到 `127.0.0.1:3100`，这正适合在 Nginx 后运行，因此不需要覆盖 `PAPERCLIP_BIND`。如果要在局域网或 Tailnet 中开放访问，可使用 `PAPERCLIP_BIND=lan|tailnet|custom`；选择 `custom` 时还需设置 `PAPERCLIP_BIND_HOST`。
 
@@ -343,7 +343,7 @@ server {
         proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
         proxy_set_header   X-Forwarded-Proto $scheme;
 
-        # WebSocket / 长连接流式端点
+        # WebSocket / long-lived streaming endpoints
         proxy_set_header   Upgrade           $http_upgrade;
         proxy_set_header   Connection        "upgrade";
         proxy_read_timeout 3600s;
@@ -434,16 +434,16 @@ npx paperclipai auth bootstrap-ceo --force
 - **`Embedded PostgreSQL failed`，并显示 `Execution of PostgreSQL by a user with administrative permissions is not permitted`**——Paperclip 是以 root 或提升权限的用户启动的。停止服务，切换到普通非 root 用户并重新运行 `npx paperclipai run`。在 VPS 上，请确保在设置或启动 Paperclip 前运行过 `sudo -iu paperclip`。如果意外以错误账户创建了文件，请删除由 root 所有的实例，或先修正文件所有权再试。
 - **`auth.publicBaseUrl is required when deploymentMode=authenticated and exposure=public`**——运行 `onboard` 前没有导出 `PAPERCLIP_AUTH_PUBLIC_BASE_URL`。重新导出后运行 `paperclipai configure --section server`，或重新运行 `paperclipai onboard --yes`。
 - **请求因主机名不匹配而被拒绝**——访问时所用主机名不在 `server.allowedHostnames` 中。使用 `paperclipai allowed-hostname <host>` 添加，或编辑 `~/paperclip.env` 中的 `PAPERCLIP_ALLOWED_HOSTNAMES` 并重启服务。
-- **邀请链接返回 404**——邀请已经使用，或打印出的基础 URL 与浏览器访问的 URL 不一致。运行 `npx paperclipai auth bootstrap-ceo --force --base-url https://paperclip.example.com` 重新生成。
+- **邀请链接返回 404**——邀请已经使用，或打印出的基础 URL 与浏览器访问的 URL 不一致。运行 `paperclipai auth bootstrap-ceo --force --base-url https://paperclip.example.com` 重新生成。
 
 ---
 
 ## 常见变体
 
-- **托管 PostgreSQL**——在运行设置流程前，于 `~/paperclip.env` 中设置 `DATABASE_URL=postgres://...`。应用使用连接池连接（Supabase 的端口为 6543），迁移使用直连地址。详见[数据库部署](../../../reference/deploy/database.md)。
-- **对象存储**——设置 `PAPERCLIP_STORAGE_MODE=s3` 和相应的 S3 环境变量。详见[存储部署](../../../reference/deploy/storage.md)。
-- **使用 Tailscale 提供私有团队服务器**，而非公开域名——跳过 Nginx 和 Certbot，设置 `PAPERCLIP_DEPLOYMENT_EXPOSURE=private` 和 `PAPERCLIP_BIND=tailnet`。详见 [Tailscale 私有访问](../../../reference/deploy/tailscale-private-access.md)。在启用身份验证的私有实例上，也可以不通过 CLI 邀请来创建首位用户：第一个从浏览器登录的人可以直接在界面中认领实例管理员身份，先认领者优先，其他人之后无法认领。详细说明见[认领首位实例管理员](../../../reference/api/instance-admin.md#claim-first-instance-admin)。
-- **使用 Docker，而非直接安装在服务器上**——仓库提供了可用于生产环境的镜像和 Compose 文件。详见 [Docker 部署](../../../reference/deploy/docker.md)。
+- **托管 PostgreSQL**——在运行设置流程前，于 `~/paperclip.env` 中设置 `DATABASE_URL=postgres://...`。应用使用连接池连接（Supabase 的端口为 6543），迁移使用直连地址。详见[数据库部署](../../reference/deploy/database.md)。
+- **对象存储**——设置 `PAPERCLIP_STORAGE_MODE=s3` 和相应的 S3 环境变量。详见[存储部署](../../reference/deploy/storage.md)。
+- **使用 Tailscale 提供私有团队服务器**，而非公开域名——跳过 Nginx 和 Certbot，设置 `PAPERCLIP_DEPLOYMENT_EXPOSURE=private` 和 `PAPERCLIP_BIND=tailnet`。详见 [Tailscale 私有访问](../../reference/deploy/tailscale-private-access.md)。在启用身份验证的私有实例上，也可以不通过 CLI 邀请来创建首位用户：第一个从浏览器登录的人可以直接在界面中认领实例管理员身份，先认领者优先，其他人之后无法认领。详细说明见[认领首位实例管理员](../../reference/api/instance-admin.md#claim-first-instance-admin)。
+- **使用 Docker，而非直接安装在服务器上**——仓库提供了可用于生产环境的镜像和 Compose 文件。详见 [Docker 部署](../../reference/deploy/docker.md)。
 
 ---
 
@@ -459,4 +459,4 @@ Paperclip 已经运行。下一篇指南会带你创建首家公司；如果已�
 
 ---
 
-> **说明：** macOS 还有一个**非官方、由社区维护的桌面应用**，可以将 Paperclip 包装成普通 Mac 应用。它并非由 Paperclip 团队构建或支持。详情见[社区桌面应用](../../../how-to/community-desktop-app.md)。
+> **说明：** macOS 还有一个**非官方、由社区维护的桌面应用**，可以将 Paperclip 包装成普通 Mac 应用。它并非由 Paperclip 团队构建或支持。详情见[社区桌面应用](../../how-to/community-desktop-app.md)。

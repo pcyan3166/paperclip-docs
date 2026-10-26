@@ -86,7 +86,7 @@ Sheets 是唯一一个具有两种真正不同设置方式的连接器：使用 
 
 在 Google 登录路径中，访问范围是授权账户能打开的内容，Paperclip 不会对其进行缩小。在机器人路径中，访问范围是粘贴的列表，Paperclip 会强制执行它。
 
-选择哪些智能体可以使用任一连接。Google 登录方法还询问谁可以使用该凭据；机器人账户方法使用实例配置的服务账户，而不是个人 Google 登录。参见 [How connector access works](access-model.md)（连接器访问权限如何工作）。
+选择哪些智能体可以使用任一连接。Google 登录方法还询问谁可以使用该凭据；机器人账户方法使用实例配置的服务账户，而不是个人 Google 登录。参见 [连接器访问机制说明](access-model.md)（连接器访问权限如何工作）。
 
 ## 尝试使用
 
@@ -122,6 +122,6 @@ In this spreadsheet — https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_
 - [Connector overview](https://paperclip.ing/product/connectors/google-sheets/)（连接器概述）
 
 - [Google Drive](google-drive.md) — 查找和创建文件。
-- [How connector access works](access-model.md)（连接器访问权限如何工作）
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md)（验证连接器并修复损坏的连接器）
+- [连接器访问机制说明](access-model.md)（连接器访问权限如何工作）
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md)（验证连接器并修复损坏的连接器）
 - [Google Sheets API MCP reference](https://developers.google.com/workspace/sheets/api/reference/mcp)（Google Sheets API MCP 参考）

@@ -34,7 +34,7 @@ seo_description: 一份获取具备持久化数据的工作 URL 的实用指南�
 
 - 一个您控制的域名（`paperclip.example.com`）。
 - 提供商凭证：Fly.io 账户 + `flyctl`，**或者**一台安装了 Docker 的小型 Linux VPS。
-- 托管 Postgres（Supabase、Neon、Fly Postgres）。嵌入式 Postgres 仅适用于本地——请参阅 [数据库](../../reference/deploy/database.md)。
+- 托管 Postgres（Supabase、Neon、Fly Postgres）。嵌入式 Postgres 仅适用于本地——请参阅 [数据库](../reference/deploy/database.md)。
 - 您计划运行的 LLM 适配器的提供商密钥（`ANTHROPIC_API_KEY`、`OPENAI_API_KEY`）。
 
 ---
@@ -84,13 +84,13 @@ docker run -d --name paperclip --restart=always \
   paperclip-local
 ```
 
-使用 Caddy 或 Nginx 为其提供 TLS 支持。有关完整的环境变量列表，请参阅 [Docker 参考](../../reference/deploy/docker.md)。
+使用 Caddy 或 Nginx 为其提供 TLS 支持。有关完整的环境变量列表，请参阅 [Docker 参考](../reference/deploy/docker.md)。
 
 ---
 
 ## 数据库迁移
 
-迁移会在容器启动时针对 `DATABASE_URL` 自动运行。如果您的提供商同时提供直接连接（`:5432`）和池化连接（`:6543`）（如 Supabase），请将应用指向池化 URL 并禁用预编译语句；针对直接 URL 运行一次性迁移。详情：[数据库](../../reference/deploy/database.md)。
+迁移会在容器启动时针对 `DATABASE_URL` 自动运行。如果您的提供商同时提供直接连接（`:5432`）和池化连接（`:6543`）（如 Supabase），请将应用指向池化 URL 并禁用预编译语句；针对直接 URL 运行一次性迁移。详情：[数据库](../reference/deploy/database.md)。
 
 ---
 
@@ -98,7 +98,7 @@ docker run -d --name paperclip --restart=always \
 
 默认：**共置**在同一容器中。本地适配器（`claude_local`、`codex_local`）在心跳触发时作为子进程运行。在超出容器的 CPU/内存限制之前，这是可行的。
 
-一旦心跳开始与 API 争用资源，请将运行器移至**独立**机器：配置适配器指向远程运行器池，或运行第二个具有相同 `DATABASE_URL` 和 `PAPERCLIP_API_URL` 的容器，并仅接受智能体流量。当拥有少量繁忙智能体时，这样做是值得的。
+一旦心跳开始与 API 争用资源，请将运行器移至**独立**机器：配置适配器指向远程运行器池，或运行第二个具有相同 `DATABASE_URL` 和 `PAPERCLIP_API_URL` 的容器，并仅接受智能体流量。当繁忙智能体多到超过几个时，这样做就值得了。
 
 ---
 
@@ -112,7 +112,7 @@ docker run -d --name paperclip --restart=always \
 
 ## 备份
 
-Postgres 备份是您的提供商的责任——请开启备份。对于公司数据和上传文件，请安排定期的高管安全导出——有关完整指南，请参阅 [备份和恢复公司](./back-up-and-restore-a-company.md)。
+Postgres 备份由您的服务提供商负责——请启用备份。对于公司数据和上传文件，请安排定期导出，确保高管也能放心使用——完整操作步骤请参阅[备份和恢复公司](./back-up-and-restore-a-company.md)。
 
 ---
 
@@ -137,4 +137,4 @@ Postgres 备份是您的提供商的责任——请开启备份。对于公司�
 - [备份和恢复公司](./back-up-and-restore-a-company.md) — 夜间导出例程和灾难恢复流程。
 - [导出与导入](../guides/power/export-import.md) — 包格式和 CLI 快捷方式。
 - [调试卡住的心跳](./debug-stuck-heartbeat.md) — 当智能体行为异常时，首先检查的地方。
-- [部署概述](../../reference/deploy/overview.md) — 模式、存储和密钥的完整参考。
+- [部署概述](../reference/deploy/overview.md) — 模式、存储和密钥的完整参考。

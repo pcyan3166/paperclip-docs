@@ -14,7 +14,7 @@ OpenRouter 仅支持 API 密钥。该提供商没有订阅登录方式，Papercl
 
 - 一个已设置信用额度或账单的 OpenRouter 账户，以及来自 [OpenRouter 密钥](https://openrouter.ai/keys) 的 API 密钥。
 - 一个运行 Claude、Codex、OpenCode 或 Hermes 的智能体。Paperclip Runner 对其 Codex、OpenCode 和 ACP Claude 提供商使用相同的规则。
-- 一个受 OpenRouter 和您所选运行时支持的上游模型 ID。OpenCode 添加 `openrouter/` 运行时前缀；其他运行时使用原始上游 ID。
+- 一个受 OpenRouter 和您所选运行时支持的上游模型 ID。OpenCode 使用 `openrouter/` 运行时前缀；其他运行时使用原始上游 ID。
 
 ## 连接 OpenRouter
 
@@ -57,7 +57,7 @@ Paperclip 仅在您请求时读取限制。打开账户、列出连接和启动�
 | *"检查次数过多。请稍后重试。"* | 提供商对检查本身进行了速率限制。您的配额不受影响 |
 | *"重新连接以检查使用情况。"* | 账户当前不可用。请先重新连接 |
 
-董事会用户可以通过 API 使用 `GET /api/companies/{companyId}/ai-connections/{connectionId}/usage` 运行相同的检查。
+Paperclip 控制台用户可以通过 API 使用 `GET /api/companies/{companyId}/ai-connections/{connectionId}/usage` 运行相同的检查。
 
 ## 尝试使用
 

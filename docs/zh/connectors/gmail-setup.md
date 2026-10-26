@@ -56,11 +56,11 @@ Google 的 Workspace MCP 服务器处于开发者预览版阶段。Google 会注
 1. 在侧边栏中选择 **Connectors**（连接器）。
 2. 找到 **Gmail** 并选择 **Connect**（连接）。
 3. 阅读主按钮上方的访问行。它说明了连接以谁的身份登录以及哪些智能体可以使用它。对于邮箱，默认值通常不是您想要的，因此请选择 **Change**（更改）：
-   - 在 **Which humans can use this credential?**（哪些人类可以使用此凭据？）下，对于邮箱，**Just me**（仅我）通常是常规答案——智能体仅在您是负责人的运行中使用该凭据。**Any human in the organization**（组织中的任何人类）会使一个邮箱在由其 **human audience**（人类受众）中的任何人启动的运行中可用，您可以在连接的身份证上将此受众设置为 **Any human in the company**（公司中的任何人类）或带有命名列表的 **Humans I pick**（我选择的人类）。对于邮箱，请缩小该受众范围：保持开放意味着任何同事的运行都可以读取收件箱。这需要连接管理器权限，适用于真正共享的收件箱，而非个人邮件。
+   - 在 **Which humans can use this credential?**（哪些人员可以使用此凭据？）下，为邮箱选择 **Just me**（仅我）通常最合适——智能体只会在您担任责任人的运行中使用该凭据。选择 **Any human in the organization**（组织中的任何人员）后，符合条件的智能体即可在运行责任人属于该凭据适用人员范围时使用邮箱。您可以在连接的身份卡片上将适用人员范围设为 **Any human in the company**（公司中的任何人员），或选择 **Humans I pick**（我选择的人员）并指定成员。对于邮箱，请缩小适用人员范围：若保持开放，任何同事发起的运行都可能读取收件箱。此设置需要连接管理器权限，适用于真正共享的收件箱，而非个人邮箱。
    - 在 **Which agents can use this connection**（哪些智能体可以使用此连接）下，选择 **Just agents I pick**（仅我选择的智能体）并命名它们。邮箱不应默认交给每个智能体。
    - 在 **What should Paperclip be able to do?**（Paperclip 应该能做什么？）下，从步骤 3 中选择能力组。
 4. 选择设置路径：
-   - **Connect with Paperclip**（通过 Paperclip 连接）——Paperclip 管理的 Google 客户端。仅在实例注册了 Paperclip Cloud 且 Cloud 宣传 Gmail 配置文件时提供。当提供此选项时，设置默认使用它。
+   - **Connect with Paperclip**（通过 Paperclip 连接）——Paperclip 管理的 Google 客户端。仅在实例注册了 Paperclip Cloud 且 Cloud 提供 Gmail 配置文件时提供。当提供此选项时，设置默认使用它。
    - **Use your own Google OAuth app**（使用您自己的 Google OAuth 应用）——选择此项以提供步骤 2 中的客户端 ID 和密钥。**Use Paperclip instead**（改用 Paperclip）可切换回。
 5. 使用已注册的 Workspace 账户完成 Google 的同意屏幕。
 
@@ -84,15 +84,15 @@ Google 的 Workspace MCP 服务器处于开发者预览版阶段。Google 会注
 | 症状 | 原因 |
 | --- | --- |
 | Google 在同意屏幕前拒绝 | 登录的 Workspace 账户或 Cloud 项目未注册开发者预览版。 |
-| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未宣传 Gmail 配置文件。 |
+| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未提供 Gmail 配置文件。 |
 | 同意完成但连接显示 **Setup incomplete**（设置未完成） | 最后一步未完成。选择 **Finish setup**（完成设置）。 |
 | 重定向 URI 不匹配 | 在您的 Google OAuth 客户端上注册的回调 URI 与 Paperclip 显示的 URI 不匹配。 |
 
-更多详情见 [Verify a connector and fix a broken one](verify-and-troubleshoot.md)。
+更多详情见 [验证连接器并修复故障连接器](verify-and-troubleshoot.md)。
 
 ## 相关
 
 - [Gmail](gmail.md)
-- [How connector access works](access-model.md)
-- [Use separate accounts for people and agents](separate-accounts.md)
-- [Google Workspace Search](google-workspace-search.md)
+- [连接器访问机制说明](access-model.md)
+- [为人员和智能体使用独立账户](separate-accounts.md)
+- [Google Workspace 搜索](google-workspace-search.md)

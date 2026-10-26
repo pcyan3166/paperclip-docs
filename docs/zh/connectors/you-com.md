@@ -13,7 +13,7 @@ seo_description: 让智能体通过 You.com 进行网络搜索。选择浏览器
 您有三种选择，其中一种完全不需要任何配置：
 
 - 一个 You.com 账户，用于浏览器登录。
-- 一个来自 you.com/platform 的 You.com API 密钥，如果您需要更高的速率限制。
+- 一个来自 you.com/platform 的 You.com API 密钥，如果您需要更高的调用速率或配额。
 - 两者都不需要——无密钥免费配置无需账户即可使用。
 
 ## 连接 You.com
@@ -25,7 +25,7 @@ seo_description: 让智能体通过 You.com 进行网络搜索。选择浏览器
    - **Use an API key** — 将您的密钥粘贴到 **You.com API key** 字段中。当浏览器登录不适用时使用此方法。
    - **Use the free profile** — 无需账户即可连接。You.com 将此限制为具有自身速率限制的缩减版、只读工具集。
 
-这三种方式都连接到 You.com 托管的 MCP 服务器，因此您的智能体看到的搜索操作来自该服务器。免费配置是决定是否需要密钥之前尝试该连接器的好方法。
+这三种方式都连接到 You.com 托管的 MCP 服务器，因此您的智能体看到的搜索操作来自该服务器。可以先用免费配置试用连接器，再决定是否需要密钥。
 
 ## 选择访问权限
 
@@ -34,7 +34,7 @@ seo_description: 让智能体通过 You.com 进行网络搜索。选择浏览器
 仍有两件事值得决定：
 
 - **谁使用配额。** 每个拥有访问权限的智能体都消耗同一账户的速率限制——或者免费配置的速率限制，后者更严格。如果一个繁忙的智能体不断触及限制，请为其提供独立的连接，或改用 API 密钥。
-- **智能体如何处理结果。** 搜索结果属于外部内容。智能体应将其视为需要核查的信息，而非需要遵循的指令。有关如何将其他连接器中的后续操作保持在 **Ask first** 状态，请参阅 [Set action permissions](action-permissions.md)。
+- **智能体如何处理结果。** 搜索结果属于外部内容。智能体应将其视为需要核查的信息，而非需要遵循的指令。有关如何将其他连接器中的后续操作保持在 **Ask first** 状态，请参阅 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -60,6 +60,6 @@ Search the web with You.com for the latest release notes of a tool we use, and s
 ## 相关指南
 
 - [OpenAI](openai.md)、[OpenRouter](openrouter.md)、[Grok](xai.md) — 其他 AI 提供商连接器。
-- [How connector access works](access-model.md)
-- [Set action permissions](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
+- [设置操作权限](action-permissions.md)
 - [You.com MCP server documentation](https://you.com/docs/build-with-agents/mcp-server)

@@ -17,7 +17,7 @@ Zapier 在所有实例上均可用；无需启用任何实验性设置。
 - 一个 Zapier 账户，其中已连接您希望访问的应用。
 - 在 Zapier 中创建的一个 MCP 服务器，并已在其上启用您希望暴露的具体操作。
 
-智能体可以调用的操作由 Zapier 决定，而非 Paperclip。这是连接前需要正确配置的主要事项：启用了广泛操作的服务器会赋予智能体广泛的访问权限，而 Paperclip 无法在 Zapier 所宣传的范围之外进一步缩小权限。
+智能体可以调用的操作由 Zapier 决定，而非 Paperclip。这是连接前需要正确配置的主要事项：启用了广泛操作的服务器会赋予智能体广泛的访问权限，而 Paperclip 无法在 将权限限制在 Zapier 服务器开放功能的更小范围内。
 
 ## 连接 Zapier
 
@@ -44,7 +44,7 @@ Zapier 在所有实例上均可用；无需启用任何实验性设置。
 
 Zapier 中任何可以编辑该 MCP 服务器的人都可以扩大智能体的访问范围，而无需触及 Paperclip。请保持可编辑人员列表精简，并在审查连接时一并审查该列表。
 
-由于 Zapier 操作通常作用于真实系统——发送消息、创建记录——其中大多数被归类为写入操作。活动操作初始状态为 **Allowed**（允许）；如果您希望在了解智能体如何使用它们的同时审查调用，请将其更改为 **Ask first**（先询问）。参见 [Set action permissions](action-permissions.md)。
+由于 Zapier 操作通常作用于真实系统——发送消息、创建记录——其中大多数被归类为写入操作。活动操作初始状态为 **Allowed**（允许）；如果您希望在了解智能体如何使用它们的同时审查调用，请将其更改为 **Ask first**（先询问）。参见 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -67,17 +67,17 @@ Use Zapier to look up the most recent row in my tracking spreadsheet and tell me
 | 您在 Zapier 中启用的操作缺失 | Paperclip 尚未重新读取列表 | 使用 **Refresh actions** |
 | 您在 Zapier 中暴露的操作缺失 | Paperclip 的列表副本已过期 | 使用 **Refresh actions**，然后确认新操作的设置——它将在现有策略下以活动状态到达，而非处于关闭状态 |
 | 操作在 Zapier 内部失败 | Zapier 中的底层应用连接已过期 | 在 Zapier 中重新连接该应用 |
-| 您怀疑 URL 已泄露 | URL 是承载凭据 | 在 Zapier 中重新生成服务器 URL 并在 Paperclip 中重新连接 |
+| 您怀疑 URL 已泄露 | URL 本身就是访问凭据 | 在 Zapier 中重新生成服务器 URL 并在 Paperclip 中重新连接 |
 
-限制：操作界面即为 Zapier 服务器所暴露的内容，Paperclip 无法查看或限制 Zap 内部发生的任何超出其所调用操作的行为。Zapier 自身的套餐限制和任务配额适用。轮换 URL 意味着需要重新连接。
+限制：可用操作范围由 Zapier 服务器开放的功能决定，Paperclip 无法查看或限制 Zap 内部发生的任何超出其所调用操作的行为。Zapier 自身的套餐限制和任务配额适用。轮换 URL 意味着需要重新连接。
 
 ## 相关指南
 
 - [Connector overview](https://paperclip.ing/product/connectors/zapier/)
 
-- [Connect your own MCP server](custom-mcp-servers.md) — 适用于您自行运行的服务器。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [连接自定义 MCP 服务器](custom-mcp-servers.md) — 适用于您自行运行的服务器。
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Zapier MCP quickstart](https://docs.zapier.com/mcp/quickstart)
 
 ## 来源

@@ -15,9 +15,9 @@ seo_description: 使用只读测试调用确认新连接器是否正常工作，
 | 类型 | 验证方法 |
 | --- | --- |
 | **应用工具** — Notion、Jira、Stripe 以及目录中的大多数项目 | 使用下方的读取测试 |
-| **消息通道** — Slack 聊天、Discord、Telegram、Teams、iMessage Photon、GitHub 代码审查机器人、AgentMail | 从提供商处发送一条真实消息，并等待智能体的回复。没有可供测试的操作列表，在收到回复之前，设置尚未完成。连接器自身的页面包含该序列 |
-| **模型提供商** — Anthropic、OpenAI、OpenRouter、Grok、自定义端点、Bedrock | 选择兼容的运行时、连接和模型，然后在智能体的执行环境中运行一个简短任务。已连接徽章不能证明模型访问权限。参见 [自定义模型提供商](custom-model-providers.md) |
-| **助手连接 (MCP)** | 从外部助手调用 `paperclip_connection` 并验证同意的人员和组织。在创建工作之前列出智能体或任务。参见 [助手连接](../../experimental/assistant-connections.md) |
+| **消息通道** — Slack 聊天、Discord、Telegram、Teams、iMessage Photon、GitHub 代码审查机器人、AgentMail | 从提供商处发送一条真实消息，并等待智能体的回复。没有可供测试的操作列表，在收到回复之前，设置尚未完成。具体步骤请参阅对应连接器页面 |
+| **模型提供商** — Anthropic、OpenAI、OpenRouter、Grok、自定义端点、Bedrock | 选择兼容的运行时、连接和模型，然后在智能体的执行环境中运行一个简短任务。“已连接”状态标记不能证明模型可用。参见 [自定义模型提供商](custom-model-providers.md) |
+| **助手连接 (MCP)** | 从外部助手调用 `paperclip_connection` 并验证同意的人员和组织。在创建工作之前列出智能体或任务。参见 [助手连接](../experimental/assistant-connections.md) |
 
 [连接器访问权限的工作原理](access-model.md) 解释了为何控制方式不同。
 
@@ -99,7 +99,7 @@ POST /api/tool-connections/{connectionId}/health-check
 
 ### 工具发现繁忙
 
-*"Tool discovery is busy. Retry shortly."*（工具发现繁忙。请稍后重试。）并带有代码 `tool_discovery_busy` 意味着服务器正在为允许的最大并发调用者列表列出工具。连接或其凭据没有问题。等待片刻后再次列出工具。参见 [工具网关参考](../../reference/api/tool-gateway.md) 了解 API 结构。
+*"Tool discovery is busy. Retry shortly."*（工具发现繁忙。请稍后重试。）并带有代码 `tool_discovery_busy` 意味着服务器当前已同时为达到并发上限的调用者列出工具。连接或其凭据没有问题。等待片刻后再次列出工具。参见 [工具网关参考](../reference/api/tool-gateway.md) 了解 API 结构。
 
 ### 任务需要 AI 凭据
 
@@ -111,11 +111,11 @@ POST /api/tool-connections/{connectionId}/health-check
 
 ### 缺少托管登录选项
 
-**Connect with Paperclip**（使用 Paperclip 连接）仅当您的实例已注册 Paperclip Cloud 且 Cloud 宣传该连接器配置文件时才会出现。如果缺失，连接器列表提供 **Enable Paperclip-managed sign-in**（启用 Paperclip 托管登录）或 **Continue enrollment**（继续注册），在此期间客户拥有的 OAuth 路径仍可用。
+**Connect with Paperclip**（使用 Paperclip 连接）仅当您的实例已注册 Paperclip Cloud 且 Cloud 提供该连接器配置文件时才会出现。如果缺失，连接器列表提供 **Enable Paperclip-managed sign-in**（启用 Paperclip 托管登录）或 **Continue enrollment**（继续注册），在此期间客户拥有的 OAuth 路径仍可用。
 
 ### 列表中没有任何项看起来像您想要的提供商
 
-提供商可能被识别但被保留在目录之外，或者它可能根本没有自助服务路径。这两种情况都列在 [连接器](../../connectors.md) 的底部。
+提供商可能已被识别，但未列入目录，或者它可能根本没有自助服务路径。这两种情况都列在 [连接器](../connectors.md) 的底部。
 
 ## 接下来查看何处
 

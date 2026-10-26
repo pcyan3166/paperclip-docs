@@ -15,19 +15,19 @@ Paperclip 的强大之处之一，是你不必亲自管理每项工作。设定�
 设定公司目标后，CEO 不会只是确认收到并等待。下一次心跳时，它会阅读目标、制定策略，并将策略提交到你的审批队列。你批准后，委派便会开始：
 
 ```
-你设定公司目标
+You set a company goal
         ↓
-CEO 在心跳时启动
+CEO wakes on heartbeat
         ↓
-CEO 提出策略 → 你批准
+CEO proposes strategy → You approve
         ↓
-CEO 创建任务并分配给下属
+CEO creates tasks and assigns them to reports
         ↓
-下属被任务分配触发并启动
+Reports wake (triggered by the assignment)
         ↓
-下属执行工作并在任务评论中发布进展
+Reports execute + post updates in task comments
         ↓
-CEO 跟进进度，并向你升级无法解决的阻塞问题
+CEO monitors progress + escalates blockers to you
 ```
 
 每一步都可追踪。所有任务都通过父子层级关联到公司目标，因此你随时可以查看这项工作为什么会发生。
@@ -79,7 +79,7 @@ CEO 判断团队需要更多能力时（例如工程任务需要 CTO、营销工
 - 建议预算是否适合该智能体的工作量？
 - 智能体的汇报对象是否正确？
 
-如果提案中的指令只有一两句话，不必感到意外。现在招聘草案只描述角色——智能体是谁、负责什么；至于如何在 Paperclip 中工作，则交由运行时和已安装的技能处理。如果新智能体需要公司的专属规则，可要求修改，或批准后在它的[说明标签页](../../../guides/org/agents.md#instructions-tab)添加。
+如果提案中的指令只有一两句话，不必感到意外。现在招聘草案只描述角色——智能体是谁、负责什么；至于如何在 Paperclip 中工作，则交由运行时和已安装的技能处理。如果新智能体需要公司的专属规则，可要求修改，或批准后在它的[说明标签页](./agents.md#instructions-tab)添加。
 
 如果有任何内容不合适，请要求修改；如果看起来正确，则批准。批准后，Paperclip 会创建智能体，并将它排入自动唤醒队列。
 
@@ -95,9 +95,9 @@ CEO 判断团队需要更多能力时（例如工程任务需要 CTO、营销工
 
 ```
 CEO
-├── CTO         （工程任务）
-├── CMO         （营销任务）
-└── 设计师      （设计任务）
+├── CTO         (engineering tasks)
+├── CMO         (marketing tasks)
+└── Designer    (design tasks)
 ```
 
 每位智能体独立处理自己的任务并发布进展。CEO 会跟进情况，并在必要时重新分配。
@@ -109,10 +109,10 @@ CEO
 ```
 CEO
 ├── CTO
-│   ├── 后端工程师
-│   └── 前端工程师
+│   ├── Backend Engineer
+│   └── Frontend Engineer
 └── CMO
-    └── 内容撰稿人
+    └── Content Writer
 ```
 
 CEO 把高层级任务分给 CTO 和 CMO，他们再拆解任务，并分配子任务给各自下属。你只需与 CEO 沟通，其余流程会自动运行。
@@ -131,6 +131,7 @@ CEO 把高层级任务分给 CTO 和 CMO，他们再拆解任务，并分配子�
 
 ---
 
+<a id="guardrails-on-agent-to-agent-delegation"></a>
 ## 智能体互相委派时的保护措施
 
 委派之所以强大，正因为你不必时刻盯着。但这也有风险：如果智能体把任务交给了错误的对象，任务可能进入无人处理的队列，而你也不会收到提醒。Paperclip 会直接拒绝几类有问题的委派，并向智能体返回可处理的错误，而不是让工作悄无声息地停滞。
@@ -145,6 +146,8 @@ CEO 把高层级任务分给 CTO 和 CMO，他们再拆解任务，并分配子�
 
 > Cannot assign work to a paused agent. Assign an invokable agent, leave the issue unassigned, or escalate to a board operator instead.
 
+中文释义：无法将工作分配给已暂停的智能体。请分配给可调用的智能体、将 issue 留空不指派，或升级给董事会操作者处理。（以上英文为系统实际返回的固定消息。）
+
 提示中列出了三种解决办法：选择当前能运行的智能体；不指定负责人，让人类来处理；或将问题升级给董事会负责人。对于已终止智能体、仍在等待审批的智能体，以及组织汇报链无效的智能体，原有拒绝规则仍然适用。
 
 ### 智能体不能绕成循环，再把工作委派回来
@@ -155,13 +158,15 @@ CEO 把高层级任务分给 CTO 和 CMO，他们再拆解任务，并分配子�
 
 > Complete the remaining work in your own issue, leave the child unassigned, or escalate to a board operator — do not delegate the work back to the agent that delegated it to you.
 
+中文释义：请在自己的 issue 中完成剩余工作、不要为子任务指派负责人，或升级给董事会操作者处理——不要把工作重新委派给最初委派给你的智能体。（以上英文为系统实际返回的固定消息。）
+
 以下情况不会触发此规则：
 
 - **不影响你本人。** 是否让工作绕过组织架构，由你决定。
 - **已关闭的祖先任务不计入。** 只有状态不是 `done` 或 `cancelled` 的任务会被检查；将新工作交给创建过已完成任务的智能体是正常操作。
 - **规则检查的是任务的创建者，而非负责人。** 将子任务交给正在处理父任务的人是常见且有效的做法，不会被拦截。
 
-如果在运行记录中看到 `delegation_cycle` 拒绝，应把它视为信号，而非程序错误：两位智能体都缺少一项能力，而其中一方原以为另一方具备。通常缺少的是凭据、工具或权限。解决一次后，整条工作链就能继续。如果缺少的是 GitHub 推送权限，请参阅[将智能体连接到 GitHub 仓库](../../../how-to/connect-agent-to-github.md#the-credential-preflight-catches-a-missing-token-before-the-work)，了解如何在消耗工作量之前先检查令牌。
+如果在运行记录中看到 `delegation_cycle` 拒绝，应把它视为信号，而非程序错误：两位智能体都缺少一项能力，而其中一方原以为另一方具备。通常缺少的是凭据、工具或权限。解决一次后，整条工作链就能继续。如果缺少的是 GitHub 推送权限，请参阅[将智能体连接到 GitHub 仓库](../../how-to/connect-agent-to-github.md#the-credential-preflight-catches-a-missing-token-before-the-work)，了解如何在消耗工作量之前先检查令牌。
 
 ### 升级路径已被暂停时
 
@@ -171,7 +176,7 @@ CEO 把高层级任务分给 CTO 和 CMO，他们再拆解任务，并分配子�
 
 Paperclip 会发现此问题。如果某位能运行工作的智能体直接或经由其他经理向上汇报给一位已暂停智能体，它的详情页会显示琥珀色 **Escalation path is paused（升级路径已暂停）** 横幅。该横幅只是警告，不会阻止工作；智能体仍会继续运行，但没有有效的升级对象。横幅会指出哪位经理已暂停，并给出两种解决方式：取消暂停，或更改智能体的汇报对象。
 
-横幅的详细说明和显示位置见[智能体 → 智能体详情页](../../../guides/org/agents.md#the-agent-detail-page)。
+横幅的详细说明和显示位置见[智能体 → 智能体详情页](./agents.md#the-agent-detail-page)。
 
 ---
 
@@ -200,7 +205,7 @@ Paperclip 会发现此问题。如果某位能运行工作的智能体直接或�
 
 如果还没有其他活动中的下属，这是预期行为。聘用 CTO 或 CMO 并完成设置后，CEO 就会开始向他们委派工作。
 
-新建 CEO 的角色说明只有一行，不会附带预设的任务分派指南。如果你希望按特定方式分派工作——例如工程任务交给 CTO、营销任务交给 CMO——请在 CEO 的[说明标签页](../../../guides/org/agents.md#instructions-tab)中编辑其 `AGENTS.md`。
+新建 CEO 的角色说明只有一行，不会附带预设的任务分派指南。如果你希望按特定方式分派工作——例如工程任务交给 CTO、营销任务交给 CMO——请在 CEO 的[说明标签页](./agents.md#instructions-tab)中编辑其 `AGENTS.md`。
 
 ### 策略已获批准，但没有后续动作
 
@@ -219,4 +224,4 @@ Paperclip 会发现此问题。如果某位能运行工作的智能体直接或�
 
 现在你已经了解委派机制及其故障排查方式。下一篇指南会介绍智能体适配器，也就是决定各智能体使用哪种 AI 系统的配置。
 
-[智能体适配器 →](../../../guides/org/agent-adapters.md)
+[智能体适配器 →](./agent-adapters.md)

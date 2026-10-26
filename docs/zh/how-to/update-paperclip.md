@@ -53,6 +53,7 @@ paperclipai update --dry-run
 
 ---
 
+<a id="upgrading-to-v202610120-or-later-stop-everything-first"></a>
 ## 升级到 v2026.1012.0 或更高版本：先停止所有服务
 
 > **警告：** 此版本需要完全停止，而非热重启。工作区恢复和智能体文件收集过去使用 `<hash>.lock/` 文件夹来锁定每个目标目录。现在它们使用 `<instance root>/locks/directory-merge/` 下的操作系统支持的 SQLite 文件锁，如果进程崩溃，操作系统会释放这些锁。旧进程不参与新锁机制，因此旧版本和新版本同时写入同一实例根目录可能会损坏彼此的工作。
@@ -79,7 +80,7 @@ paperclipai update --dry-run
 
 跨此版本回滚也需要完全停止：在启动旧版本之前，排空并停止所有新进程。`.lock.sqlite` 文件可以保留在磁盘上——旧版本会简单地忽略它们。
 
-> **提示：** 此升级还会运行一批数据库迁移。它们都是附加性的，只有一个 `0298` 会触及现有行：它会为你已有的任何 Honcho、Mem0、Zep、Supermemory 和 Cognee 连接添加默认使用指令。之后你可以编辑或关闭这些指令——参见[保存的连接指令](../../connectors/connection-instructions.md)。
+> **提示：** 此升级还会运行一批数据库迁移。它们都是附加性的，只有一个 `0298` 会触及现有行：它会为你已有的任何 Honcho、Mem0、Zep、Supermemory 和 Cognee 连接添加默认使用指令。之后你可以编辑或关闭这些指令——参见[保存的连接指令](../connectors/connection-instructions.md)。
 
 ---
 
@@ -94,9 +95,9 @@ paperclipai update
 以下是执行序列，以免出现意外：
 
 1. **它确定你安装 Paperclip 的方式。** 托管安装、全局 npm、`npx` 或源码检出——每种方式都有不同的处理方式，下文将详细介绍。
-2. **它进行数据库备份。** 这在任何替换之前发生，使用与 [`paperclipai db:backup`](../../reference/cli/setup-commands.md#paperclipai-dbbackup) 相同的机制。如果实例从未完成引导且没有数据，则跳过备份并给出提示。
+2. **它进行数据库备份。** 这在任何替换之前发生，使用与 [`paperclipai db:backup`](../reference/cli/setup-commands.md#paperclipai-dbbackup) 相同的机制。如果实例从未完成引导且没有数据，则跳过备份并给出提示。
 3. **它下载并验证新版本**，然后原子地将活动负载切换为它。你的上一个版本保留在磁盘上。
-4. **它重启你的后台服务**（如果该实例有活动服务），使用[热重启](../../reference/cli/service.md#restart-without-losing-work)将活动的智能体运行移交给新进程，而不是丢弃它们。
+4. **它重启你的后台服务**（如果该实例有活动服务），使用[热重启](../reference/cli/service.md#restart-without-losing-work)将活动的智能体运行移交给新进程，而不是丢弃它们。
 5. **它修剪不再需要保留的旧负载。**
 
 如果重启的服务在新版本下无法恢复健康状态，更新会自动回滚到上一个负载并重启它，然后报告故障。你不应该最终处于损坏的构建状态。
@@ -117,6 +118,7 @@ paperclipai update
 
 ---
 
+<a id="see-which-channel-youre-on"></a>
 ## 查看你所在的通道
 
 在切换之前，了解你所在的位置很有帮助。`paperclipai channels` 显示四个发布通道，并标记此安装遵循哪一个。
@@ -185,7 +187,7 @@ paperclipai update --rollback --dry-run    # see which version you'd land on
 - **如果数据库不可达，更新将停止。** Paperclip 不会在没有安全网的情况下静默更新。错误信息会提示你使用 `paperclipai service start` 启动服务并重试，或使用 `--no-backup` 故意跳过备份。
 - **`--no-backup` 是一个真实选项，而非陷阱。** 在一次性开发实例上，或在你刚刚自己创建快照后，跳过它是合理的。对于你关心的任何环境，请让它运行。
 
-要在更新之外创建快照，请使用 [`paperclipai db:backup`](../../reference/cli/setup-commands.md#paperclipai-dbbackup)。
+要在更新之外创建快照，请使用 [`paperclipai db:backup`](../reference/cli/setup-commands.md#paperclipai-dbbackup)。
 
 ---
 
@@ -284,8 +286,8 @@ npx paperclipai@latest --version
 
 ## 相关
 
-- [安装 CLI](../../reference/cli/installation.md) — 托管安装存储、通道和 `paperclipai uninstall`。
-- [服务](../../reference/cli/service.md) — 在后台运行 Paperclip，以及热重启。
+- [安装 CLI](../reference/cli/installation.md) — 托管安装存储、通道和 `paperclipai uninstall`。
+- [服务](../reference/cli/service.md) — 在后台运行 Paperclip，以及热重启。
 - [安装](../guides/getting-started/installation.md) — 每种路径的全新安装。
 - [备份和恢复公司](./back-up-and-restore-a-company.md) — 在更新生产安装前创建快照。
 - [部署到 VPS 或 Fly.io](./deploy-to-vps-or-fly.md) — 影响你重启方式的生产部署模式。

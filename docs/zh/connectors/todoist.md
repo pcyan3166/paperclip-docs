@@ -24,7 +24,7 @@ Paperclip 会自动注册其客户端，因此无需在开发者控制台中进�
 
 ## 选择访问权限
 
-访问范围（Reach）是指授权 Todoist 账户的：其自身的项目，以及其已加入的任何共享项目。Paperclip 中没有项目选择器。
+访问范围由授权的 Todoist 账户决定：包括该账户自己的项目，以及它加入的共享项目。Paperclip 中没有项目选择器。
 
 共享项目值得特别留意。个人 Todoist 账户通常属于与伴侣、团队或客户共享的项目。拥有此连接的智能体可以读取和更改所有这些项目中的任务，而这些更改在其他成员看来将显示为来自您本人。
 
@@ -35,7 +35,7 @@ Paperclip 会自动注册其客户端，因此无需在开发者控制台中进�
 - **Off** 表示只读。智能体完全无法更改您的任务。
 - **Ask first** 并非只读。智能体仍然可以更改您的任务；它只是必须等待人工批准每次调用。如果您批准，编辑将会执行。
 
-如果您希望智能体仅查阅您的任务列表而从不编辑，请选择 **Off**。如果您希望智能体提出您签署批准的编辑建议，请选择 **Ask first**。参见 [Set action permissions](action-permissions.md)。
+如果您希望智能体仅查阅您的任务列表而从不编辑，请选择 **Off**。如果您希望智能体提出您签署批准的编辑建议，请选择 **Ask first**。参见 [设置操作权限](action-permissions.md)。
 
 > **注意：** 在 Todoist 中完成任务属于写入操作，对于重复任务，它会推进重复周期。请将完成操作视为一种更改，而非无害的确认。
 
@@ -67,6 +67,6 @@ What Todoist tasks are due today? List them with their projects. Do not complete
 - [Connector overview](https://paperclip.ing/product/connectors/todoist/)
 
 - [Linear](linear.md)、[Jira](jira.md)、[Asana](asana.md) —— 用于团队工作跟踪，而非个人任务。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Todoist developer documentation](https://developer.todoist.com/)

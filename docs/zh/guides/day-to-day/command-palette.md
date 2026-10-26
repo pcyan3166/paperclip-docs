@@ -48,7 +48,7 @@ seo_description: 按 ⌘K 或 Ctrl+K 快速打开项目、任务或页面，执�
 
 | 操作 | 用途 |
 |---|---|
-| **Create new task（新建任务）** | 打开新建任务对话框。旁边的 `C` 提示是相同操作的独立快捷键；只要你没有在文本框中输入，它就始终可用（参见[键盘快捷键](../../../administration/settings.md#keyboard-shortcuts)）。 |
+| **Create new task（新建任务）** | 打开新建任务对话框。旁边的 `C` 提示是相同操作的独立快捷键；只要你没有在文本框中输入，它就始终可用（参见[键盘快捷键](../../administration/settings.md#keyboard-shortcuts)）。 |
 | **Create new agent（新建智能体）** | 打开新建智能体流程。 |
 | **Create new project（新建项目）** | 前往项目页面并开始创建项目。 |
 
@@ -105,4 +105,4 @@ seo_description: 按 ⌘K 或 Ctrl+K 快速打开项目、任务或页面，执�
 - **少打几个字。** 输入项目或任务名称中的两三个字母通常就足够，其余由排序规则处理。
 - **不确定时使用“搜索全部”。** 快速搜索为了速度会限制结果数量；要彻底查找，请使用 **Search all（搜索全部）** 打开完整结果页。
 
-有关任务筛选和浏览的详细信息，请参阅[任务指南](../../../guides/day-to-day/issues.md)。
+有关任务筛选和浏览的详细信息，请参阅[任务指南](./issues.md)。

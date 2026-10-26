@@ -1,7 +1,7 @@
 ---
 paperclip_version: v2026.1023.0
 seo_title: Airtable 连接器
-seo_description: 允许智能体读取和更新 Airtable 记录。涵盖基础表和表格的访问范围、企业白名单机制、一项不改变任何数据的读取测试，以及故障排查。
+seo_description: 允许智能体读取和更新 Airtable 记录。涵盖Airtable Base（数据库）和 Table（数据表）的访问范围、企业白名单机制、一项不改变任何数据的读取测试，以及故障排查。
 ---
 
 # Airtable
@@ -16,7 +16,7 @@ seo_description: 允许智能体读取和更新 Airtable 记录。涵盖基础�
 ## 连接 Airtable
 
 1. 打开 **Connectors**（连接器）并选择 **Airtable**。
-2. 阅读主按钮上方的访问说明行。该行说明了连接将以谁的身份登录，以及哪些智能体可以使用该连接。若要选择其他身份、缩小智能体范围或使用其他登录方法，请选择 **Change**（更改）。
+2. 阅读主按钮上方的访问说明行。该行说明了此连接采用的登录身份，以及哪些智能体可以使用它。若要选择其他身份、缩小智能体范围或使用其他登录方法，请选择 **Change**（更改）。
 3. 选择 **Continue to sign in**（继续登录）并完成浏览器登录，在 Airtable 询问时选择要共享的内容。
 
 Paperclip 会自动向 Airtable 注册其客户端，因此无需在开发者控制台中进行任何设置。登录需要您的 Paperclip 地址为 HTTPS，或为本地 `localhost` 地址。
@@ -34,7 +34,7 @@ Paperclip 将令牌作为机密信息存储，并在每次调用时发送给 Air
 
 ## 选择访问权限
 
-基础表和表格的访问范围来自 Airtable：即授权账户能够打开的内容，加上您在 Airtable 授权屏幕上选择的内容——或者，如果使用个人访问令牌，则是您授予令牌的权限范围和基础表。Paperclip 自身没有基础表选择器，因此请在那里进行限制，或通过授权一个属于较少工作区的账户来限制。
+Airtable Base（数据库）和 Table（数据表）的访问范围来自 Airtable：即授权账户能够打开的内容，加上您在 Airtable 授权屏幕上选择的内容——或者，如果使用个人访问令牌，则是您授予令牌的权限范围和基础表。Paperclip 自身没有基础表选择器，因此请在那里进行限制，或通过授权一个属于较少工作区的账户来限制。
 
 浏览器登录会向 Airtable 请求 `data.records:read`、`data.records:write`、`schema.bases:read`、`schema.bases:write`、`data.recordComments:read`、`data.recordComments:write` 和 `workspacesAndBases:read`。这包括更改记录和基础表架构，因此除非您在 **Permissions**（权限）选项卡中将其设置为只读，否则这不是一个只读连接。
 
@@ -42,7 +42,7 @@ Airtable 基础表通常将参考数据与操作记录混合在一起，而智�
 
 > **警告：** 在 Airtable 中删除记录很难撤销，而在大型基础表中，智能体更新错误字段的情况可能难以察觉。在您观察智能体工作之前，请将写入操作保持为 **Ask first**（先询问），并将删除操作保持为 **Off**（关闭）。Airtable 自身的修订历史是恢复路径。
 
-读取操作可以保持为 **Allowed**（允许）。参见 [Set action permissions](action-permissions.md)。
+读取操作可以保持为 **Allowed**（允许）。参见 [设置操作权限](action-permissions.md)。
 
 ## 尝试使用
 
@@ -75,6 +75,6 @@ In the "Customers" base, find the record for Northwind and tell me its status an
 - [Connector overview](https://paperclip.ing/product/connectors/airtable/)
 
 - [Google Sheets](google-sheets.md) — 用于电子表格数据，具有更严格的权限范围选项。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Using the Airtable MCP server](https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server)

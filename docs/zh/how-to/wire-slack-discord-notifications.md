@@ -30,7 +30,7 @@ seo_description: 将审批请求、受阻的高优先级问题及预算超支情
 
 Paperclip 目前不主动推送出站 Webhook——例程与智能体的组合*本身*就是推送机制。这使得所有活动部件集中在一处：你可以查看通知智能体的运行历史，通过重新运行例程来重放遗漏的事件，并通过更新一个密钥来轮换频道 Webhook。有关底层模型，请参阅 [心跳与例程](../guides/projects-workflow/routines.md)。
 
-> **提示：** 已经通过 **与智能体聊天** 连接了 Slack？该机器人背后的智能体可以在例程中向其启用的频道或向你发送私信，无需使用 Webhook。将目标位置和定时设置写入例程的指令中。每次运行时，系统会在发送前检查例程负责人的关联 Slack 账户及权限。请参阅 [Slack → 稍后发送消息，或按计划发送](../../connectors/slack.md#send-messages-later-or-on-a-schedule)。对于 Discord，或者如果你尚未启用实验性聊天连接器，下方的 Webhook 配置方案仍然是更简单的选择。
+> **提示：** 已经通过 **与智能体聊天** 连接了 Slack？该机器人背后的智能体可以在例程中向其启用的频道或向你发送私信，无需使用 Webhook。将目标位置和定时设置写入例程的指令中。每次运行时，系统会在发送前检查例程负责人的关联 Slack 账户及权限。请参阅 [Slack → 稍后发送消息，或按计划发送](../connectors/slack.md#send-messages-later-or-on-a-schedule)。对于 Discord，或者如果你尚未启用实验性聊天连接器，下方的 Webhook 配置方案仍然是更简单的选择。
 
 ---
 
@@ -205,17 +205,19 @@ curl -X POST "$PAPERCLIP_API_URL/api/routines/<routine-id>/triggers" \
 
 ---
 
+<a id="signing--secrets"></a>
 ## 签名与密钥
 
 Slack 和 Discord 的 Webhook URL 是承载令牌——拥有即代表授权。任何拥有该 URL 的人都可以以 `Paperclip` 的身份向频道发送消息。两条规则可覆盖安全态势：
 
-1. **切勿提交 URL。** 将其存储在通知智能体的环境中——对于 `claude_local`，这是智能体配置中的每个智能体环境变量；对于 `http_webhook`，则在接收服务上设置。参见 [环境变量](../../reference/deploy/environment-variables.md)。
+1. **切勿提交 URL。** 将其存储在通知智能体的环境中——对于 `claude_local`，这是智能体配置中的每个智能体环境变量；对于 `http_webhook`，则在接收服务上设置。参见 [环境变量](../reference/deploy/environment-variables.md)。
 2. **泄露时轮换。** 在 Slack 中：从应用的入站 Webhook 页面重新生成 Webhook（旧 URL 会立即失效）。在 Discord 中：打开 Webhook 设置并点击 **复制 Webhook URL → 重新生成**。
 
-如果你还想将 Webhook *接收* 到 Paperclip 中（Stripe → Paperclip 例程，GitHub → Paperclip 例程），那是相反的方向，使用 Paperclip 的签名触发模型，支持 `bearer`、`hmac_sha256` 或 `github_hmac` 模式。详见 [例程 API → Webhook 触发器](../../reference/api/routines.md#webhook)。
+如果你还想将 Webhook *接收* 到 Paperclip 中（Stripe → Paperclip 例程，GitHub → Paperclip 例程），那是相反的方向，使用 Paperclip 的签名触发模型，支持 `bearer`、`hmac_sha256` 或 `github_hmac` 模式。详见 [例程 API → Webhook 触发器](../reference/api/routines.md#webhook)。
 
 ---
 
+<a id="testing-the-loop"></a>
 ## 测试循环
 
 在将例程设为 `active` 之前，先从你的笔记本电脑对 Webhook 进行试运行：
@@ -258,6 +260,6 @@ curl -X POST "$PAPERCLIP_API_URL/api/routines/<routine-id>/run" \
 
 - [审批（董事会指南）](../guides/day-to-day/approvals.md) — 每种审批类型在 UI 中的外观。
 - [心跳与例程](../guides/projects-workflow/routines.md) — 并发与补发策略的深入介绍。
-- [审批 API](../../reference/api/approvals.md) — 通知智能体读取的端点。
-- [例程 API](../../reference/api/routines.md) — 计划 Cron 和 Webhook 触发器参考。
+- [审批 API](../reference/api/approvals.md) — 通知智能体读取的端点。
+- [例程 API](../reference/api/routines.md) — 计划 Cron 和 Webhook 触发器参考。
 - [调试卡住的心跳](./debug-stuck-heartbeat.md) — 如果通知停止触发，这是首先应查看的地方。

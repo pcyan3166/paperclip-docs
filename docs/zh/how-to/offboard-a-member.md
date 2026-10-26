@@ -65,7 +65,7 @@ seo_description: 当成员离职时，移除其访问权限。Paperclip 通过�
 2. 如果其带有绿色的实例管理员盾牌图标，点击 **移除实例管理员**。
 3. 在下方的 **公司访问** 网格中，取消勾选其不应再访问的所有公司，并点击 **保存公司访问**。检查下方的 **当前成员资格** 以确认结果。
 
-实例管理员可以访问*每个*公司，无论其个人成员资格如何，因此如果适用，此步骤至关重要。参见 [设置 → 实例：访问](../../administration/settings.md#instance-access) 和 [角色与权限](../../administration/roles-and-permissions.md#instance-admin-the-layer-above-companies)。
+实例管理员可以访问*每个*公司，无论其个人成员资格如何，因此如果适用，此步骤至关重要。参见 [设置 → 实例：访问](../administration/settings.md#instance-access) 和 [角色与权限](../administration/roles-and-permissions.md#instance-admin-the-layer-above-companies)。
 
 ---
 
@@ -100,7 +100,7 @@ paperclipai member list --company-id <company-id>
 
 ## 相关
 
-- [角色与权限](../../administration/roles-and-permissions.md) — 这些状态变更所接入的访问模型。
-- [公司管理](../../administration/company.md#members) — 成员页面。
-- [设置](../../administration/settings.md#instance-access) — 实例访问屏幕。
+- [角色与权限](../administration/roles-and-permissions.md) — 这些状态变更所接入的访问模型。
+- [公司管理](../administration/company.md#members) — 成员页面。
+- [设置](../administration/settings.md#instance-access) — 实例访问屏幕。
 - [添加人类队友](./add-a-human-teammate.md) — 入职方向。

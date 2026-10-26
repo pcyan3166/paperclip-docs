@@ -76,6 +76,7 @@ GitHub 安装访问权限和 Paperclip 中启用的仓库是独立的控制项�
 
 在普通 Issue 中的提及会启动任务对话；PR 评分检查针对的是特定的 PR 提交。普通的后续讨论不会改变评分。重复的审查请求会继续 PR 现有的 Paperclip 任务。
 
+<a id="3-the-agents-score-becomes-a-github-check-result"></a>
 ## 3. 智能体的评分成为 GitHub 检查结果
 
 此时智能体已完成审查。假设它发现了一个问题并给我们的 PR 打了 **3/5**。GitHub 如何处理这个数字？
@@ -115,6 +116,7 @@ Agent submits a complete assessment: 5/5
 
 请参阅 [GitHub 的 Checks API 指南](https://docs.github.com/en/rest/guides/using-the-rest-api-to-interact-with-checks)。
 
+<a id="4-githubs-repository-rules-decide-whether-the-check-blocks-merging"></a>
 ## 4. GitHub 的仓库规则决定检查是否阻止合并
 
 我们的示例 PR 现在有一个红色的 **Paperclip Review** 检查。我们还有一个选择：该结果是否应阻止合并？

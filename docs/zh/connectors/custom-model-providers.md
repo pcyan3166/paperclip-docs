@@ -32,7 +32,7 @@ Paperclip Runner 对其 Codex、OpenCode 和 ACP Claude 提供商使用相同的
 3. 审查 **API 格式** 和 **身份验证**。
 4. 当需要身份验证时，输入凭据。
 5. 可选地，使用提供商模型 ID 或网关别名添加 **模型 ID（逗号分隔）**。
-6. 选择连接的人类受众和智能体访问权限，然后选择 **连接**。
+6. 选择连接的适用人员范围和智能体访问权限，然后选择 **连接**。
 
 通用的模型提供商设置还将 **自定义网关** 和 **本地端点** 分组在 **高级提供商** 下。
 
@@ -50,11 +50,11 @@ Paperclip Runner 对其 Codex、OpenCode 和 ACP Claude 提供商使用相同的
 
 选择 **Amazon Bedrock**，输入 **AWS 区域**，选择 **Bedrock API key** 身份验证，并提供密钥。您可以添加想要使用的 Bedrock 模型 ID。
 
-此连接支持 Bedrock API 密钥和区域。它不接受自定义基础 URL 或 AWS 访问密钥对。Paperclip 通过 Bedrock 路由将连接投射到 Claude 框架中。
+此连接支持 Bedrock API 密钥和区域。它不接受自定义基础 URL 或 AWS 访问密钥对。Paperclip 通过 Bedrock 路由将该连接提供给 Claude 执行环境。
 
 ## 选择连接和模型
 
-打开智能体的 **连接** 选择器并选择命名的兼容账户。自定义路由连接需要显式选择；您不能将其设为责任用户的提供商默认值。
+打开智能体的 **连接** 选择器并选择命名的兼容账户。自定义路由连接需要显式选择；您不能将其设为责任用户的默认提供商。
 
 当您创建新智能体时，**连接模型** 步骤并排显示三个磁贴：提供商的订阅、提供商的 API 密钥和 **高级**（标记为 **自定义网关**）。选择 **高级** 以选择已保存的兼容连接，或者在离开智能体设置之前设置新的 OpenRouter、Amazon Bedrock、**自定义网关** 或 **本地端点** 连接。然后选择 **使用连接**。
 
@@ -93,4 +93,4 @@ Reply with the single word: ready
 - [OpenRouter](openrouter.md)
 - [检查 AI 账户使用情况](ai-usage.md)
 - [验证和故障排查](verify-and-troubleshoot.md)
-- [Paperclip Runner](../../reference/adapters/paperclip-runner.md)
+- [Paperclip Runner](../reference/adapters/paperclip-runner.md)

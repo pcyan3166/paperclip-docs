@@ -134,7 +134,7 @@ backlog → todo → in_progress → in_review → done
 | `pi_local` | 在本机运行 Pi 智能体 |
 | `hermes_local` | 在本机运行具备持久记忆和 30 多种工具的 Hermes Agent |
 
-运行环境中还包含 `openclaw_gateway`、`process` 和 `http` 等适配器类型，但目前在智能体配置下拉菜单中标为 **Coming soon（即将推出）**。完整列表见[适配器概览](../../../reference/adapters/overview.md)。
+运行环境中还包含 `openclaw_gateway`、`process` 和 `http` 等适配器类型，但目前在智能体配置下拉菜单中标为 **Coming soon（即将推出）**。完整列表见[适配器概览](../../reference/adapters/overview.md)。
 
 大多数刚开始使用 Paperclip 的人，选择 `claude_local` 就可以了。
 
@@ -153,7 +153,7 @@ backlog → todo → in_progress → in_review → done
 - 设置公司级预算，限制整个组织的支出。
 - 设置每位智能体自己的预算，同时受公司上限约束。
 - 在仪表板的费用面板中监控支出。
-- 智能体有预算策略后，可在 **Audit → Budgets（审计 → 预算）** 随时调高或调低预算；创建预算需通过 CLI 或 API（参见[智能体：预算](../../../guides/org/agents.md#budgets)）。
+- 智能体有预算策略后，可在 **Audit → Budgets（审计 → 预算）** 随时调高或调低预算；创建预算需通过 CLI 或 API（参见[智能体：预算](../org/agents.md#budgets)）。
 
 预算的执行方式：
 

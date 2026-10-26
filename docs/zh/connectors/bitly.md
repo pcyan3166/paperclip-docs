@@ -28,7 +28,7 @@ Bitly 出现在每个实例的目录中；无需启用实验性设置。
 
 这两种方法都具有广泛的权限。浏览器登录请求 `mcp.all` 范围，该范围涵盖 Bitly 的整个工具列表：链接和二维码、分析数据、群组、自定义域名以及 Bitly Sites。API 令牌没有文档记录的缩小范围的方法，因此请将其视为同等情况。Paperclip 无法缩小其中任何一种的权限。
 
-这将实际的控制权交给了 Paperclip 的操作列表。请按照以下方式对其进行排序：
+这将实际的控制权交给了 Paperclip 的操作列表。请按以下方式配置这些操作：
 
 | 操作类型 | 建议设置 |
 | --- | --- |
@@ -36,7 +36,7 @@ Bitly 出现在每个实例的目录中；无需启用实验性设置。
 | 创建或更新链接和二维码 | **Ask first**（先询问） |
 | 删除链接或 Sites，发布 Sites，更改自定义域名 | **Off**（关闭） |
 
-在连接后立即在 **Permissions**（权限）选项卡上设置这些项。参见 [Set action permissions](action-permissions.md)（设置操作权限）。
+在连接后立即在 **Permissions**（权限）选项卡上设置这些项。参见 [设置操作权限](action-permissions.md)（设置操作权限）。
 
 ## 试用
 
@@ -62,8 +62,8 @@ Using Bitly, show me the five short links with the most clicks in the last 30 da
 
 ## 相关指南
 
-- [How connector access works](access-model.md)（连接器访问机制说明）
-- [Set action permissions](action-permissions.md)（设置操作权限）
+- [连接器访问机制说明](access-model.md)（连接器访问机制说明）
+- [设置操作权限](action-permissions.md)（设置操作权限）
 - [Bitly MCP quickstart](https://dev.bitly.com/bitly-mcp/overview/quickstart/)（Bitly MCP 快速入门）
 
 ## 来源

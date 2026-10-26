@@ -34,13 +34,13 @@ seo_description: 比较用于运行智能体的适配器——Claude Code、Code
 
 > **说明：** 在 Paperclip Cloud 上，新建智能体选择器提供 Claude、Codex、OpenCode 和 Grok。设置 Grok 智能体时，可连接 xAI 订阅或 API 密钥。
 
-> **建议：** Grok Build 也可以通过实验性 **Paperclip Runner** 适配器（`paperclip_runner`）运行，此时选择 **Grok Build** 作为服务提供商。执行环境中必须在固定路径安装 Grok Build。详见 [Paperclip Runner 上的 Grok Build](../../../reference/adapters/grok-local.md#grok-build-on-paperclip-runner)。
+> **建议：** Grok Build 也可以通过实验性 **Paperclip Runner** 适配器（`paperclip_runner`）运行，此时选择 **Grok Build** 作为服务提供商。执行环境中必须在固定路径安装 Grok Build。详见 [Paperclip Runner 上的 Grok Build](../../reference/adapters/grok-local.md#grok-build-on-paperclip-runner)。
 
 ### 明确选择 Paperclip Runner
 
 如需使用原生生命周期，请选择 **Paperclip Runner**，再选择服务提供商：**Codex**、**OpenCode**、**Claude Managed**、**AWS AgentCore**、**ACP agents** 或 **Grok Build**。在 **ACP agents** 下，可选择 Grok Build、Claude、Cursor 或 Pi；GitHub Copilot 标记为等待资格验证。已有的直接适配器智能体会继续使用当前运行环境，直到你更改适配器。
 
-此功能处于实验阶段：自托管实例默认开启 `enableNativeRunner`，Cloud 托管实例默认关闭。详见 [Paperclip Runner](../../../reference/adapters/paperclip-runner.md)。
+此功能处于实验阶段：自托管实例默认开启 `enableNativeRunner`，Cloud 托管实例默认关闭。详见 [Paperclip Runner](../../reference/adapters/paperclip-runner.md)。
 
 ### 默认情况下，智能体会在全自动模式运行
 
@@ -48,9 +48,9 @@ seo_description: 比较用于运行智能体的适配器——Claude Code、Code
 
 你可以在各智能体的适配器配置中降低自动程度。每种适配器的参考页面会说明对应开关：
 
-- Claude Code：`dangerouslySkipPermissions`（参见 [Claude Code 权限](../../../reference/adapters/claude-code.md#permissions)）
-- Codex：`dangerouslyBypassApprovalsAndSandbox`（参见 [Codex 权限](../../../reference/adapters/codex.md#permissions)）
-- OpenCode：`dangerouslySkipPermissions`（参见 [OpenCode](../../../reference/adapters/opencode.md)）
+- Claude Code：`dangerouslySkipPermissions`（参见 [Claude Code 权限](../../reference/adapters/claude-code.md#permissions)）
+- Codex：`dangerouslyBypassApprovalsAndSandbox`（参见 [Codex 权限](../../reference/adapters/codex.md#permissions)）
+- OpenCode：`dangerouslySkipPermissions`（参见 [OpenCode](../../reference/adapters/opencode.md)）
 
 > **提示：** “全自动”指跳过运行过程中的确认提示，不代表智能体可以随意操作公司资源。公司权限、预算和审批要求依然生效。
 
@@ -71,7 +71,7 @@ seo_description: 比较用于运行智能体的适配器——Claude Code、Code
 
 **Working directory（工作目录，已弃用）**
 
-新建智能体时不会显示此字段。它只会在编辑已有工作目录配置的旧版本地智能体时出现，作为旧配置的回退选项。新智能体会从任务所属项目的工作区获取文件夹，因此请配置[项目工作区](../../../guides/projects-workflow/workspaces.md)，而不要为每位智能体指定一个文件夹。如果旧智能体仍显示此字段，可以保持原样；等其工作都迁入项目后，也可以清除此字段。
+新建智能体时不会显示此字段。它只会在编辑已有工作目录配置的旧版本地智能体时出现，作为旧配置的回退选项。新智能体会从任务所属项目的工作区获取文件夹，因此请配置[项目工作区](../projects-workflow/workspaces.md)，而不要为每位智能体指定一个文件夹。如果旧智能体仍显示此字段，可以保持原样；等其工作都迁入项目后，也可以清除此字段。
 
 **Model（模型）**
 
@@ -80,7 +80,7 @@ seo_description: 比较用于运行智能体的适配器——Claude Code、Code
 - `claude-opus-5-5` 或 `claude-opus-5`——能力最强、推理效果最佳，费用也最高。适合 CEO 或负责复杂策略的智能体。
 - `claude-sonnet-5-5` 或 `claude-sonnet-5`——速度快、能力强、费用较低。适合处理日常任务的执行人员。使用 Sonnet 5.5 需要 Claude Code `2.1.284` 或更高版本。
 
-不确定时，可为执行人员选择 Sonnet，为 CEO 选择 Opus。模型旁的 **effort（思考强度）** 选项会随模型不同而改变；较新的 Opus、Sonnet 5 和 5.5、Fable 模型会提供 `xhigh` 和 `max`。详见 [Claude Code——推理强度](../../../reference/adapters/claude-code.md#reasoning-effort)。
+不确定时，可为执行人员选择 Sonnet，为 CEO 选择 Opus。模型旁的 **effort（思考强度）** 选项会随模型不同而改变；较新的 Opus、Sonnet 5 和 5.5、Fable 模型会提供 `xhigh` 和 `max`。详见 [Claude Code——推理强度](../../reference/adapters/claude-code.md#reasoning-effort)。
 
 **Environment variables（环境变量）**
 
@@ -122,7 +122,7 @@ Codex 的 **Model（模型）** 示例：
 - `gpt-6-astra`、`gpt-6-sol` 或 `gpt-6-luna`——GPT-6 系列，提供额外的推理强度级别。
 - `o4-mini`——速度快、成本低，适合日常任务。
 
-完整列表见 [Codex——模型](../../../reference/adapters/codex.md#models)。
+完整列表见 [Codex——模型](../../reference/adapters/codex.md#models)。
 
 ![Codex 本地适配器配置表单](../../../user-guides/screenshots/light/agents/codex-local-config.png)
 
@@ -142,9 +142,9 @@ OpenCode 适配器 `opencode_local` 使用 OpenCode 运行智能体。OpenCode �
 
 有三种内置适配器在智能体配置下拉菜单中标记为 **Coming soon（即将推出）**，目前不能直接从界面中选择。它们在运行时中功能完整；在界面选择器开放前，可以通过 API 或导入公司导出包来配置。
 
-- `openclaw_gateway`——通过 WebSocket gateway 协议连接远程 OpenClaw 实例。常规方式是在公司设置页面使用 OpenClaw 邀请提示流程。详见 [OpenClaw Gateway](../../../reference/adapters/openclaw-gateway.md)。
-- `http`——以 webhook 方式调用你自己的服务，面向开发自定义智能体集成的开发者。详见 [HTTP](../../../reference/adapters/http.md)。
-- `process`——运行任意本地命令或脚本。详见 [Process](../../../reference/adapters/process.md)。
+- `openclaw_gateway`——通过 WebSocket gateway 协议连接远程 OpenClaw 实例。常规方式是在公司设置页面使用 OpenClaw 邀请提示流程。详见 [OpenClaw Gateway](../../reference/adapters/openclaw-gateway.md)。
+- `http`——以 webhook 方式调用你自己的服务，面向开发自定义智能体集成的开发者。详见 [HTTP](../../reference/adapters/http.md)。
+- `process`——运行任意本地命令或脚本。详见 [Process](../../reference/adapters/process.md)。
 
 也可以安装外部适配器插件；加载后会出现在下拉菜单中。
 
@@ -240,4 +240,4 @@ Paperclip 等待响应的最长时间，单位为毫秒；超时后会将心跳�
 
 现在你已经了解适配器的用途，以及如何配置最常见的几种适配器。下一篇指南介绍执行工作区，也就是智能体执行文件类任务时使用的隔离代码环境。
 
-[执行工作区 →](../../../guides/projects-workflow/workspaces.md)
+[执行工作区 →](../projects-workflow/workspaces.md)

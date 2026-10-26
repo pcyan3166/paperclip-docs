@@ -124,7 +124,7 @@ Task（任务）的另一种称呼，在 API 和部分界面中交替使用。�
 
 ### Paperclip Desktop（Paperclip 桌面版）
 
-一款**非官方、由社区维护的** macOS 应用，可将 Paperclip 实例包装成普通的 Mac 应用。它并非由 Paperclip 团队构建或支持。受支持的安装方式是[安装指南](../getting-started/installation.md)中介绍的终端安装和服务器安装。详见[社区桌面应用](../../../how-to/community-desktop-app.md)。
+一款**非官方、由社区维护的** macOS 应用，可将 Paperclip 实例包装成普通的 Mac 应用。它并非由 Paperclip 团队构建或支持。受支持的安装方式是[安装指南](../getting-started/installation.md)中介绍的终端安装和服务器安装。详见[社区桌面应用](../../how-to/community-desktop-app.md)。
 
 ### Project（项目）
 
@@ -168,7 +168,7 @@ Paperclip 中的工作单元。每项任务都有标题、说明、优先级、�
 
 ### Unblock owner（解除阻塞负责人）
 
-系统记录的、能够解除阻塞任务的一方，以及他们需要采取的简短行动。解除阻塞负责人可以是某位智能体（系统会唤醒一次，告知它任务正在等待）、某位当前公司的成员，或董事会。这样，[阻塞收件箱](../../../guides/day-to-day/blocked-inbox.md)就能指出轮到谁采取行动，而不必让你从说明中猜测。
+系统记录的、能够解除阻塞任务的一方，以及他们需要采取的简短行动。解除阻塞负责人可以是某位智能体（系统会唤醒一次，告知它任务正在等待）、某位当前公司的成员，或董事会。这样，[阻塞收件箱](../day-to-day/blocked-inbox.md)就能指出轮到谁采取行动，而不必让你从说明中猜测。
 
 ---
 

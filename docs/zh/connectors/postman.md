@@ -35,7 +35,7 @@ seo_description: 连接 Postman 托管的 MCP 服务器。首先选择您的区�
 
 ## 连接前准备
 
-- 一个具有访问权限的 Postman 账户，用于智能体需要使用的的工作区。
+- 一个能够访问智能体所需工作区的 Postman 账户。
 - 对于欧洲区域，需要一个 Postman API 密钥。
 
 ## 连接 Postman

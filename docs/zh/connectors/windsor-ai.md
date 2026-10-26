@@ -36,7 +36,7 @@ Paperclip 的操作列表是缩小权限范围的地方：
 | 读取源字段和报告数据 | **Allowed（允许）** |
 | 更改广告活动、预算、帖子或商品列表 | **Off（关闭）**，或如果由人工审核每一项，则设为 **Ask first（先询问）** |
 
-在连接后立即在 **Permissions（权限）** 选项卡中设置这些项。参见 [Set action permissions](action-permissions.md)。
+在连接后立即在 **Permissions（权限）** 选项卡中设置这些项。参见 [设置操作权限](action-permissions.md)。
 
 当智能体报告结果时，请要求它们指明源账户和指标定义，因为同一指标在不同平台上可能含义不同。
 
@@ -64,7 +64,7 @@ Using Windsor.ai, list the connected data sources, then pull clicks and impressi
 ## 相关指南
 
 - [GSC Wizard](gsc-wizard.md) — 来自 Search Console 和 Bing Webmaster 的搜索性能。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Windsor.ai MCP](https://mcp.windsor.ai/)
 
 ## 来源

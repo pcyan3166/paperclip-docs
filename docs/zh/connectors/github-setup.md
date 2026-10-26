@@ -13,6 +13,7 @@ seo_description: 针对两种 GitHub 路由的分步设置指南——使用托�
 
 关于每种路由的管理范围，以及 shell Git 和 `gh` 的例外情况，请参阅 [GitHub](github.md)。在为智能体授予专用身份之前，请先阅读该例外说明。
 
+<a id="set-up-github-as-an-agent-tool"></a>
 ## 将 GitHub 设置为智能体工具
 
 ### 1. 首先决定身份
@@ -35,7 +36,7 @@ seo_description: 针对两种 GitHub 路由的分步设置指南——使用托�
 
 | 路径 | 说明 | 提供条件 |
 | --- | --- | --- |
-| **Connect GitHub** | Paperclip 的托管 GitHub App 授权 | 仅当实例已注册 Paperclip Cloud 且 Cloud 宣传了 GitHub 连接器配置文件时 |
+| **Connect GitHub** | Paperclip 的托管 GitHub App 授权 | 仅当实例已注册 Paperclip Cloud 且 Cloud 提供了 GitHub 连接器配置文件时 |
 | **Personal access token (advanced)** | 您创建并控制的细粒度令牌 | 始终提供 |
 
 **从此时起，这两个分支不共享步骤。** 请遵循 3a 或 3b，不要同时执行。
@@ -87,6 +88,7 @@ Paperclip 的 [execution policy](../guides/power/execution-policy.md) 也可以�
 
 不要通过推送、Pull Request 或合并来验证。
 
+<a id="set-up-chat-or-a-pr-review-bot-from-github"></a>
 ## 设置来自 GitHub 的聊天或 PR 审查机器人
 
 > **实验性功能：** 在开始此路径之前，请在实例的实验性设置中启用 **GitHub review bots**（GitHub 审查机器人）。它与 **Chat connectors**（聊天连接器）是分开的。
@@ -112,14 +114,14 @@ Paperclip 的 [execution policy](../guides/power/execution-policy.md) 也可以�
 | GitHub App 日志中 Webhook 传递失败 | Webhook URL 或密钥不匹配 | 在 Paperclip 中重新生成密钥并更新 App |
 | 评论未创建任务 | App 未安装在该仓库上，或未订阅这两个评论事件 | 在那里安装并检查事件 |
 
-更多详情见 [Verify a connector and fix a broken one](verify-and-troubleshoot.md)。
+更多详情见 [验证连接器并修复故障连接器](verify-and-troubleshoot.md)。
 
 ## 相关指南
 
-- [Understanding GitHub PR review bots](understanding-github-review-bots.md)
-- [Set up a GitHub review bot](github-review-bot-setup.md)
+- [理解 GitHub PR 审查机器人](understanding-github-review-bots.md)
+- [设置 GitHub 审查机器人](github-review-bot-setup.md)
 
 - [GitHub](github.md)
-- [Connect an agent to a GitHub repo](../how-to/connect-agent-to-github.md)
-- [Use separate accounts for people and agents](separate-accounts.md)
-- [Set action permissions](action-permissions.md)
+- [将智能体连接到 GitHub 仓库并让其打开 PR](../how-to/connect-agent-to-github.md)
+- [为人员和智能体使用独立账户](separate-accounts.md)
+- [设置操作权限](action-permissions.md)

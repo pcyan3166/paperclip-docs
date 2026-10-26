@@ -94,7 +94,7 @@ Microsoft 自己的操作指南是 [Create a bot for Teams](https://learn.micros
 
 一次团队安装覆盖该团队的 **标准** 频道。**私有和共享频道需要单独安装，且在此版本中不受支持**——智能体不会看到其中的消息，因此不要围绕私有频道规划工作。
 
-外部安装并非完整的权限边界。Paperclip 还会检查发送者的关联身份和成员资格，或未关联人员的配置策略。在邀请用户之前，请审查这些设置和连接上的响应智能体。参见 [How connector access works](access-model.md)。
+外部安装并非完整的权限边界。Paperclip 还会检查发送者的关联身份和成员资格，或未关联人员的配置策略。在邀请用户之前，请审查这些设置和连接上的响应智能体。参见 [连接器访问机制说明](access-model.md)。
 
 ## 尝试使用
 
@@ -128,5 +128,5 @@ Microsoft 自己的操作指南是 [Create a bot for Teams](https://learn.micros
 ## 相关指南
 
 - [Slack](slack.md)、[Discord](discord.md)、[Telegram](telegram.md) — 其他对话渠道。
-- [How connector access works](access-model.md)
+- [连接器访问机制说明](access-model.md)
 - [Create a bot for Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/create-a-bot-for-teams)

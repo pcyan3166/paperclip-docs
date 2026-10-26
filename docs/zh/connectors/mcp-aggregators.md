@@ -75,7 +75,7 @@ Paperclip 控制对其为该连接列出的工具的访问。这些工具内部�
 
 ## 查找和管理应用账户
 
-目录默认从 **Paperclip** 开始。使用 **Composio**、**Arcade**、**已安装** 或 **全部** 来更改视图。搜索匹配应用名称、别名、提供商和已保存的账户。未安装的目录每页显示 50 个条目；匹配的已安装应用保留在其上方。
+目录默认从 **Paperclip** 开始。使用 **Composio**、**Arcade**、**Installed**（已安装）或 **All**（全部）来更改视图。搜索匹配应用名称、别名、提供商和已保存的账户。未安装的目录每页显示 50 个条目；匹配的已安装应用会排在该目录上方。
 
 没有原生设置的应用可能作为一个卡片出现，显示其可用提供商的标志。当多个提供商支持时，**连接** 会打开提供商选择。即使同一应用也出现在外部提供商的目录中，原生连接器仍保留其自己的设置。
 
@@ -95,12 +95,12 @@ Composio、Arcade 和 Executor 网关可以在 **权限** 中显示 **已连接�
 
 ## 相关
 
-- [连接器](../../connectors.md)
+- [连接器](../connectors.md)
 - [连接自定义 MCP 服务器](custom-mcp-servers.md)
 - [Zapier](zapier.md)
 - [连接器访问如何工作](access-model.md)
 - [设置操作权限](action-permissions.md)
-- [工具网关](../../reference/api/tool-gateway.md)
+- [工具网关](../reference/api/tool-gateway.md)
 
 ## 来源
 

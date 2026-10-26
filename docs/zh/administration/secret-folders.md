@@ -5,7 +5,7 @@ seo_description: 将机密名称视为文件夹树，使 dev/github/oauth/client
 
 # 机密文件夹
 
-当一家公司持有的凭证数量超过寥寥几个时，单一长列表就不再实用了。机密屏幕可以将您的机密名称读取为文件夹树：名为 `dev/github/oauth/clientid` 的机密会显示在 `dev` 内部，然后是 `github`，再然后是 `oauth`，而 `clientid` 则是您实际点击的对象。为了实现这一点，并没有存储任何新数据——文件夹只是查看您已选择名称的另一种方式。
+当一家公司持有的凭证数量超过寥寥几个时，单一长列表就不再实用了。机密管理页面会将机密名称按文件夹树显示：名为 `dev/github/oauth/clientid` 的机密会显示在 `dev` 内部，然后是 `github`，再然后是 `oauth`，而 `clientid` 则是您实际点击的对象。为了实现这一点，并没有存储任何新数据——文件夹只是查看您已选择名称的另一种方式。
 
 ## 为什么存在文件夹视图
 
@@ -54,7 +54,7 @@ seo_description: 将机密名称视为文件夹树，使 dev/github/oauth/client
 
 以下是令人惊讶的部分：创建文件夹不会保存任何内容。它会带您进入刚刚命名的文件夹，该文件夹保持为暂存区，直到有机密落入其中。如果您在没有创建机密的情况下导航离开，则没有创建任何内容，也没有丢失任何内容。这不是需要规避的限制，而是本页其他地方的相同规则——文件夹的存在是因为机密被这样命名。
 
-因此，后半部分很重要。一旦您站在某个文件夹中，**New secret**（新建机密）会打开创建对话框，文件夹路径已作为一个小芯片附加到名称字段，下方有一行注释 *Creating in `dev/github` — remove the chip to type a different path*（正在 `dev/github` 中创建 — 移除芯片以输入不同路径）。您只需输入名称的最后部分——`clientsecret`——Paperclip 将存储 `dev/github/clientsecret`。如果您更愿意自己输入完整路径，请点击芯片上的 ×。
+因此，后半部分很重要。一旦您站在某个文件夹中，**New secret**（新建机密）会打开创建对话框，文件夹路径已作为一个小标签附加到名称字段，下方有一行注释 *Creating in `dev/github` — remove the chip to type a different path*（正在 `dev/github` 中创建 — 移除芯片以输入不同路径）。您只需输入名称的最后部分——`clientsecret`——Paperclip 将存储 `dev/github/clientsecret`。如果您更愿意自己输入完整路径，请点击标签上的 ×。
 
 您刚刚暂存的空文件夹会显示 **No secrets in this folder yet**（此文件夹中暂无机密），并带有 **New secret here**（在此新建机密）按钮，这是少一次点击的相同流程。
 
@@ -65,7 +65,7 @@ seo_description: 将机密名称视为文件夹树，使 dev/github/oauth/client
 - 将变化最多的部分放在前面。大多数团队发现那是环境：`prod/...`、`dev/...`、`staging/...`。
 - 然后是服务，再然后是具体凭证——`prod/stripe/apikey` 而不是 `stripe-prod-apikey`。
 - 保持深度诚实。每多一个斜杠，对于后来者就是多一次点击。
-- 名称和文件夹可以共存：如果您有一个名为 `dev/github` 的机密 *and* 名为 `dev/github/oauth/...` 的机密，您将在 `dev` 内部并排看到一个 `github` 机密和一个 `github` 文件夹。这可以工作，但读起来很奇怪——值得避免。
+- 名称和文件夹可以共存：如果您有一个名为 `dev/github` 的机密，以及名为 `dev/github/oauth/...` 的机密，您将在 `dev` 内部并排看到一个 `github` 机密和一个 `github` 文件夹。这可以工作，但读起来很奇怪——值得避免。
 
 路径在所有出现的地方都以相同方式渲染，包括在搜索结果和 **My secrets**（我的机密）选项卡中：文件夹部分变暗，最后一段加粗，以便您的眼睛落在凭证上而不是前缀上。
 
@@ -77,5 +77,5 @@ seo_description: 将机密名称视为文件夹树，使 dev/github/oauth/client
 
 ## 延伸阅读
 
-- [Secret scopes and the responsible user](./secret-scopes.md)（机密范围与负责用户）解释了公司级与每用户值以及分发检查。
-- [Secrets reference](../../reference/deploy/secrets.md)（机密参考）涵盖了提供商、保险库和机密引用。
+- [机密范围与责任人](./secret-scopes.md)（机密范围与负责用户）解释了公司级与每用户值以及分发检查。
+- [Secrets reference](../reference/deploy/secrets.md)（机密参考）涵盖了提供商、保险库和机密引用。

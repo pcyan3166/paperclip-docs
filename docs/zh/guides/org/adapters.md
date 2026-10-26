@@ -10,7 +10,7 @@ Paperclip 中的每位智能体都需要一个**适配器**，让控制平面能
 
 **适配器管理器**是查看实例已识别适配器的统一位置。你可以切换智能体菜单中的适配器可见性、安装和升级外部包，并暂停覆盖内置适配器的外部版本。
 
-本指南介绍此页面。每种适配器的具体配置字段（工作目录、模型名称、超时和环境变量）见[智能体适配器](./agent-adapters.md)。各适配器类型的技术目录（数据格式、能力、模型列表）见[适配器参考](../../../reference/adapters/overview.md)。
+本指南介绍此页面。每种适配器的具体配置字段（工作目录、模型名称、超时和环境变量）见[智能体适配器](./agent-adapters.md)。各适配器类型的技术目录（数据格式、能力、模型列表）见[适配器参考](../../reference/adapters/overview.md)。
 
 > **Alpha 阶段：** 外部适配器运行时目前为 Alpha。API、磁盘目录结构和对外开放的能力列表都可能随版本变化。生产环境请固定适配器包版本。
 
@@ -95,7 +95,7 @@ Paperclip 会获取包，验证它是否导出了 `createServerAdapter()` 工厂
 
 Linux、WSL 和原生 Windows 路径都可以使用；Windows 路径会自动转换。本地路径安装的行会显示文件夹图标，便于识别；它们不会提供 **Reinstall（重新安装）** 操作，因为没有软件包注册表可供获取。
 
-> **建议：** 适配器包必须导出符合 Paperclip 适配器约定的 `createServerAdapter()` 函数。详见[创建适配器](../../../reference/adapters/creating-an-adapter.md)。
+> **建议：** 适配器包必须导出符合 Paperclip 适配器约定的 `createServerAdapter()` 函数。详见[创建适配器](../../reference/adapters/creating-an-adapter.md)。
 
 ---
 
@@ -135,7 +135,7 @@ Linux、WSL 和原生 Windows 路径都可以使用；Windows 路径会自动转
 
 ![智能体 Harness / Runtime 页面中的适配器和配置卡片，每位智能体的适配器设置位于此处](../../../user-guides/screenshots/light/adapters/detail.png)
 
-常见内置适配器的逐项配置说明见[智能体适配器](./agent-adapters.md)。适配器需要实现的技术约定（包括 UI 解析器架构）见[适配器 UI 解析器](../../../reference/adapters/adapter-ui-parser.md)。
+常见内置适配器的逐项配置说明见[智能体适配器](./agent-adapters.md)。适配器需要实现的技术约定（包括 UI 解析器架构）见[适配器 UI 解析器](../../reference/adapters/adapter-ui-parser.md)。
 
 ---
 
@@ -147,7 +147,7 @@ Linux、WSL 和原生 Windows 路径都可以使用；Windows 路径会自动转
 
 每行名称下方的元数据是最直接的信号，它会显示适配器 `type` 和报告的模型数量，例如 `claude_local · 13 models`。如果外部适配器的 npm 包名与类型不同，中间还会显示包名（`type · package · N models`）。
 
-- **模型数为 `0`：** 对于会列出模型的适配器，这通常意味着适配器已加载，但无法连接服务提供商（API 密钥缺失、离线或认证失败）。请检查智能体的环境变量和服务提供商状态页面。
+- **`0 models`：** 对于会列出模型的适配器，这通常意味着适配器已加载，但无法连接服务提供商（API 密钥缺失、离线或认证失败）。请检查智能体的环境变量和服务提供商状态页面。
 - **安装后行未出现：** 安装失败。重新打开安装对话框；错误提示会说明原因，例如包无效、清单文件缺失或未导出 `createServerAdapter()`。
 - **重新加载或重新安装显示错误提示：** 新代码未能加载，之前的版本会继续运行。修复错误（本地路径安装常见问题是构建输出错误）后再重新加载。
 - **智能体显示“adapter not found”：** 适配器已移除，或智能体上的 `type` 与已安装适配器不匹配。重新安装软件包，或更改智能体使用的适配器。
@@ -160,6 +160,6 @@ Linux、WSL 和原生 Windows 路径都可以使用；Windows 路径会自动转
 ## 接下来可以阅读
 
 - [智能体适配器](./agent-adapters.md)——各适配器的用途，以及智能体表单提供哪些配置字段。
-- [适配器参考](../../../reference/adapters/overview.md)——所有内置适配器类型的技术目录。
-- [创建适配器](../../../reference/adapters/creating-an-adapter.md)——如何编写并发布外部适配器包。
-- [适配器 UI 解析器](../../../reference/adapters/adapter-ui-parser.md)——适配器用于在智能体表单中显示配置字段的架构约定。
+- [适配器参考](../../reference/adapters/overview.md)——所有内置适配器类型的技术目录。
+- [创建适配器](../../reference/adapters/creating-an-adapter.md)——如何编写并发布外部适配器包。
+- [适配器 UI 解析器](../../reference/adapters/adapter-ui-parser.md)——适配器用于在智能体表单中显示配置字段的架构约定。

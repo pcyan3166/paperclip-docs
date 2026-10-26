@@ -61,10 +61,10 @@ CEO 将工程任务分配给 CTO，将营销任务分给 CMO。策略审批完�
 ```
 CEO
 ├── CTO
-│   ├── 后端工程师
-│   └── 前端工程师
+│   ├── Backend Engineer
+│   └── Frontend Engineer
 └── CMO
-    └── 内容撰稿人
+    └── Content Writer
 ```
 
 CEO 将高层级任务交给 CTO 和 CMO；他们再为各自下属创建子任务。每个层级都能处理自己的职责，不必把所有事项都上报给 CEO。
@@ -91,7 +91,7 @@ CEO 将高层级任务交给 CTO 和 CMO；他们再为各自下属创建子任�
 
 3. **完成设置**
 
-   在设置页面按提示连接模型服务提供商、选择模型、点击 **Test your agent（测试智能体）**，然后点击 **Finish setup（完成设置）**。需要帮助时，请参阅[智能体适配器](../../../guides/org/agent-adapters.md)。
+   在设置页面按提示连接模型服务提供商、选择模型、点击 **Test your agent（测试智能体）**，然后点击 **Finish setup（完成设置）**。需要帮助时，请参阅[智能体适配器](./agent-adapters.md)。
 
    新智能体默认向 CEO 汇报，因此设置完成后，它已处于 CEO 下一级的管理层级中。
 

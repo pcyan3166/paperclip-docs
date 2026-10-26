@@ -16,7 +16,7 @@ seo_description: 查找智能体的公钥，了解哪些运行环境会获得私
 
 新建智能体时会同时获得身份。在此功能推出前创建的智能体，会在 Paperclip 准备该智能体下一次受管理的运行时获得身份。在此之前，面板会显示 **Not created yet（尚未创建）**。仅打开页面、重启实例或读取 API 都不会创建身份。
 
-也可以通过 [`GET /api/agents/:id/identity`](../../../reference/api/agents.md#public-identity) 读取智能体的公开身份。尚未配置时该接口返回 `null`；配置后会返回算法、密钥 ID、公钥 PEM 和创建时间。该接口使用与读取对应智能体相同的访问检查。
+也可以通过 [`GET /api/agents/:id/identity`](../../reference/api/agents.md#public-identity) 读取智能体的公开身份。尚未配置时该接口返回 `null`；配置后会返回算法、密钥 ID、公钥 PEM 和创建时间。该接口使用与读取对应智能体相同的访问检查。
 
 ## 运行环境会收到什么
 
@@ -54,7 +54,7 @@ const signature = sign(
 
 复制智能体或导入公司/模板时会创建新身份。开发种子数据不会包含身份记录，以便复制出来的智能体获取新的身份。灾难恢复时恢复数据库会保留原身份，因此应将这种方式用于恢复同一个实例，而不是创建独立的开发智能体。
 
-有关便携式导出和实例恢复之间的区别，请参阅[备份和恢复公司](../../../how-to/back-up-and-restore-a-company.md)；运行时环境变量见[环境变量](../../../reference/deploy/environment-variables.md#agent-runtime)。
+有关便携式导出和实例恢复之间的区别，请参阅[备份和恢复公司](../../how-to/back-up-and-restore-a-company.md)；运行时环境变量见[环境变量](../../reference/deploy/environment-variables.md#agent-runtime)。
 
 ## 来源
 

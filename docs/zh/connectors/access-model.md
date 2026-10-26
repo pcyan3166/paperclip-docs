@@ -65,7 +65,7 @@ seo_description: 适用的访问控制取决于连接器的类型。本文解释
 | 设置选择 | 授权类型 | 凭据策略 | 含义 |
 | --- | --- | --- | --- |
 | **仅我** | `user` | `per_user` | 您的账户。智能体仅在您是责任人的运行中使用它。 |
-| **组织内的任何人** | `organization` | shared | 公司的一个账户。符合条件的智能体在责任人在凭据的人类受众范围内的运行中使用它。 |
+| **组织内的任何人** | `organization` | shared | 公司的一个账户。符合条件的智能体会在运行责任人属于该凭据授权人员范围时使用它。 |
 | **为智能体专用的账户** | `agent` | `per_agent` | 属于一个智能体的账户，无论谁启动了运行，始终由该智能体使用。 |
 
 您在连接之前不必回答这个问题。设置会在主按钮上方的一行中说明它将使用的身份，**Change**（更改）会打开这些选择。当方法允许时，新连接默认使用组织身份；仅支持个人或专用智能体访问的方法则默认使用其中之一。当智能体从任务中请求连接时，设置默认从 **仅我** 开始，且仅限该智能体。
@@ -74,8 +74,9 @@ seo_description: 适用的访问控制取决于连接器的类型。本文解释
 
 AgentMail 是设置例外：其新密钥默认对公司内所有人及所选收件箱所有者开放。重用密钥会保留其现有授权。
 
-组织授权拥有自己的人类受众，在连接器的身份卡上设置：**公司内的任何人**，或 **我选择的人类** 并附带命名成员列表。该受众决定了共享凭据将支持哪些人的运行。
+组织授权拥有自己的适用人员范围，在连接器的身份卡上设置：**公司内的任何人**，或 **我选择的人员** 并附带命名成员列表。该受众决定了共享凭据将支持哪些人的运行。
 
+<a id="scopes-recorded-on-a-sign-in-grant"></a>
 ### 登录授权上记录的权限范围
 
 当您通过提供商登录进行连接时，授权还会记录 OAuth 权限范围。并非每个提供商都会说明其实际授予的内容，因此记录会注明列表的来源。如果您通过 API 读取授权，请查看 `providerTenant.oauth` 下方：
@@ -156,15 +157,15 @@ AgentMail 是设置例外：其新密钥默认对公司内所有人及所选收�
 
 访问决策在调用时解决，而非在设置时解决。工具网关持有智能体的有效策略——连接自身的设置，加上适用的任何工具配置文件和公司工具策略——并在请求到达提供商之前决定允许、询问或拒绝。更改权限在下次调用时生效；无需重新连接。
 
-> **注意：** 自定义 `tools:use` 权限授权——存储的逐智能体或逐人员类型，而非上述的连接身份——严格按字面执行。如果授权的 `scope.allow` 列表命名了不同的工具、连接或应用程序，则不覆盖该调用；具有无法识别的选择器或格式错误的限制的授权不覆盖任何内容。升级后请审查自定义授权：如果智能体失去了之前使用的工具，请先检查其授权。[Tool Gateway reference](../../reference/api/tool-gateway.md#explicit-tool-grants) 列出了匹配规则。
+> **注意：** 自定义 `tools:use` 权限授权——存储的逐智能体或逐人员类型，而非上述的连接身份——严格按字面执行。如果授权的 `scope.allow` 列表命名了不同的工具、连接或应用程序，则不覆盖该调用；具有无法识别的选择器或格式错误的限制的授权不覆盖任何内容。升级后请审查自定义授权：如果智能体失去了之前使用的工具，请先检查其授权。[Tool Gateway reference](../reference/api/tool-gateway.md#explicit-tool-grants) 列出了匹配规则。
 
 ## 相关
 
-- [Connectors](../../connectors.md)
-- [Share a connector with people and agents](share-access.md)
-- [Set action permissions](action-permissions.md)
-- [Tool Gateway](../../reference/api/tool-gateway.md)
-- [Trust and low-trust review](../administration/trust-and-low-trust-review.md)
+- [连接器](../connectors.md)
+- [与人员和智能体共享连接器](share-access.md)
+- [设置操作权限](action-permissions.md)
+- [工具网关](../reference/api/tool-gateway.md)
+- [信任与低信任审查](../administration/trust-and-low-trust-review.md)
 
 ## 来源
 

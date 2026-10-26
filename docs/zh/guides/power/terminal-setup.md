@@ -17,7 +17,7 @@ Paperclip 以 Node.js 服务器的形式运行。设置命令会一步完成完�
 - pnpm（包管理器）
 
 ```bash
-node --version   # 应显示 v24.11.0 或更高版本
+node --version   # Should print v24.11.0 or higher
 ```
 
 ---
@@ -83,7 +83,7 @@ npx paperclipai configure --section server
 
 ## 高级配置
 
-有关持久后台运行、Docker 部署、外部数据库和云托管选项，请参阅[部署概览](../../../reference/deploy/overview.md)。
+有关持久后台运行、Docker 部署、外部数据库和云托管选项，请参阅[部署概览](../../reference/deploy/overview.md)。
 
 ---
 

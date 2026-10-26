@@ -20,7 +20,7 @@ Firecrawl 出现在每个实例的目录中；无需启用实验性设置。
 | **使用 Firecrawl 登录** | Firecrawl 账户和团队 | 完整的账户工具集，包括消耗额度的任务 |
 | **使用 Firecrawl API 密钥** | 对应 Firecrawl 团队的 API 密钥 | 完整的账户工具集，适用于无人值守或更高限额的使用场景 |
 
-对于浏览器登录，Paperclip 必须通过 HTTPS 访问，或者在本地运行时通过 `http://` 回环地址访问。
+浏览器登录要求通过 HTTPS 访问 Paperclip；如果 Paperclip 运行在本机，也可以通过 `http://` 回环地址访问。
 
 ## 连接 Firecrawl
 
@@ -40,7 +40,7 @@ Paperclip 将密钥作为机密存储，并作为 Bearer 标头发送给 Firecra
 登录和 API 密钥连接暴露更多功能。抓取和研究任务在 Firecrawl 端运行，并消耗您团队的额度，广泛的抓取可能会迅速消耗大量额度。新连接默认对所有智能体将所有操作设置为 **允许**，因此在共享账户连接之前：
 
 - 打开 **权限** 选项卡，将抓取和研究任务设置为 **先询问**。
-- 将连接保持在您愿意为其付费的团队上。
+- 确保连接归属于您愿意承担费用的团队。
 
 参见 [设置操作权限](action-permissions.md)。
 
@@ -64,11 +64,11 @@ Use Firecrawl to scrape https://paperclip.ing and give me the page title and a t
 | 密钥被拒绝 | 密钥已被撤销，或属于另一个团队 | 为正确的团队创建新密钥并重新连接 |
 | **需要关注** | 授权或密钥已被撤销 | 选择 **重新连接** |
 
-限制：每个连接对应一个 Firecrawl 团队。可用的操作取决于 Firecrawl 托管服务器为您选择的方法所暴露的内容。
+限制：每个连接对应一个 Firecrawl 团队。可用操作由 Firecrawl 托管服务器针对所选方法开放的接口决定。
 
 ## 相关指南
 
-- [Exa](exa.md)、[Parallel Search](parallel-search.md) 和 [Tavily](tavily.md) — 网络搜索连接器。
+- [Exa](exa.md)、[并行搜索](parallel-search.md) 和 [Tavily](tavily.md) — 网络搜索连接器。
 - [Browser Use Cloud](browser-use-cloud.md) — 运行完整的浏览器任务而非抓取。
 - [设置操作权限](action-permissions.md)
 - [Firecrawl MCP 文档](https://docs.firecrawl.dev/mcp-server)

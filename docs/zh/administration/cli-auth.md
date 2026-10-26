@@ -10,7 +10,7 @@ Paperclip 为命令行和浏览器中的用户提供了两个独立的身份验�
 - **看板认领 (Board claim)** — 这是一次性的引导步骤，将经过浏览器身份验证的用户提升为全新启动的已认证实例的所有者。它将受信任的“本地看板”占位符迁移为真实的、具名的人类账户。
 - **CLI 认证** — 这是日常使用的流程，它将本地的 `paperclipai` CLI 进程与已登录的看板用户配对，以便 CLI 可以代表您调用 `/api` 端点，而无需您在 shell 中输入凭据。
 
-这两个流程都使用短生命周期的、由服务器生成的挑战（challenge）和浏览器批准页面。两者均设计为秘密材料（看板 API 令牌、所有权迁移）永不离开请求它的浏览器或 CLI 进程。
+这两个流程都使用由服务器生成的短时有效授权挑战和浏览器批准页面。两者均设计为秘密材料（看板 API 令牌、所有权迁移）永不离开请求它的浏览器或 CLI 进程。
 
 本指南将介绍这两个流程，展示批准页面，并解释如何使用生成的令牌配合 CLI 使用。
 
@@ -56,9 +56,10 @@ http://localhost:3000/board-claim/<token>?code=<code>
 
 ---
 
+<a id="device-code-flow-paperclipai-auth-login"></a>
 ## 设备代码流程：`paperclipai auth login`
 
-对于日常 CLI 使用，该流程是一种设备代码风格的配对。CLI 创建一个挑战，打开您的浏览器，您批准它，然后 CLI 使用存储的令牌完成操作。
+对于日常 CLI 使用，该流程是一种设备代码风格的配对。CLI 创建一个授权挑战并打开浏览器；您批准请求后，CLI 使用已保存的令牌完成操作。
 
 ### 开始登录
 
@@ -150,7 +151,7 @@ paperclipai auth whoami
 }
 ```
 
-所有其他 CLI 命令 — 在 [设置命令](../../reference/cli/setup-commands.md) 和控制平面命令中记录的命令 — 除非您传递显式的 `--token` 或覆盖 `PAPERCLIP_API_KEY`，否则复用此凭据。
+所有其他 CLI 命令 — 在 [设置命令](../reference/cli/setup-commands.md) 和控制平面命令中记录的命令 — 除非您传递显式的 `--token` 或覆盖 `PAPERCLIP_API_KEY`，否则复用此凭据。
 
 ### 轮换和撤销
 
@@ -186,5 +187,5 @@ paperclipai auth login
 
 ## 下一步去哪里
 
-- [设置命令](../../reference/cli/setup-commands.md) — 从 CLI 安装、引导和配置 Paperclip 实例。
-- [认证 (API)](../../reference/api/authentication.md) — 看板用户、智能体和运行的底层认证模型。
+- [设置命令](../reference/cli/setup-commands.md) — 从 CLI 安装、引导和配置 Paperclip 实例。
+- [认证 (API)](../reference/api/authentication.md) — 看板用户、智能体和运行的底层认证模型。

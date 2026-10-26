@@ -79,7 +79,7 @@ Paperclip 会在构建动态时自动填充以下三个队列，并在首次匹�
 
 如果你想手动维护队列，可以逐个关闭自动填充。关闭后队列和已有内容都会保留；Paperclip 只是停止添加新项目。
 
-你也可以自行创建队列、添加和移除项目，并通过[决策 API](../../../reference/api/decisions.md)读取队列内容。需要注意，队列只会显示你有权限查看的项目，项目计数也按相同权限计算，因此不同人员可能看到不同的数量。
+你也可以自行创建队列、添加和移除项目，并通过[决策 API](../../reference/api/decisions.md)读取队列内容。需要注意，队列只会显示你有权限查看的项目，项目计数也按相同权限计算，因此不同人员可能看到不同的数量。
 
 ![命名决策队列只显示被分配到该队列的项目](../../../user-guides/screenshots/light/decisions/named-queue.png)
 
@@ -95,7 +95,7 @@ Paperclip 会在构建动态时自动填充以下三个队列，并在首次匹�
 
 分诊会从两个方面改变队列显示方式。动态可以按照期限而不是近期活动排序：先显示最早到期的事项，再显示“不限定时间”项目，最后显示尚未设置分诊信息的项目。侧边栏标记则只统计今天到期的事项，提醒你今天早上需要处理什么，而不是所有未完成工作的总数。
 
-在界面中展开项目后，使用 **When to decide（何时决定）** 行设置分诊。也可以通过[决策 API](../../../reference/api/decisions.md)设置。
+在界面中展开项目后，使用 **When to decide（何时决定）** 行设置分诊。也可以通过[决策 API](../../reference/api/decisions.md)设置。
 
 > 分诊中的延后与下方的个人延后不同。分诊延后会让项目对全公司暂时隐藏；队列中的个人延后只对你生效。
 
@@ -121,10 +121,10 @@ Paperclip 会在构建动态时自动填充以下三个队列，并在首次匹�
 
 ## 相关指南
 
-- [审批](../../../guides/day-to-day/approvals.md)——审阅并处理正式审批请求。
-- [阻塞收件箱](../../../guides/day-to-day/blocked-inbox.md)——专门处理已停止的任务。
-- [任务](../../../guides/day-to-day/issues.md)——查看和引导决策背后的工作。
-- [关注 API](../../../reference/api/attention.md)——围绕同一队列构建面向董事会的集成。
-- [决策 API](../../../reference/api/decisions.md)——提出和处理决策，并管理队列和分诊信息。
-- [决策训练](../../../reference/api/decision-training.md)——将决策保存为带标签的训练示例，并导出已收集的数据。
-- [成本与预算：决策](../../../guides/day-to-day/costs.md#decisions)——请勿与本队列混淆：**Audit → Costs（审计 → 费用）** 下的 **Decisions（决策）** 视图列出公司决策模型发出的轻量模型请求及其费用。
+- [审批](./approvals.md)——审阅并处理正式审批请求。
+- [阻塞收件箱](./blocked-inbox.md)——专门处理已停止的任务。
+- [任务](./issues.md)——查看和引导决策背后的工作。
+- [关注 API](../../reference/api/attention.md)——围绕同一队列构建面向董事会的集成。
+- [决策 API](../../reference/api/decisions.md)——提出和处理决策，并管理队列和分诊信息。
+- [决策训练](../../reference/api/decision-training.md)——将决策保存为带标签的训练示例，并导出已收集的数据。
+- [成本与预算：决策](./costs.md#decisions)——请勿与本队列混淆：**Audit → Costs（审计 → 费用）** 下的 **Decisions（决策）** 视图列出公司决策模型发出的轻量模型请求及其费用。

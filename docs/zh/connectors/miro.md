@@ -16,8 +16,8 @@ seo_description: 让智能体读取和更新 Miro 画板。团队和画板的访
 ## 连接 Miro
 
 1. 打开 **Connectors** 并选择 **Miro**。
-2. 阅读主按钮上方的访问权限说明行。该行说明了连接将以谁的身份登录，以及哪些智能体可以使用它。若要选择其他身份、缩小智能体范围或使用其他登录方法，请选择 **Change**。
-3. 选择 **Continue to Miro** 并完成浏览器登录，当 Miro 询问时选择团队。
+2. 阅读主按钮上方的访问权限说明行。该行说明了连接将以谁的身份登录，以及哪些智能体可以使用它。若要选择其他身份、缩小智能体范围或使用其他登录方法，请选择 **Change**（更改）。
+3. 选择 **Continue to Miro**（继续前往 Miro） 并完成浏览器登录，当 Miro 询问时选择团队。
 
 Paperclip 会自动注册其客户端，因此无需在开发者控制台中进行任何配置。
 
@@ -31,7 +31,7 @@ Paperclip 会自动注册其客户端，因此无需在开发者控制台中进�
 - 手绘图形、嵌入内容和交互式小部件与结构化项目并不等同。
 - 智能体添加的任何内容都将通过编程方式放置，如果放置位置很重要，则需要人工进行整理。
 
-写入操作会落在同事可能正在使用的画板上。在您了解智能体的行为方式之前，请将其保持在 **Ask first** 状态。参见 [Set action permissions](action-permissions.md)。
+写入操作会落在同事可能正在使用的画板上。在您了解智能体的行为方式之前，请将其保持在 **Ask first** 状态。参见 [设置操作权限](action-permissions.md)。
 
 ## 尝试使用
 
@@ -61,9 +61,9 @@ sticky notes grouped by their frame. Do not add or move anything.
 
 ## 相关指南
 
-- [Connector overview](https://paperclip.ing/product/connectors/miro/)
+- [连接器概览](https://paperclip.ing/product/connectors/miro/)
 
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md)
-- [Enabling Miro's MCP server](https://help.miro.com/hc/en-us/articles/31625301583890-How-to-enable-Miro-s-MCP-Server-user-guide)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md)
+- [启用 Miro 的 MCP 服务器](https://help.miro.com/hc/en-us/articles/31625301583890-How-to-enable-Miro-s-MCP-Server-user-guide)

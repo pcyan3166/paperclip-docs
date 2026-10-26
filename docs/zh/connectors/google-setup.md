@@ -16,13 +16,14 @@ seo_description: 一种可复用的流程，用于使用您自己的 OAuth 客�
 
 > **注意：** 仅当您自带 OAuth 客户端时才需要此页面。如果连接器上提供了 **Connect with Paperclip**（通过 Paperclip 连接）且您愿意使用它，则该路径无需在 Cloud 控制台中进行任何操作——请跳至 [首先检查您是否可以使用托管路径](#check-you-can-use-the-managed-path-first)。
 
+<a id="check-you-can-use-the-managed-path-first"></a>
 ## 首先检查您是否可以使用托管路径
 
 存在两条路径，在花费时间在 Google Cloud 控制台上之前，了解您处于哪条路径是值得的。
 
 | 路径 | 需要您提供什么 | 何时提供 |
 | --- | --- | --- |
-| **Connect with Paperclip** | 无需在 Cloud 控制台中进行任何操作。Paperclip 拥有该 OAuth 客户端 | 仅当实例已注册到 Paperclip Cloud *且* Cloud 宣传该连接器的配置文件时。如果缺失，请询问管理员检查注册状态和配置文件可用性 |
+| **Connect with Paperclip** | 无需在 Cloud 控制台中进行任何操作。Paperclip 拥有该 OAuth 客户端 | 仅当实例已注册到 Paperclip Cloud *且* Cloud 提供该连接器的配置文件时。如果缺失，请询问管理员检查注册状态和配置文件可用性 |
 | **Use your own Google OAuth app** | 本页上的所有内容 | 在连接器可用的地方；提供商批准和实例限制仍然适用 |
 
 无论哪种方式，**第 1 步中的 Google 开发者预览注册均适用。** 在托管路径中，Google 仍然必须注册登录的 Workspace 账户；只有 Cloud 项目不同。
@@ -73,6 +74,7 @@ Google 的 Workspace MCP 服务器处于开发者预览阶段。Google 分别注
 
 Google 自己的操作指南是 [Configure MCP servers](https://developers.google.com/workspace/guides/configure-mcp-servers)。
 
+<a id="4-google-chat-only-configure-a-chat-app"></a>
 ## 4. 仅限 Google Chat：配置 Chat 应用
 
 Google Chat 需要其他连接器不需要的一项内容——Chat API 必须在项目上有一个已配置的 Chat 应用，而不仅仅是被启用。
@@ -103,15 +105,15 @@ Google Chat 需要其他连接器不需要的一项内容——Chat API 必须�
 | `redirect_uri_mismatch` | OAuth 客户端上的重定向 URI 与 Paperclip 显示的不匹配 | 从 Paperclip 的设置屏幕精确复制 URI |
 | 同意完成但连接显示 **Setup incomplete**（设置未完成） | 最后一步未完成 | 选择 **Finish setup**（完成设置） |
 | 首次使用时出现 API 未启用错误 | 第 2 步中的某个 API 在项目中缺失——通常是 MCP API 而非服务 API | 启用并重试；无需重新连接 |
-| 未提供 **Connect with Paperclip** | 实例未注册到 Paperclip Cloud，或 Cloud 未宣传该配置文件 | 使用您自己的 OAuth 客户端，或询问管理员关于注册的问题 |
+| 未提供 **Connect with Paperclip** | 实例未注册到 Paperclip Cloud，或 Cloud 未提供该配置文件 | 使用您自己的 OAuth 客户端，或询问管理员关于注册的问题 |
 | 您预期的工具缺失或已禁用 | 它超出了您连接的能力组的已审查操作列表 | 检查连接器页面的操作列表；列表外的预览工具被阻止，且没有开关可以启用它 |
 | 尽管 API 已启用，但 Google Chat 授权失败 | 项目上没有配置 Chat 应用 | 完成 [步骤 4](#4-google-chat-only-configure-a-chat-app) |
 
-更多详情见 [Verify a connector and fix a broken one](verify-and-troubleshoot.md)。
+更多详情见 [验证连接器并修复故障连接器](verify-and-troubleshoot.md)。
 
 ## 相关指南
 
-- [Gmail](gmail.md) 和 [Set up the Gmail connector](gmail-setup.md) — Gmail 有自己的页面，因为其能力组和发送限制需要更多解释。
-- [Google Calendar](google-calendar.md), [Google Chat](google-chat.md), [Google Docs](google-docs.md), [Google Drive](google-drive.md), [Google People](google-people.md), [Google Sheets](google-sheets.md), [Google Slides](google-slides.md), [Google Workspace Search](google-workspace-search.md)
-- [How connector access works](access-model.md)
+- [Gmail](gmail.md) 和 [设置 Gmail 连接器](gmail-setup.md) — Gmail 有自己的页面，因为其能力组和发送限制需要更多解释。
+- [Google Calendar](google-calendar.md), [Google Chat](google-chat.md), [Google Docs](google-docs.md), [Google Drive](google-drive.md), [Google People](google-people.md), [Google Sheets](google-sheets.md), [Google Slides](google-slides.md), [Google Workspace 搜索](google-workspace-search.md)
+- [连接器访问机制说明](access-model.md)
 - [Configure MCP servers](https://developers.google.com/workspace/guides/configure-mcp-servers) — Google 自己的指南。

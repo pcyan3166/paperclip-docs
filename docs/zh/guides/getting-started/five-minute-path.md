@@ -28,7 +28,7 @@ Paperclip 公司是一个独立的 AI 组织，包含一个目标、一支智能
 - 准备 [Anthropic](https://console.anthropic.com) 的 API 密钥（用于 `claude_local`），或 [OpenAI](https://platform.openai.com) 的 API 密钥（用于 `codex_local`）。安装指南会介绍如何获取密钥。
 - 使用 `claude_local` 适配器时，同一台电脑上还需安装 [Claude Code](https://docs.anthropic.com/en/docs/claude-code)。请在开始本流程前安装，因为第 2 步会用到它。
 
-> **费用提示：** 智能体调用 API 会产生费用。体验产品可预留 5–20 美元；活跃公司的费用通常为每月 20–100 美元。启用心跳前，请为智能体和公司设置预算；达到预算上限时，Paperclip 会自动暂停智能体。
+> **费用提示：** 智能体调用 API 会产生费用。体验产品可预留 5–20 美元；活跃公司的费用通常为每月 20–100 美元。启用心跳前，请为智能体和公司设置预算；达到 100% 预算上限时，Paperclip 会自动暂停智能体。
 
 [查看安装步骤 →](./installation.md)
 
@@ -66,9 +66,9 @@ Paperclip 启动后还需三步。总计约 5–11 分钟。
 
 完成这三个步骤后：
 
-- **聘用第二位智能体**——CEO 可以通过[审批](../../../guides/day-to-day/approvals.md)流程申请聘用下属。角色设计请参阅[智能体](../../../guides/org/agents.md)，汇报关系请参阅[组织结构](../../../guides/org/org-structure.md)。
-- **设置实际工作流程**——阅读[任务](../../../guides/day-to-day/issues.md)了解任务生命周期；阅读[成本与预算](../../../guides/day-to-day/costs.md)了解费用控制；阅读[心跳与例程](../../../guides/projects-workflow/routines.md)了解定时运行。
-- **连接代码仓库**——[执行工作区](../../../guides/projects-workflow/workspaces.md)指南会介绍如何让智能体在实际项目中工作。
+- **聘用第二位智能体**——CEO 可以通过[审批](../day-to-day/approvals.md)流程申请聘用下属。角色设计请参阅[智能体](../org/agents.md)，汇报关系请参阅[组织结构](../org/org-structure.md)。
+- **设置实际工作流程**——阅读[任务](../day-to-day/issues.md)了解任务生命周期；阅读[成本与预算](../day-to-day/costs.md)了解费用控制；阅读[心跳与例程](../projects-workflow/routines.md)了解定时运行。
+- **连接代码仓库**——[执行工作区](../projects-workflow/workspaces.md)指南会介绍如何让智能体在实际项目中工作。
 
 如果页面上的界面元素让你感到陌生，可以快速查阅[关键概念](../welcome/key-concepts.md)和[术语表](../welcome/glossary.md)。
 

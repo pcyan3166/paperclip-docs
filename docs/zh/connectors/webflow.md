@@ -37,17 +37,18 @@ Paperclip 会自动注册其客户端，因此无需在开发者控制台中进�
 
 > **警告：** 发布是具有重大后果的操作。一次发布可能会将站点上的所有待处理更改推送到实时站点，而不仅仅是智能体正在处理的那个项目——包括同事已暂存但尚未完成的编辑。请将发布操作保持为 **Off**，并让人工在 Webflow 中执行发布。
 
-有关设置这些权限的每一项，请参阅 [Set action permissions](action-permissions.md)。
+有关设置这些权限的每一项，请参阅 [设置操作权限](action-permissions.md)。
 
+<a id="designer-tools"></a>
 ## Designer 工具
 
 Webflow 的 MCP 服务器确实暴露了 Designer 工具——画布、样式和布局——它们由本连接器使用的同一端点提供服务。**它们并非不可用；而是有条件的。**
 
-该条件是一个伴随应用。Webflow 指出，“MCP Companion App 必须保持打开状态并在 Webflow Designer 中运行，Designer API 工具才能正常工作”，该应用需从 Designer 打开时的 Apps 面板启动。关闭它，画布操作将停止工作。
+此处需要使用配套应用。Webflow 指出，“MCP Companion App 必须保持打开状态并在 Webflow Designer 中运行，Designer API 工具才能正常工作”，该应用需从 Designer 打开时的 Apps 面板启动。关闭它，画布操作将停止工作。
 
 这一先决条件不适合无人值守的智能体工作，因为它要求人员在整个过程中保持 Designer 打开。请将 Designer 工作规划为由人员驱动的任务，并使用此连接器处理 CMS 内容。
 
-> **注意：** 我们尚未通过 Paperclip 运行 Webflow Designer 工具。此处确立的是提供商自身的要求，而非经过测试的 Paperclip 结果——因此如果您尝试使用，请将其视为未经验证，并在一个无关紧要的站点上开始。Webflow 的 [MCP getting started](https://developers.webflow.com/mcp/reference/getting-started) 是当前工具界面的权威参考。
+> **注意：** 我们尚未通过 Paperclip 运行 Webflow Designer 工具。这里引用的是提供商自身的要求，并非 Paperclip 的实测结果——因此如果您尝试使用，请将其视为未经验证，并在一个无关紧要的站点上开始。Webflow 的 [MCP getting started](https://developers.webflow.com/mcp/reference/getting-started) 是当前工具界面的权威参考。
 
 ## 试用
 
@@ -70,13 +71,13 @@ List the CMS collections on the marketing site and tell me how many items are in
 | Designer 工具失败或不可用 | MCP Companion App 未在 Webflow Designer 中打开；它必须保持打开状态 Designer 工具才能工作 | 从 Apps 面板打开它，或直接在 Designer 中执行设计工作 |
 | **需要关注** | 授权已被撤销 | 选择 **Reconnect** |
 
-限制：每个连接仅限一个 Webflow 账户。Paperclip 内部没有站点过滤器。Designer 工具需要在 Designer 中保持打开的伴随应用，因此不适合无人值守工作。Webflow 的计划限制适用于 CMS 项目数量和 API 速率。
+限制：每个连接仅限一个 Webflow 账户。Paperclip 内部没有站点过滤器。Designer 工具需要在 Designer 中保持打开的伴随应用，因此不适合无人值守工作。Webflow 套餐的限制适用于 CMS 项目数量和 API 速率。
 
 ## 相关指南
 
 - [Connector overview](https://paperclip.ing/product/connectors/webflow/)
 
 - [Wix](wix.md) — 另一个网站平台连接器。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Webflow MCP getting started](https://developers.webflow.com/mcp/reference/getting-started)

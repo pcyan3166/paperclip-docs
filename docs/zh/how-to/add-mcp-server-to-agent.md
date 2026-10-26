@@ -13,11 +13,11 @@ seo_description: 挂载一个模型上下文协议（MCP）服务器，让单个
 
 ## 什么是 MCP
 
-[模型上下文协议](https://modelcontextprotocol.io)（另见：[术语表条目](../guides/welcome/glossary.md#m)）是一个开放标准，用于通过小型 JSON-RPC 契约将语言模型运行时连接到外部工具和数据源。MCP 服务器通过 `stdio`（本地）或 HTTP/SSE（远程）暴露一组工具（以及可选的资源提示）。支持 MCP 的运行时——如 Claude Code 或 Hermes 智能体——会列出这些工具，并允许智能体在运行过程中调用它们。
+[模型上下文协议](https://modelcontextprotocol.io)（另见：[术语表](../guides/welcome/glossary.md)）是一个开放标准，用于通过小型 JSON-RPC 契约将语言模型运行时连接到外部工具和数据源。MCP 服务器通过 `stdio`（本地）或 HTTP/SSE（远程）暴露一组工具（以及可选的资源和提示词）。支持 MCP 的运行时——如 Claude Code 或 Hermes 智能体——会列出这些工具，并允许智能体在运行过程中调用它们。
 
-对于 Paperclip 而言，MCP 是赋予智能体某种能力的方式，这种能力不适合用 [技能](../../reference/skills.md)（它是 Markdown 捆绑包，而非可执行文件）来实现，且你不想教智能体将其作为原始 HTTP 调用。如果工具已经支持 MCP，请优先选择此路径。
+对于 Paperclip 而言，MCP 是赋予智能体某种能力的方式，这种能力不适合用 [技能](../reference/skills.md)（它是 Markdown 捆绑包，而非可执行文件）来实现，且你不想教智能体将其作为原始 HTTP 调用。如果工具已经支持 MCP，请优先选择此路径。
 
-> **当前的适配器支持情况。** [Claude Code](../../reference/adapters/claude-code.md) 和 [Hermes](../../reference/adapters/hermes.md#tools) 是目前两个拥有文档记录的 MCP 路径的适配器。Claude Code 继承 Claude Code 的 MCP 客户端（在 Claude Code 层面配置）；Hermes 通过其 `toolsets` 字段暴露 MCP。Codex、Cursor Local、Gemini CLI、OpenCode 和 Pi 遵循与 Claude Code 相同的模式——适配器继承其 CLI 自带的任何 MCP 支持——但该路径尚未在此处记录。
+> **当前的适配器支持情况。** [Claude Code](../reference/adapters/claude-code.md) 和 [Hermes](../reference/adapters/hermes.md#tools) 是目前两个拥有文档记录的 MCP 路径的适配器。Claude Code 继承 Claude Code 的 MCP 客户端（在 Claude Code 层面配置）；Hermes 通过其 `toolsets` 字段暴露 MCP。Codex、Cursor Local、Gemini CLI、OpenCode 和 Pi 遵循与 Claude Code 相同的模式——适配器继承其 CLI 自带的任何 MCP 支持——但该路径尚未在此处记录。
 
 ---
 
@@ -43,7 +43,7 @@ seo_description: 挂载一个模型上下文协议（MCP）服务器，让单个
                                 └──────────────────┘                └──────────────────────┘
 ```
 
-智能体从不直接说 MCP——其运行时才说。这意味着 MCP 服务器配置是每运行时独立的，而*范围限定*（哪个智能体看到哪个服务器）取决于智能体的适配器配置和运行时的配置文件位置，而不是 Paperclip 层面的开关。
+智能体本身并不直接使用 MCP 通信——与 MCP 通信的是其运行时。这意味着 MCP 服务器配置是每运行时独立的，而*范围限定*（哪个智能体看到哪个服务器）取决于智能体的适配器配置和运行时的配置文件位置，而不是 Paperclip 层面的开关。
 
 ---
 
@@ -61,6 +61,7 @@ seo_description: 挂载一个模型上下文协议（MCP）服务器，让单个
 
 本地 stdio 服务器是最简单的情况：运行时生成的子进程，通过 stdin/stdout 上的 JSON-RPC 进行通信。对于在与智能体相同主机上运行的任何内容，请使用此方式——文件系统读取器、Postgres 桥接器、向量存储代理。
 
+<a id="path-a--claude-code"></a>
 ### 路径 A — Claude Code
 
 Claude Code 将 MCP 服务器配置保存在三个可能的范围中（优先级：当同名定义两次时，local > project > user）：
@@ -142,7 +143,7 @@ mcp_servers:
       - "/Users/me/projects/paperclip-workspace"
 ```
 
-> **Hermes 服务器注册是主机范围的。** YAML 是每 OS 用户的，而不是每智能体的。如果您在同一主机上运行多个 Hermes 智能体并希望每个智能体有不同的 MCP 服务器，请为每个智能体使用不同的 OS 用户，并在该用户下运行心跳进程——这与 Hermes 用于其会话内存的隔离模式相同。有关技能的并行模式，参见 [Hermes → 技能集成](../../reference/adapters/hermes.md#skills-integration)。
+> **Hermes 服务器注册是主机范围的。** YAML 配置按操作系统用户隔离，而非按智能体隔离。如果您在同一主机上运行多个 Hermes 智能体并希望每个智能体有不同的 MCP 服务器，请为每个智能体使用不同的操作系统用户，并在该用户下运行心跳进程——这与 Hermes 用于其会话内存的隔离模式相同。有关技能的并行模式，参见 [Hermes → 技能集成](../reference/adapters/hermes.md#skills-integration)。
 
 ---
 
@@ -341,9 +342,9 @@ Claude Code 短暂缓存解析后的配置。重启任何长期运行的心跳�
 
 ## 另请参阅
 
-- [Claude Code](../../reference/adapters/claude-code.md) — 托管 Claude Code 的适配器，包括会话持久化和技能同步。
-- [Hermes — 工具](../../reference/adapters/hermes.md#tools) — `toolsets` 字段，包括 `mcp`。
-- [技能参考](../../reference/skills.md) — 当技能捆绑包是比 MCP 服务器更合适的原语时。
+- [Claude Code](../reference/adapters/claude-code.md) — 托管 Claude Code 的适配器，包括会话持久化和技能同步。
+- [Hermes — 工具](../reference/adapters/hermes.md#tools) — `toolsets` 字段，包括 `mcp`。
+- [技能参考](../reference/skills.md) — 当技能捆绑包是比 MCP 服务器更合适的原语时。
 - [将智能体连接到 GitHub 仓库](./connect-agent-to-github.md) — PR 驱动的对应部分；将此指南与之配对，用于打开问题*和* PR 的程序员。
 - [调试卡住的心跳](./debug-stuck-heartbeat.md) — 当智能体的工具列表看起来不正确时的第一站。
 - [MCP 规范](https://modelcontextprotocol.io) — 上游协议文档。

@@ -51,7 +51,7 @@ Paperclip 将检索分类为读取，将存储和更新分类为写入，将删�
 - [连接器访问如何工作](access-model.md)
 - [设置操作权限](action-permissions.md)
 - [已保存的连接指令](connection-instructions.md)
-- [实验性功能](../../experimental/overview.md)
+- [实验性功能](../experimental/overview.md)
 
 ## 来源
 

@@ -87,14 +87,14 @@ Paperclip 不会计算目标的数值百分比。目标的状态字段是唯一�
 目标不会直接包含任务。关联关系通过项目实现：一个项目可关联一个或多个目标，项目中的任务会继承这一关联。CEO 规划工作时遵循以下链条：
 
 ```
-目标 → 项目 → 任务 → 执行工作区 → 智能体运行
+Goal  →  Project  →  Issue  →  Execution workspace  →  Agent run
 ```
 
 ### 将项目关联到目标
 
 可以通过两种等效方式建立关联：
 
-- **从项目页面操作**——打开项目的 **Configuration（配置）** 标签页（参见[项目](../../../guides/projects-workflow/projects.md)），在 **Goals（目标）** 字段中添加目标。修改会自动保存。
+- **从项目页面操作**——打开项目的 **Configuration（配置）** 标签页（参见[项目](./projects.md)），在 **Goals（目标）** 字段中添加目标。修改会自动保存。
 - **从目标页面操作**——打开目标详情页，切换到 **Projects（项目）** 标签页，然后使用关联界面中的项目选择器。如果刚创建了目标，想一次性关联多个现有项目，这种方式很方便。
 
 一个项目可以关联多个目标。这是有意设计的：一项工作往往能推动多个成果，强制要求项目只有一个父目标反而会掩盖这一事实。
@@ -132,14 +132,14 @@ Paperclip 不会计算目标的数值百分比。目标的状态字段是唯一�
 创建目标时会确定它的父目标：可在新建对话框中选择父目标，或使用自动填好父目标的 **Sub Goal（新建子目标）** 按钮。当前应用没有提供编辑现有目标父关系的字段，因此要更改父目标，或将子目标扁平化为根目标，需要使用 CLI 或 API，而不能在属性面板中操作：
 
 ```sh
-# 将目标重新挂到另一个父目标下
+# Re-parent a goal under a different parent
 paperclipai goal update <goal-id> --parent-id <new-parent-goal-id>
 
-# 将子目标提升为顶层目标
+# Flatten a sub-goal to a top-level goal
 paperclipai goal update <goal-id> --parent-id null
 ```
 
-也可以通过 API 的 `PATCH /goals/{id}` 修改 `parentId` 字段（传入 `null` 可将目标提升为根目标）。修改生效后树形视图会重新绘制。全部参数见[目标 CLI 参考](../../../reference/cli/goal.md#update-a-goal)。
+也可以通过 API 的 `PATCH /goals/{id}` 修改 `parentId` 字段（传入 `null` 可将目标提升为根目标）。修改生效后树形视图会重新绘制。全部参数见[目标 CLI 参考](../../reference/cli/goal.md#update-a-goal)。
 
 通常不需要很深的目标层级。两到三层就足以表达结构，也不会让树形图难以阅读。
 
@@ -151,6 +151,6 @@ Paperclip 不会根据子目标自动计算父目标状态。每个目标的状�
 
 ## 接下来可以阅读
 
-- 目标下方的项目层：[项目](../../../guides/projects-workflow/projects.md)。
-- 任务如何分配给智能体：[任务管理](../../../guides/day-to-day/issues.md)。
-- CEO 如何制定并引用目标的策略：[审批](../../../guides/day-to-day/approvals.md)。
+- 目标下方的项目层：[项目](./projects.md)。
+- 任务如何分配给智能体：[任务管理](../day-to-day/issues.md)。
+- CEO 如何制定并引用目标的策略：[审批](../day-to-day/approvals.md)。

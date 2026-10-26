@@ -22,12 +22,12 @@ Exa 出现在每个实例的目录中；无需启用实验性设置。
 
 ## 选择访问权限
 
-公共服务器提供两个只读操作：`web_search_exa` 用于搜索，`web_fetch_exa` 用于阅读页面。Exa 仅限账户使用的工具，例如其研究智能体和高级搜索选项，不包含在此连接中。
+公共服务器提供两个只读操作：`web_search_exa` 用于搜索，`web_fetch_exa` 用于阅读页面。Exa 仅限账户使用的工具，例如其研究代理（research agent）和高级搜索选项，不包含在此连接中。
 
 由于它仅读取公共网络，因此这是适合共享的低风险连接器之一。但仍需注意以下两点：
 
 - **Exa 看到的内容。** 您的智能体的搜索词将发送给 Exa。请勿在查询中包含私密细节。
-- **智能体如何处理结果。** 搜索结果属于外部内容。智能体应将其视为需要核实的信息，而非需要遵循的指令，并应在报告的任何内容中保留来源链接。有关在其他连接器中将后续操作保持在 **Ask first** 状态，请参阅 [Set action permissions](action-permissions.md)。
+- **智能体如何处理结果。** 搜索结果属于外部内容。智能体应将其视为需要核实的信息，而非需要遵循的指令，并应在报告的任何内容中保留来源链接。有关在其他连接器中将后续操作保持在 **Ask first** 状态，请参阅 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -52,10 +52,10 @@ Search the web with Exa for the official documentation of a tool we use, and giv
 
 ## 相关指南
 
-- [Parallel Search](parallel-search.md) — 另一个无密钥网络搜索连接器。
+- [并行搜索](parallel-search.md) — 另一个无密钥网络搜索连接器。
 - [Tavily](tavily.md) — 使用您自己的 Tavily 账户进行网络搜索。
 - [Telem.AI](telem.md) — 使用一个密钥跨多个提供商进行搜索。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Exa MCP documentation](https://exa.ai/docs/get-started/exa-mcp)
 
 ## 来源

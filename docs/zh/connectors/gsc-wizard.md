@@ -25,7 +25,7 @@ seo_description: 让智能体通过 GSC Wizard 读取 Google Search Console、Bi
 
 浏览器登录请求 `mcp:read` 和 `mcp:write` 范围。使用密钥时，您在创建时选择的权限是上限；Paperclip 无法稍后提高该权限，因此如果智能体只需要报告，请选择只读。
 
-大多数工具读取报告，但有些工具可以提交 URL 进行索引或以其他方式更改您站点的索引状态。这些更改发生在 Paperclip 之外，且难以快速撤销。在 **Permissions** 选项卡上将它们设置为 **Ask first** 或 **Off**，并将读取操作保留为 **Allowed**。参见 [Set action permissions](action-permissions.md)。
+大多数工具读取报告，但有些工具可以提交 URL 进行索引或以其他方式更改您站点的索引状态。这些更改发生在 Paperclip 之外，且难以快速撤销。在 **Permissions** 选项卡上将它们设置为 **Ask first** 或 **Off**，并将读取操作保留为 **Allowed**。参见 [设置操作权限](action-permissions.md)。
 
 由于一个 GSC Wizard 账户可以包含来自多个提供商的多个站点，请要求智能体在每次查询中指明站点和日期范围。这可防止报告静默地来自错误的属性。
 
@@ -53,7 +53,7 @@ Using GSC Wizard, list the properties you can see, then give me a seven-day perf
 ## 相关指南
 
 - [Windsor.ai](windsor-ai.md) — 来自多个来源的营销、分析、CRM 和仓库数据。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [GSC Wizard MCP documentation](https://www.gscwizard.com/claude-search-console-mcp.html)
 
 ## 来源

@@ -6,7 +6,7 @@ seo_description: 让智能体调查 Sentry 错误、发布版本及生产环境�
 
 # Sentry
 
-智能体可以调查 Sentry 中的错误——读取问题、堆栈跟踪、发布版本以及生产问题周围的上下文信息。
+智能体可以调查 Sentry 中的错误——读取问题、堆栈跟踪、发布版本以及生产问题的上下文信息。
 
 这是一个适合提供给调试智能体的连接器，因为有用工作几乎完全属于读取操作。
 
@@ -29,7 +29,7 @@ Paperclip 会自动向 Sentry 注册其客户端，因此无需在开发者控�
 
 > **注意：** 连接器的定义中提到了组织、项目和环境范围，但这些仅是描述性的——Paperclip 不会在 Sentry 授予的权限之上强制执行项目或环境过滤器。如果智能体应仅查看一个项目，请使用团队成员资格仅限于该项目的账户进行授权。
 
-大多数 Sentry 工作属于读取操作。问题变更——解决、忽略、分配、删除——会改变您的值班工程师看到的内容，因此请将它们保持在 **Ask first** 或 **Off** 状态。如果智能体解决了一个误诊的问题，就会隐藏一个正在发生的问题。请参阅 [Set action permissions](action-permissions.md)。
+大多数 Sentry 工作属于读取操作。问题变更——解决、忽略、分配、删除——会改变您的值班工程师看到的内容，因此请将它们保持在 **Ask first** 或 **Off** 状态。如果智能体解决了一个误诊的问题，就会隐藏一个正在发生的问题。请参阅 [设置操作权限](action-permissions.md)。
 
 > **警告：** 堆栈跟踪和错误上下文通常包含用户数据、请求负载，有时还包含意外记录的密钥。读取 Sentry 的智能体可能会将这些内容暴露到任务记录中。对于此连接器，建议优先选择 **Just agents I pick** 而非 **Any agent**。
 
@@ -61,6 +61,6 @@ Find the most frequent unresolved Sentry issue from the last 24 hours and summar
 - [Connector overview](https://paperclip.ing/product/connectors/sentry/)
 
 - [PagerDuty](pagerduty.md) — 事件响应，常与错误跟踪配合使用。
-- [Set action permissions](action-permissions.md)
-- [How connector access works](access-model.md)
+- [设置操作权限](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
 - [Sentry MCP server](https://mcp.sentry.dev/)

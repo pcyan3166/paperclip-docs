@@ -8,7 +8,7 @@ seo_description: 无需从空白开始。在应用或终端中一步安装已配
 
 从空白页面开始设置公司，需要作出许多决定：聘用哪些智能体、谁向谁汇报、要创建哪些项目、安排哪些定期工作，以及每位智能体需要什么技能。**团队目录**可以帮你跳过这些起步工作。它提供一组现成的入门团队——包含智能体、项目、任务和技能的小型工作组——你可以浏览并一步安装到公司中。
 
-[技能](../../../guides/org/skills.md)是单项可重复使用的流程；而*团队*是一整套人员与工作。安装团队后，智能体、组织结构、项目、定期任务和所需技能都会一并就位，就像一个已经开始工作的团队。
+[技能](./skills.md)是单项可重复使用的流程；而*团队*是一整套人员与工作。安装团队后，智能体、组织结构、项目、定期任务和所需技能都会一并就位，就像一个已经开始工作的团队。
 
 ---
 
@@ -52,7 +52,7 @@ seo_description: 无需从空白开始。在应用或终端中一步安装已配
 
 安装团队是一次操作，可以同时创建以下多项内容：
 
-- **智能体**——创建团队定义的每位智能体，设置角色、简短的 `AGENTS.md` 角色描述和组织层级。你可以在每位智能体的[说明标签页](../../../guides/org/agents.md#instructions-tab)扩展角色描述。团队的顶层智能体可以独立存在，也可以向你选择的经理汇报。
+- **智能体**——创建团队定义的每位智能体，设置角色、简短的 `AGENTS.md` 角色描述和组织层级。你可以在每位智能体的[说明标签页](./agents.md#instructions-tab)扩展角色描述。团队的顶层智能体可以独立存在，也可以向你选择的经理汇报。
 - **项目**——创建团队工作所需的项目和工作区，为智能体提供执行工作的地方。
 - **任务**——包括团队附带的定期例程，例如 CEO 心跳或每周同步；导入这些例程时会采用 Paperclip 处理例程的标准流程。
 - **技能**——在公司技能库中准备好团队所需技能：目录技能会自动安装，外部来源技能则会在你批准来源后导入。
@@ -72,22 +72,22 @@ seo_description: 无需从空白开始。在应用或终端中一步安装已配
 CLI 也支持上述全部功能，适合通过脚本配置已知的公司结构，或在其他环境中重新创建团队。
 
 ```sh
-# 浏览和检查团队
+# Browse and inspect
 paperclipai teams browse --kind bundled
 paperclipai teams inspect core-exec-team
 
-# 先预览，再安装到指定公司
+# Preview, then install into a company
 paperclipai teams preview core-exec-team --company-id <company-id>
 paperclipai teams install core-exec-team --company-id <company-id>
 ```
 
-完整命令、参数和权限回退行为见 [Teams CLI 参考](../../../reference/cli/teams.md)。
+完整命令、参数和权限回退行为见 [Teams CLI 参考](../../reference/cli/teams.md)。
 
 ---
 
 ## 另请参阅
 
-- [Teams CLI 参考](../../../reference/cli/teams.md)——`teams` 命令完整列表。
-- [技能](../../../guides/org/skills.md)——团队目录所依赖的单项能力目录。
-- [组织结构](../../../guides/org/org-structure.md)——汇报关系的运作方式，以及如何将目录团队纳入组织。
-- [智能体](../../../guides/org/agents.md)——配置团队安装时创建的智能体。
+- [Teams CLI 参考](../../reference/cli/teams.md)——`teams` 命令完整列表。
+- [技能](./skills.md)——团队目录所依赖的单项能力目录。
+- [组织结构](./org-structure.md)——汇报关系的运作方式，以及如何将目录团队纳入组织。
+- [智能体](./agents.md)——配置团队安装时创建的智能体。

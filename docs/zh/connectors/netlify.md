@@ -23,7 +23,7 @@ Paperclip 会自动向 Netlify 注册其客户端，因此无需在开发者控�
 
 ## 选择访问权限
 
-权限范围（Reach）是授权 Netlify 账户的：其所属的团队以及其中的站点，受 Netlify 自身角色权限的限制。
+访问范围由授权的 Netlify 账户决定，包括该账户所属的团队及团队内的站点，并受 Netlify 自身角色权限限制。
 
 此处关键的区别在于观察部署与触发部署之间：
 
@@ -38,7 +38,7 @@ Paperclip 会自动向 Netlify 注册其客户端，因此无需在开发者控�
 
 > **警告：** 生产部署会将代码置于真实用户面前，而配置更改可能会破坏站点。请将部署和配置操作保持在 **Ask first** 或 **Off** 状态。读取构建日志以诊断故障是该连接器的常见且安全的用途；触发重建则是应由人员批准的部分。
 
-Netlify 环境变量通常包含 API 密钥。能够读取站点配置的智能体可能会暴露这些密钥，因此对于具有配置访问权限的连接，建议优先使用 **Just agents I pick**。请参阅 [Set action permissions](action-permissions.md)。
+Netlify 环境变量通常包含 API 密钥。能够读取站点配置的智能体可能会暴露这些密钥，因此对于具有配置访问权限的连接，建议优先使用 **Just agents I pick**。请参阅 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -69,5 +69,5 @@ List the Netlify sites this account can see, and tell me the status and time of 
 
 - [Cloudflare](cloudflare.md) — 另一个托管和基础设施连接器。
 - [GitHub](github.md) — 部署工作流的代码仓库端。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Netlify agent setup guides](https://docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-overview/)

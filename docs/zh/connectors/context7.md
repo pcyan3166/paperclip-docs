@@ -56,8 +56,8 @@ Use Context7 to look up the current React documentation for cleaning up an effec
 ## 相关指南
 
 - [Hugging Face](hugging-face.md) — 另一个公开、无密钥的查询连接器。
-- [How connector access works](access-model.md)
-- [Set action permissions](action-permissions.md)
+- [连接器访问机制说明](access-model.md)
+- [设置操作权限](action-permissions.md)
 - [Context7 API guide](https://context7.com/docs/api-guide)
 
 ## 来源

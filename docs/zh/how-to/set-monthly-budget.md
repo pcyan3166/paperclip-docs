@@ -6,7 +6,7 @@ seo_description: 配置错误的循环可能在周末内产生四位数的账单
 
 # 设置月度预算并强制执行
 
-自主智能体会发起真实的 API 调用。如果没有制动机制，配置错误的循环、过于积极的提示词或价格变动可能在周末内产生四位数的账单。Paperclip 的预算系统就是这道制动：你设置一个上限，Paperclip 在 80% 时发出警告，在 100% 时硬性停止，并暂停违规的工作区，直到你提高上限或日历月重置。
+自主智能体会发起真实的 API 调用。如果没有制动机制，配置错误的循环、过于积极的提示词或价格变动可能在周末内产生四位数的账单。Paperclip 的预算系统就是这道制动：你设置一个上限，Paperclip 在 80% 时发出警告，在 100% 时硬性停止，并暂停超出预算限制的范围，直到你提高上限或日历月重置。
 
 启用预算所需时间：约 5 分钟。固定版本：Paperclip API v1，UTC 日历月窗口。
 
@@ -70,7 +70,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/budgets/policies" \
 
 项目策略默认为生命周期上限——适用于一次性工作（“无论何时完成，此项目的成本永远不得超过 200 美元”）。如果你希望项目预算每月重置，请传递 `"windowKind": "calendar_month_utc"`。
 
-> 设置 `hardStopEnabled: false` 会将策略变为仅警告模式。该工作区在超过 100% 后仍会继续支出；你只能在概览中看到该事件。请谨慎使用。
+> 设置 `hardStopEnabled: false` 会将策略变为仅警告模式。该范围在支出超过预算的 100% 后仍会继续产生费用；你只能在概览中看到该事件。请谨慎使用。
 
 ---
 
@@ -130,8 +130,8 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/cost-events" \
 
 当硬事件触发时：
 
-1. 受影响的工作区（公司、智能体或项目）立即暂停。不再安排心跳。
-2. 该工作区任何进行中的运行被取消——问题保持原状，智能体停止处理。
+1. 受影响的范围（公司、智能体或项目）立即暂停。不再安排心跳。
+2. 该范围内任何正在进行的运行被取消——问题保持原状，智能体停止处理。
 3. 预算控制平面卡片增加**已暂停智能体** / **已暂停项目**计数。
 4. 该事件作为卡片出现在**审计**下的**预算**选项卡中，以及**成本**选项卡的**概览**顶部。
 
@@ -154,9 +154,9 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/budget-incidents/$INC
   }'
 ```
 
-`amount` 必须超过当前观察到的支出，否则解决操作将失败——只有实际留出余量的预算增加才有效。另一个操作 `keep_paused` 确认违规，并让工作区保持暂停直到月份滚动。
+`amount` 必须超过当前观察到的支出，否则解决操作将失败——只有实际留出余量的预算增加才有效。另一个操作 `keep_paused` 确认违规，并让该范围保持暂停，直到月度周期滚动重置。
 
-月份滚动是自动的：在每月 1 日 00:00 UTC，日历月策略重置为零支出，任何*仅*因预算原因暂停的工作区将恢复。生命周期项目策略不会重置——这正是其目的。
+月份滚动是自动的：在每月 1 日 00:00 UTC，日历月策略重置为零支出，任何*仅*因预算原因暂停的范围都会恢复。生命周期项目策略不会重置——这正是其目的。
 
 ---
 
@@ -173,7 +173,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/budget-incidents/$INC
      -d '{ "budgetMonthlyCents": 50 }'
    ```
 
-2. 报告一个合成成本事件，使智能体超过上限。作为董事会用户，你可以为公司中的任何智能体发布事件：
+2. 报告一个合成成本事件，使智能体超过上限。作为Paperclip 控制台用户，你可以为公司中的任何智能体发布事件：
 
    ```bash
    curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/cost-events" \
@@ -213,7 +213,7 @@ curl -X POST "$PAPERCLIP_API_URL/api/companies/$COMPANY_ID/budget-incidents/$INC
 ## 另请参阅
 
 - [成本指南](../guides/day-to-day/costs.md) — **审计**下**成本**和**预算**选项卡的完整 UI 演练（包括概览、提供商、计费方和财务视图）。
-- [成本 API 参考](../../reference/api/costs.md) — 此处涉及的每个端点，以及读取路由（`/costs/summary`、`/costs/by-agent`、`/costs/window-spend`）。
+- [成本 API 参考](../reference/api/costs.md) — 此处涉及的每个端点，以及读取路由（`/costs/summary`、`/costs/by-agent`、`/costs/window-spend`）。
 - [处理招聘的董事会审批](./handle-board-approvals-for-hires.md) — 相同的治理流程，但用于招聘时的新智能体预算。
 - [在智能体花钱前要求董事会审批](./require-board-approval-before-spend.md) — 支出控制的主动部分：智能体在承诺离散支出前停止并询问董事会，因此此处的上限是安全网，而非唯一的防线。
-- [配置 Slack/Discord 通知](./wire-slack-discord-notifications.md) — 将预算事件管道化到频道，以便你在检查 UI 之前看到它们。
+- [配置 Slack/Discord 通知](./wire-slack-discord-notifications.md) — 将预算事件推送到频道，以便你在检查 UI 之前看到它们。

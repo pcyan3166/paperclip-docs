@@ -45,9 +45,9 @@ seo_description: 跨 Gmail、Drive、Calendar 和 Chat 的一次性只读搜索�
 
 搜索覆盖的范围是授权账户在那四个应用中已经能看到的内容——其自己的邮件、与其共享的文件、其列表中的日历以及其所属的空间。Paperclip 不会缩小此范围，也没有按应用或按文件夹的过滤器。
 
-由于范围较广，智能体选择的选择比平时更重要。建议优先选择 **Just agents I pick**（仅我选择的智能体）。在此处使用 **Organization identity**（组织身份）会让符合条件的智能体在负责人属于凭据人类受众的运行中搜索已连接的账户——这通常不是您想要的。
+由于范围较广，智能体选择的选择比平时更重要。建议优先选择 **Just agents I pick**（仅我选择的智能体）。在此处使用 **Organization identity**（组织身份）会让符合条件的智能体在负责人属于凭据适用人员范围的运行中搜索已连接的账户——这通常不是您想要的。
 
-[How connector access works](access-model.md) 涵盖了身份和智能体选择。
+[连接器访问机制说明](access-model.md) 涵盖了身份和智能体选择。
 
 ## 试用
 
@@ -66,7 +66,7 @@ Search my Google Workspace for "renewal contract" and tell me which app each res
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | Developer Preview 注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未宣传搜索配置文件 | 使用您自己的 Google OAuth 应用 |
+| 未提供 **Connect with Paperclip** | 实例未加入 Paperclip Cloud，或 Cloud 未提供搜索配置文件 | 使用您自己的 Google OAuth 应用 |
 | 结果始终只来自一个应用 | 查询在一个语料库中匹配，或账户在其他应用中内容很少 | 尝试一个您知道出现在其他地方的短语 |
 | 找到结果但智能体无法读取整个项目 | 预期行为——此连接器进行搜索，不读取 | 添加相关的应用连接器 |
 | 您需要一个专门用于 Drive 的连接 | 此连接请求跨多个 Workspace 服务的访问权限 | 使用 [Google Drive](google-drive.md) 并审查其权限和操作 |
@@ -79,5 +79,5 @@ Search my Google Workspace for "renewal contract" and tell me which app each res
 - [Connector overview](https://paperclip.ing/product/connectors/google-workspace-search/)
 
 - [Gmail](gmail.md)、[Google Drive](google-drive.md)、[Google Calendar](google-calendar.md)、[Google Chat](google-chat.md)
-- [How connector access works](access-model.md)
+- [连接器访问机制说明](access-model.md)
 - [Google universal search MCP guide](https://developers.google.com/workspace/guides/universal-search-mcp)

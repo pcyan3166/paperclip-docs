@@ -52,7 +52,7 @@ seo_description: 允许智能体读取日历和空闲状态，并可选地管理
 
 > **警告：** 事件写入在 Paperclip 之外具有副作用。创建或更新包含参与者的事件可能会从您的账户发送邀请和通知，且 `respond-to-event` 会以您的身份回复邀请。连接器自身的指导原则是所有事件变更都应经过批准——请将它们保持在 **Ask first**（先询问）状态。
 
-[How connector access works](access-model.md) 涵盖身份和智能体选择；[Set action permissions](action-permissions.md) 是操作指南。
+[连接器访问机制说明](access-model.md) 涵盖身份和智能体选择；[设置操作权限](action-permissions.md) 是操作指南。
 
 ## 尝试使用
 
@@ -73,19 +73,19 @@ What is on my Google Calendar tomorrow? List event titles and times only. Do not
 | 问题 | 可能原因 | 解决方法 |
 | --- | --- | --- |
 | Google 在同意屏幕前拒绝 | 登录账户的开发者预览版注册未完成 | 完成注册并重试 |
-| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未宣传 Calendar 配置文件 | 使用您自己的 Google OAuth 应用，或询问管理员 |
+| 未提供 **Connect with Paperclip** | 实例未注册 Paperclip Cloud，或 Cloud 未提供 Calendar 配置文件 | 使用您自己的 Google OAuth 应用，或询问管理员 |
 | 缺少某个日历 | 它不在授权账户的日历列表中 | 在 Google Calendar 中订阅或共享该日历；无需重新连接 |
 | 缺少事件写入 | 连接是以 **Read only** 建立的 | 建立 **Read & manage** 连接 |
 | 时间因固定偏移量看起来不正确 | 事件的时间区与您正在读取的时间区不同 | 对照日历的时间区进行比较 |
 | **Needs attention**（需要关注） | Google 令牌已过期或授权已被撤销 | 选择 **Reconnect** |
 
-限制：一个连接覆盖一个 Google 账户。日历共享和访问控制更改，以及日历的创建或删除，均未暴露——仅暴露事件。Google 的 Workspace MCP 服务器处于开发者预览版，因此请将接口视为可能发生变化。
+限制：一个连接覆盖一个 Google 账户。不支持日历共享、访问控制更改、创建日历或删除日历——仅支持事件操作。Google 的 Workspace MCP 服务器处于开发者预览版，因此请将接口视为可能发生变化。
 
 ## 相关指南
 
 - [Connector overview](https://paperclip.ing/product/connectors/google-calendar/)
 
-- [Google Workspace Search](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
-- [How connector access works](access-model.md)
-- [Verify a connector and fix a broken one](verify-and-troubleshoot.md)
+- [Google Workspace 搜索](google-workspace-search.md) — 跨 Gmail、Drive、Calendar 和 Chat 的单一只读搜索。
+- [连接器访问机制说明](access-model.md)
+- [验证连接器并修复故障连接器](verify-and-troubleshoot.md)
 - [Google Calendar API MCP reference](https://developers.google.com/workspace/calendar/api/v3/reference/mcp)

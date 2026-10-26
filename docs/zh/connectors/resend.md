@@ -37,13 +37,13 @@ Paperclip 向 Resend 请求 `full_access` 权限范围。该单一授权涵盖�
 
 | 操作 | 后果 |
 | --- | --- |
-| 读取投递状态、域名、受众群体 | 无数据外泄 |
+| 读取投递状态、域名、受众群体 | 数据不会离开系统 |
 | 管理受众群体和联系人 | 更改邮件列表中的成员 |
 | 发送电子邮件 | 立即且不可逆地向真实人员发送真实邮件 |
 
 > **危险：** 请将发送操作保持为 **Off**，或至少设置为 **Ask first**。能够不受监督发送邮件的智能体可能会向您的客户发送邮件。邮件无法撤回，错误不仅影响收件人，还会损害您的域名声誉。
 
-受众群体的变更也需谨慎——移除联系人会丢失订阅记录，添加联系人可能涉及同意权问题。请参阅 [Set action permissions](action-permissions.md)。
+受众群体的变更也需谨慎——移除联系人会丢失订阅记录，添加联系人可能涉及同意权问题。请参阅 [设置操作权限](action-permissions.md)。
 
 ## 试用
 
@@ -80,5 +80,5 @@ List the verified sending domains on the Resend account and tell me the delivery
 
 - [AgentMail](agentmail.md) — 为智能体提供独立收件箱，并将邮件转化为任务。
 - [Gmail](gmail.md) — 读取现有邮箱。
-- [Set action permissions](action-permissions.md)
+- [设置操作权限](action-permissions.md)
 - [Resend remote MCP server](https://resend.com/changelog/remote-mcp-server)

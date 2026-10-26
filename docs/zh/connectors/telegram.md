@@ -64,7 +64,7 @@ Paperclip 会为您向 Telegram 注册 webhook，并使用生成的密钥以拒�
 
 在群组中，Telegram 的默认隐私模式意味着机器人仅接收直接提及它的消息。在 BotFather 中关闭此功能将使机器人接收所有群组消息；除非您已决定需要此功能，否则请保持默认设置。
 
-连接的身份和智能体设置与其他连接器相同；请参阅 [How connector access works](access-model.md)。回复智能体在连接中设置。
+连接的身份和智能体设置与其他连接器相同；请参阅 [连接器访问机制说明](access-model.md)。回复智能体在连接中设置。
 
 ## 尝试使用
 
@@ -92,5 +92,5 @@ Paperclip 会为您向 Telegram 注册 webhook，并使用生成的密钥以拒�
 ## 相关指南
 
 - [Discord](discord.md)、[Slack](slack.md)、[Microsoft Teams](microsoft-teams.md) — 其他对话渠道。
-- [How connector access works](access-model.md)
+- [连接器访问机制说明](access-model.md)
 - [Telegram bot tutorial](https://core.telegram.org/bots/tutorial)

@@ -60,13 +60,13 @@ Asana 自己的参考文档是 [Integrating with Asana's MCP server](https://dev
 
 ## 选择访问权限
 
-访问权限取决于授权 Asana 账户：即其所属的工作区和其可以打开的项目。该账户未加入的私有项目将保持不可见，这通常是将某些内容排除在访问范围之外的最简单方式。
+访问范围由授权的 Asana 账户决定，包括该账户所属的工作区和可访问的项目。该账户未加入的私有项目将保持不可见，这通常是将某些内容排除在访问范围之外的最简单方式。
 
 Paperclip 中没有工作区或项目选择器。若要缩小访问权限，请使用加入较少项目的账户进行授权。
 
-任务创建、更新和评论是您的团队将看到的写入操作。在工作流得到验证之前，请将其保持在 **Ask first**（先询问）状态。读取操作可以保持 **Allowed**（允许）状态。参见 [Set action permissions](action-permissions.md)（设置操作权限）。
+任务创建、更新和评论是您的团队将看到的写入操作。在工作流得到验证之前，请将其保持在 **Ask first**（先询问）状态。读取操作可以保持 **Allowed**（允许）状态。参见 [设置操作权限](action-permissions.md)（设置操作权限）。
 
-归属关系遵循授权账户，因此使用专用账户可以使智能体活动具有可区分性。参见 [Use separate accounts for people and agents](separate-accounts.md)（为人员和智能体使用单独账户）。
+归属关系遵循授权账户，因此使用专用账户可以使智能体活动具有可区分性。参见 [为人员和智能体使用独立账户](separate-accounts.md)（为人员和智能体使用单独账户）。
 
 ## 试用
 
@@ -97,6 +97,6 @@ Find the Asana task called "Update onboarding checklist" and tell me its assigne
 - [Connector overview](https://paperclip.ing/product/connectors/asana/)（连接器概述）
 
 - [Jira](jira.md)、[Linear](linear.md)、[Todoist](todoist.md) — 其他工作跟踪连接器。
-- [Use separate accounts for people and agents](separate-accounts.md)（为人员和智能体使用单独账户）
-- [Set action permissions](action-permissions.md)（设置操作权限）
+- [为人员和智能体使用独立账户](separate-accounts.md)（为人员和智能体使用单独账户）
+- [设置操作权限](action-permissions.md)（设置操作权限）
 - [Asana MCP server documentation](https://developers.asana.com/docs/integrating-with-asanas-mcp-server)（Asana MCP 服务器文档）
