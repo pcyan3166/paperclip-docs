@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paperclip Docs</title>
-  <meta name="description" data-seo-managed content="Guides, references, and walkthroughs for running Paperclip, an AI company operating system for agent teams, governance, budgets, and workflows." />
+  <title>Paperclip 文档：从入门到进阶</title>
+  <meta name="description" data-seo-managed content="Paperclip 简体中文文档。按照从核心概念、首次运行、日常管理到高级配置的学习路径，系统了解 AI 公司及智能体团队的运行方式。" />
   <meta name="robots" data-seo-managed content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" data-seo-managed href="https://docs.paperclip.ing/" />
   <meta property="og:type" data-seo-managed content="website" />
   <meta property="og:site_name" data-seo-managed content="Paperclip Docs" />
-  <meta property="og:title" data-seo-managed content="Paperclip Docs" />
-  <meta property="og:description" data-seo-managed content="Guides, references, and walkthroughs for running Paperclip, an AI company operating system for agent teams, governance, budgets, and workflows." />
+  <meta property="og:title" data-seo-managed content="Paperclip 文档：从入门到进阶" />
+  <meta property="og:description" data-seo-managed content="按照从核心概念、首次运行、日常管理到高级配置的学习路径，系统了解 Paperclip。" />
   <meta property="og:url" data-seo-managed content="https://docs.paperclip.ing/" />
   <meta name="twitter:card" data-seo-managed content="summary" />
-  <meta name="twitter:title" data-seo-managed content="Paperclip Docs" />
-  <meta name="twitter:description" data-seo-managed content="Guides, references, and walkthroughs for running Paperclip, an AI company operating system for agent teams, governance, budgets, and workflows." />
+  <meta name="twitter:title" data-seo-managed content="Paperclip 文档：从入门到进阶" />
+  <meta name="twitter:description" data-seo-managed content="按照从核心概念、首次运行、日常管理到高级配置的学习路径，系统了解 Paperclip。" />
   <script>
     /* Apply theme before first paint (dark by default) to avoid a flash. */
     (function () {
@@ -30,18 +30,18 @@
 <header id="header" class="navbar">
   <div class="navbar-inner">
     <div class="navbar-left">
-      <button class="icon-btn navbar-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="icon-btn navbar-hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false">
         <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
           <path d="M3 5h12M3 9h12M3 13h12"/>
         </svg>
       </button>
-      <button class="navbar-search-btn navbar-search-mobile js-search-open" aria-label="Search docs" aria-haspopup="dialog">
+      <button class="navbar-search-btn navbar-search-mobile js-search-open" aria-label="搜索文档" aria-haspopup="dialog">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
           <circle cx="7" cy="7" r="5"/><path d="m11 11 3 3"/>
         </svg>
       </button>
-      <a href="https://paperclip.ing/blog" class="navbar-link">Blog</a>
-      <a href="/" class="navbar-link" data-nav="home">Docs</a>
+      <a href="https://paperclip.ing/blog" class="navbar-link">博客</a>
+      <a href="/" class="navbar-link" data-nav="home">文档</a>
       <a href="https://github.com/paperclipai/paperclip" class="navbar-link navbar-link--icon" target="_blank" rel="noopener" aria-label="GitHub">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
@@ -54,14 +54,14 @@
         </svg>
         <span>Paperclip</span>
       </a>
-      <a class="navbar-logo-link navbar-logo-sub" href="https://docs.paperclip.ing">Docs</a>
+      <a class="navbar-logo-link navbar-logo-sub" href="https://docs.paperclip.ing">文档</a>
     </div>
     <div class="navbar-right">
-      <button id="search-trigger" class="navbar-search-btn js-search-open" aria-label="Search docs" aria-haspopup="dialog">
+      <button id="search-trigger" class="navbar-search-btn js-search-open" aria-label="搜索文档" aria-haspopup="dialog">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
           <circle cx="7" cy="7" r="5"/><path d="m11 11 3 3"/>
         </svg>
-        <span class="navbar-search-label">Search</span>
+        <span class="navbar-search-label">搜索</span>
         <kbd class="navbar-search-kbd">⌘K</kbd>
       </button>
       <a href="https://github.com/paperclipai/paperclip" class="navbar-link navbar-link--icon navbar-github-mobile" target="_blank" rel="noopener" aria-label="GitHub">
@@ -76,22 +76,22 @@
 </header>
 
 <!-- ─── Search modal (⌘K) ──────────────────────────────────── -->
-<div id="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+<div id="search-modal" role="dialog" aria-modal="true" aria-label="搜索文档" hidden>
   <div id="search-modal-backdrop"></div>
   <div id="search-modal-panel">
     <div id="search-wrap">
       <svg id="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
         <circle cx="7" cy="7" r="5"/><path d="m11 11 3 3"/>
       </svg>
-      <input id="search-input" type="search" placeholder="Search the docs…" autocomplete="off" spellcheck="false" aria-label="Search guides" aria-haspopup="listbox" />
+      <input id="search-input" type="search" placeholder="搜索文档…" autocomplete="off" spellcheck="false" aria-label="搜索指南" aria-haspopup="listbox" />
       <kbd id="search-kbd">esc</kbd>
-      <div id="search-results" role="listbox" aria-label="Search results"></div>
+      <div id="search-results" role="listbox" aria-label="搜索结果"></div>
     </div>
   </div>
 </div>
 
 <!-- ─── Floating theme toggle (bottom-right) ───────────────── -->
-<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+<button class="theme-toggle" id="theme-toggle" aria-label="切换浅色或深色主题">
   <span class="theme-toggle-icon theme-toggle-sun" aria-hidden="true">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
@@ -105,16 +105,16 @@
 </button>
 
 <div id="drawer-backdrop"></div>
-<aside id="drawer" aria-label="Mobile navigation" aria-hidden="true" inert>
+<aside id="drawer" aria-label="移动端文档导航" aria-hidden="true" inert>
   <div id="drawer-head">
-    <span class="label">Documentation</span>
-    <button class="icon-btn" id="drawer-close" aria-label="Close menu">
+    <span class="label">文档</span>
+    <button class="icon-btn" id="drawer-close" aria-label="关闭菜单">
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="m4 4 10 10M14 4 4 14"/></svg>
     </button>
   </div>
   <a class="sb-back" href="/" data-nav="home">
     <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2 4 6l4 4"/></svg>
-    All docs
+    所有文档
   </a>
   <div id="drawer-sections"></div>
 </aside>
@@ -122,27 +122,87 @@
 <!-- ─── Landing page ─────────────────────────────────────── -->
 <section id="landing">
   <div id="landing-hero">
-    <div id="landing-eyebrow">Documentation</div>
-    <h1 id="landing-title">Everything you need to <em>run Paperclip.</em></h1>
-    <p id="landing-desc">Guides, references, and walkthroughs for the people running AI agents at work. Start at the quickstart, or jump anywhere below.</p>
+    <div id="landing-eyebrow">Paperclip 简体中文文档</div>
+    <h1 id="landing-title">从理解概念到<em>运行你的 AI 公司。</em></h1>
+    <p id="landing-desc">文档很多，不必从头乱翻。按学习路径逐步了解 Paperclip，再按主题查阅完整指南、连接器和技术参考。</p>
   </div>
 
+  <section class="learning-path" aria-labelledby="learning-path-title">
+    <div class="learning-path-heading">
+      <div>
+        <div class="learning-path-kicker">建议阅读顺序 · 6 个阶段</div>
+        <h2 id="learning-path-title">循序渐进，读懂 Paperclip</h2>
+      </div>
+      <p>先理解它是什么，再亲手跑通一个公司，最后学习治理、自动化和扩展。</p>
+    </div>
+    <div class="learning-path-grid">
+      <article class="learning-step">
+        <span class="learning-step-number">01</span>
+        <h3>建立整体认知</h3>
+        <p>先弄清 Paperclip 管理什么，以及公司、智能体、任务和心跳如何协作。</p>
+        <a href="/zh/guides/welcome/what-is-paperclip/" data-nav-file="../zh/guides/welcome/what-is-paperclip.md">Paperclip 是什么？ <span>→</span></a>
+        <a href="/zh/guides/welcome/key-concepts/" data-nav-file="../zh/guides/welcome/key-concepts.md">关键概念 <span>→</span></a>
+      </article>
+      <article class="learning-step">
+        <span class="learning-step-number">02</span>
+        <h3>安装并跑通首次体验</h3>
+        <p>准备运行环境，了解关键设置，再用最短路径启动一家公司。</p>
+        <a href="/zh/guides/getting-started/installation/" data-nav-file="../zh/guides/getting-started/installation.md">安装 Paperclip <span>→</span></a>
+        <a href="/zh/guides/getting-started/five-minute-path/" data-nav-file="../zh/guides/getting-started/five-minute-path.md">五分钟快速上手 <span>→</span></a>
+      </article>
+      <article class="learning-step">
+        <span class="learning-step-number">03</span>
+        <h3>创建公司并聘用智能体</h3>
+        <p>亲手设定公司目标，配置 CEO 智能体，理解角色、适配器和模型。</p>
+        <a href="/zh/guides/getting-started/your-first-company/" data-nav-file="../zh/guides/getting-started/your-first-company.md">创建你的第一家公司 <span>→</span></a>
+        <a href="/zh/guides/getting-started/your-first-agent/" data-nav-file="../zh/guides/getting-started/your-first-agent.md">聘用你的首位智能体 <span>→</span></a>
+      </article>
+      <article class="learning-step">
+        <span class="learning-step-number">04</span>
+        <h3>看懂工作如何流转</h3>
+        <p>观察智能体执行心跳，认识任务看板、工作记录和日常操作界面。</p>
+        <a href="/zh/guides/getting-started/watching-agents-work/" data-nav-file="../zh/guides/getting-started/watching-agents-work.md">观察智能体工作 <span>→</span></a>
+        <a href="/zh/guides/day-to-day/issues/" data-nav-file="../zh/guides/day-to-day/issues.md">理解问题与任务 <span>→</span></a>
+      </article>
+      <article class="learning-step">
+        <span class="learning-step-number">05</span>
+        <h3>掌握治理与成本</h3>
+        <p>了解审批、成员权限、预算和审计，明确哪些工作可自动运行、哪些需要把关。</p>
+        <a href="/zh/guides/day-to-day/approvals/" data-nav-file="../zh/guides/day-to-day/approvals.md">审批与人工把关 <span>→</span></a>
+        <a href="/zh/guides/day-to-day/costs/" data-nav-file="../zh/guides/day-to-day/costs.md">成本与预算 <span>→</span></a>
+      </article>
+      <article class="learning-step">
+        <span class="learning-step-number">06</span>
+        <h3>构建团队并扩展能力</h3>
+        <p>理解组织与委派，再按需要配置项目、例程、连接器、技能和 API。</p>
+        <a href="/zh/guides/org/agents/" data-nav-file="../zh/guides/org/agents.md">组织与智能体 <span>→</span></a>
+        <a href="/zh/connectors/first-connector/" data-nav-file="../zh/connectors/first-connector.md">连接第一个服务 <span>→</span></a>
+      </article>
+    </div>
+    <p class="learning-path-note">需要解决具体问题？向下浏览全部分类，或使用右上角搜索直接查找文档。</p>
+  </section>
+
+  <div class="library-heading">
+    <div class="learning-path-kicker">完整文档库</div>
+    <h2>按主题浏览全部内容</h2>
+    <p>指南、操作手册、管理、连接器以及 API、CLI、插件和技能参考都已分类整理。</p>
+  </div>
   <div class="card-grid" id="landing-cards"></div>
 </section>
 
 <!-- ─── Article view ─────────────────────────────────────── -->
 <div id="article-view">
   <div id="body">
-    <nav id="sidebar" aria-label="Documentation">
+    <nav id="sidebar" aria-label="文档导航">
       <a class="sb-back" href="/" data-nav="home">
         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 2 4 6l4 4"/></svg>
-        All docs
+        所有文档
       </a>
       <div id="sb-sections"></div>
     </nav>
 
     <main id="content">
-      <div id="breadcrumb" aria-label="Breadcrumb"></div>
+      <div id="breadcrumb" aria-label="面包屑导航"></div>
       <!-- Empty on every served document. Loading and error text is written here
            by app.js only during a real client-side transition, so raw HTML never
            claims a page is loading or broken. -->
@@ -151,10 +211,10 @@
       <div id="page-nav" style="display:none"></div>
     </main>
 
-    <aside id="toc-rail" aria-label="On this page">
+    <aside id="toc-rail" aria-label="本页目录">
       <div class="toc-rail-inner">
-        <div class="toc-rail-title">On this page</div>
-        <nav id="toc-rail-links" aria-label="Page sections"></nav>
+        <div class="toc-rail-title">本页目录</div>
+        <nav id="toc-rail-links" aria-label="页面章节"></nav>
       </div>
     </aside>
   </div>
@@ -166,36 +226,36 @@
   </div>
   <div class="footer-columns footer-container">
     <div class="footer-col">
-      <div class="footer-col-heading">Product</div>
-      <a href="https://paperclip.ing/#get-started" target="_blank" rel="noopener">Get started</a>
-      <a href="/guides/getting-started/five-minute-path/" data-nav="link">Quickstart</a>
+      <div class="footer-col-heading">产品</div>
+      <a href="https://paperclip.ing/#get-started" target="_blank" rel="noopener">开始使用</a>
+      <a href="/zh/guides/getting-started/five-minute-path/" data-nav="link">快速上手</a>
     </div>
     <div class="footer-col">
-      <div class="footer-col-heading">Platform</div>
-      <a href="/guides/org/agents/" data-nav="link">Agents</a>
-      <a href="https://paperclip.ing/#governance-section" target="_blank" rel="noopener">Governance</a>
-      <a href="/guides/org/adapters/" data-nav="link">Integrations</a>
+      <div class="footer-col-heading">平台</div>
+      <a href="/zh/guides/org/agents/" data-nav="link">智能体</a>
+      <a href="https://paperclip.ing/#governance-section" target="_blank" rel="noopener">治理</a>
+      <a href="/zh/guides/org/adapters/" data-nav="link">集成</a>
     </div>
     <div class="footer-col">
-      <div class="footer-col-heading">Developers</div>
-      <a href="/" data-nav="home">Documentation</a>
-      <a href="/reference/api/overview/" data-nav="link">API reference</a>
+      <div class="footer-col-heading">开发者</div>
+      <a href="/" data-nav="home">文档</a>
+      <a href="/zh/reference/api/overview/" data-nav="link">API 参考</a>
       <a href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-col">
-      <div class="footer-col-heading">Resources</div>
-      <a href="https://paperclip.ing/blog" target="_blank" rel="noopener">Blog</a>
-      <a href="https://paperclip.ing/changelog" target="_blank" rel="noopener">Changelog</a>
-      <a href="https://github.com/paperclipai/paperclip/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
-      <a href="https://github.com/paperclipai/paperclip/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      <div class="footer-col-heading">资源</div>
+      <a href="https://paperclip.ing/blog" target="_blank" rel="noopener">博客</a>
+      <a href="https://paperclip.ing/changelog" target="_blank" rel="noopener">更新日志</a>
+      <a href="https://github.com/paperclipai/paperclip/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">参与贡献</a>
+      <a href="https://github.com/paperclipai/paperclip/blob/main/LICENSE" target="_blank" rel="noopener">许可证</a>
       <a href="https://discord.gg/m4HZY7xNG3" target="_blank" rel="noopener">Discord</a>
     </div>
   </div>
   <div class="footer-bottom footer-container">
     <span class="footer-copy">&copy; 2026 Paperclip. Open source under MIT.</span>
     <div class="footer-bottom-links">
-      <a href="https://paperclip.ing/tos#privacy" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://paperclip.ing/tos" target="_blank" rel="noopener">Terms</a>
+      <a href="https://paperclip.ing/tos#privacy" target="_blank" rel="noopener">隐私</a>
+      <a href="https://paperclip.ing/tos" target="_blank" rel="noopener">条款</a>
     </div>
   </div>
 </footer>

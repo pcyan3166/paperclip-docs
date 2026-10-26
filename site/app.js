@@ -26,7 +26,10 @@ function getSectionKind(section) {
   if (section && typeof section === 'object') return section.tier || 'Guides';
   return 'Guides';
 }
-const TIER_ORDER = ['Learn', 'Administration', 'Reference'];
+const TIER_ORDER = ['中文文档', 'Learn', 'Administration', 'Reference'];
+function tierLabel(tier) {
+  return ({ '中文文档': '简体中文文档', Learn: '英文原文 · 指南', Administration: '英文原文 · 管理', Reference: '英文原文 · 技术参考' })[tier] || tier;
+}
 
 /* ─── Theme bootstrap (before first paint of body) ──────────────────────── */
 (function() {
@@ -49,9 +52,9 @@ let tocResizeHandler = null;
 let tocDocumentClickHandler = null;
 let tocKeydownHandler = null;
 let markdownRendererPromise = null;
-const SEO_SITE_NAME = 'Paperclip Docs';
-const SEO_DEFAULT_TITLE = 'Paperclip Docs';
-const SEO_DEFAULT_DESCRIPTION = 'Guides, references, and walkthroughs for running Paperclip, an AI company operating system for agent teams, governance, budgets, and workflows.';
+const SEO_SITE_NAME = 'Paperclip 中文文档';
+const SEO_DEFAULT_TITLE = 'Paperclip 文档：从入门到进阶';
+const SEO_DEFAULT_DESCRIPTION = '按照从核心概念、首次运行、日常管理到高级配置的学习路径，系统了解 Paperclip。';
 const APP_DIR_NAME = 'site';
 const APP_BASE_PATH = (() => {
   const marker = `/${APP_DIR_NAME}`;
@@ -980,7 +983,7 @@ function buildLanding() {
     block.dataset.tier = tier;
     const n = byTier.get(tier).length;
     const cols = n <= 3 ? n : (n === 4 ? 2 : 3);
-    block.innerHTML = `<h2>${escapeHtml(tier)}</h2><div class="landing-tier-cards" style="--tier-cols:${cols}"></div>`;
+    block.innerHTML = `<h2>${escapeHtml(tierLabel(tier))}</h2><div class="landing-tier-cards" style="--tier-cols:${cols}"></div>`;
     const cardsWrap = block.querySelector('.landing-tier-cards');
     byTier.get(tier).forEach(({ section, i }) => {
       const firstPage = getFirstNavPage(section.pages);
@@ -994,7 +997,7 @@ function buildLanding() {
         <div class="card-icon">${sectionIconTag(section)}</div>
         <div class="card-title">${escapeHtml(section.title)}</div>
         <div class="card-desc">${escapeHtml(desc)}</div>
-        <div class="card-meta"><span>${pageCount} page${pageCount === 1 ? '' : 's'}</span><span class="dot"></span><span>${escapeHtml(getSectionKind(section))}</span></div>
+        <div class="card-meta"><span>${pageCount} 篇文档</span><span class="dot"></span><span>${escapeHtml(tierLabel(getSectionKind(section)))}</span></div>
       `;
       cardsWrap.appendChild(a);
     });
@@ -1041,7 +1044,7 @@ function sidebarSectionsHTML() {
   ];
 
   return orderedTiers.map(tier => {
-    const header = `<div class="sb-tier-header">${escapeHtml(tier)}</div>`;
+    const header = `<div class="sb-tier-header">${escapeHtml(tierLabel(tier))}</div>`;
     const sections = byTier.get(tier).map(({ section, si }) => {
       const pageCount = countNavPages(section.pages);
       return `
@@ -1866,12 +1869,12 @@ function buildToc(article, file, unlistedPage = null) {
   wrap.innerHTML = `
     <button type="button" class="toc-toggle" aria-expanded="false" aria-controls="toc-panel">
       ${TOC_SVG}
-      <span class="toc-label">On this page</span>
+      <span class="toc-label">本页目录</span>
       <span class="count">${headings.length}</span>
       ${CHEVRON_SVG}
     </button>
-    <nav class="toc-panel" id="toc-panel" aria-label="On this page">
-      <div class="toc-panel-label">On this page</div>
+    <nav class="toc-panel" id="toc-panel" aria-label="本页目录">
+      <div class="toc-panel-label">本页目录</div>
     </nav>
   `;
   const panel = wrap.querySelector('.toc-panel');

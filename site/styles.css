@@ -378,6 +378,91 @@
     #landing-title em { font-style: italic; color: inherit; }
     #landing-desc { font-size: 17px; line-height: 1.6; color: var(--graphite); max-width: 560px; }
 
+    .learning-path {
+      margin: 0 0 72px;
+      padding: 32px;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--white), var(--linen) 72%);
+    }
+    .learning-path-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .learning-path-kicker {
+      margin-bottom: 8px;
+      color: var(--green-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    [data-theme="dark"] .learning-path-kicker { color: var(--green); }
+    .learning-path-heading h2,
+    .library-heading h2 {
+      font-size: clamp(23px, 3vw, 32px);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+    .learning-path-heading > p,
+    .library-heading > p {
+      max-width: 390px;
+      color: var(--graphite);
+      font-size: 14px;
+    }
+    .learning-path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .learning-step {
+      min-height: 218px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .learning-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 28px;
+      margin-bottom: 14px;
+      border-radius: var(--radius-pill);
+      background: var(--mint);
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    [data-theme="dark"] .learning-step-number { color: var(--green); }
+    .learning-step h3 { margin-bottom: 7px; font-size: 17px; line-height: 1.35; }
+    .learning-step p { margin-bottom: 10px; color: var(--graphite); font-size: 13px; line-height: 1.55; }
+    .learning-step a {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 0;
+      padding-top: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .learning-step a + a { margin-top: 0; padding-top: 8px; border-top: 1px solid var(--stone); }
+    .learning-step a span { color: var(--green-deep); transition: transform var(--transition); }
+    [data-theme="dark"] .learning-step a span { color: var(--green); }
+    .learning-step a:hover span { transform: translateX(3px); }
+    .learning-path-note { margin-top: 20px; color: var(--ash); font-size: 12px; }
+    .library-heading { margin: 0 0 24px; }
+    .library-heading > p { margin-top: 8px; }
+
     .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
     .card {
@@ -1530,8 +1615,14 @@
     }
     @media (max-width: 900px) {
       .landing-tier-cards { grid-template-columns: repeat(2, 1fr); }
+      .learning-path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 600px) {
       .landing-tier-cards { grid-template-columns: 1fr; }
+      .learning-path { padding: 22px 16px; }
+      .learning-path-heading { display: block; }
+      .learning-path-heading > p { margin-top: 10px; }
+      .learning-path-grid { grid-template-columns: 1fr; }
+      .learning-step { min-height: 0; }
     }
 

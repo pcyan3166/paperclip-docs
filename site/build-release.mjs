@@ -1325,7 +1325,7 @@ function rewriteAssetReferences(html, { appJsName, stylesName }) {
    the sidebar, previous/next links, and the sitemap. Every entry is a real
    `<a href>` so the whole manifest is reachable without JavaScript. */
 
-const LANDING_TIER_ORDER = ["Learn", "Administration", "Reference"];
+const LANDING_TIER_ORDER = ["中文文档", "Learn", "Administration", "Reference"];
 
 // app.js owns the icon set for the sidebar and drawer, so read it back out of
 // the shell source rather than keeping a second copy that can drift.
@@ -1353,6 +1353,10 @@ function sectionIconTag(section, iconPaths) {
 
 function getSectionKind(section) {
   return (section && typeof section === "object" && section.tier) || "Guides";
+}
+
+function tierLabel(tier) {
+  return ({ "中文文档": "简体中文文档", Learn: "英文原文 · 指南", Administration: "英文原文 · 管理", Reference: "英文原文 · 技术参考" })[tier] || tier;
 }
 
 function countNavPages(nodes) {
@@ -1393,18 +1397,18 @@ function buildLandingCardsHtml(nav, basePath, iconPaths) {
     const cards = entries.map(({ section, index }) => {
       const firstPage = getFirstNavPage(section.pages);
       const pageCount = countNavPages(section.pages);
-      const pageLabel = `${pageCount} page${pageCount === 1 ? "" : "s"}`;
+      const pageLabel = `${pageCount} 篇文档`;
       const href = firstPage ? routePathForSlug(basePath, firstPage.slug) : getPublicBasePath(basePath);
       const description = section.desc || `${pageLabel} in ${section.title}.`;
       return `<a class="card" href="${escapeAttr(href)}" data-nav-section="${index}">`
         + `<div class="card-icon">${sectionIconTag(section, iconPaths)}</div>`
         + `<div class="card-title">${escapeHtml(section.title)}</div>`
         + `<div class="card-desc">${escapeHtml(description)}</div>`
-        + `<div class="card-meta"><span>${escapeHtml(pageLabel)}</span><span class="dot"></span><span>${escapeHtml(tier)}</span></div>`
+        + `<div class="card-meta"><span>${escapeHtml(pageLabel)}</span><span class="dot"></span><span>${escapeHtml(tierLabel(tier))}</span></div>`
         + `</a>`;
     }).join("");
     return `<section class="landing-tier" data-tier="${escapeAttr(tier)}">`
-      + `<h2>${escapeHtml(tier)}</h2>`
+      + `<h2>${escapeHtml(tierLabel(tier))}</h2>`
       + `<div class="landing-tier-cards" style="--tier-cols:${columns}">${cards}</div>`
       + `</section>`;
   }).join("");
@@ -1452,7 +1456,7 @@ function navSubtreeContainsFile(nodes, activeFile) {
 
 function buildSidebarSectionsHtml(nav, basePath, iconPaths, activeFile) {
   return sectionsByTier(nav).map(({ tier, entries }) => {
-    const header = `<div class="sb-tier-header">${escapeHtml(tier)}</div>`;
+    const header = `<div class="sb-tier-header">${escapeHtml(tierLabel(tier))}</div>`;
     const sections = entries.map(({ section, index }) => {
       const pageCount = countNavPages(section.pages);
       const isOpen = navSubtreeContainsFile(section.pages, activeFile);
@@ -1500,13 +1504,13 @@ function withStaticChrome(sourceIndex, nav, basePath, iconPaths, metadata) {
     `<div id="sb-sections" data-server-rendered="true">${sectionsHtml}</div>`,
   );
 
-  const breadcrumbPlaceholder = '<div id="breadcrumb" aria-label="Breadcrumb"></div>';
+  const breadcrumbPlaceholder = '<div id="breadcrumb" aria-label="面包屑导航"></div>';
   if (!html.includes(breadcrumbPlaceholder)) {
     throw new Error("site/index.html is missing the breadcrumb container.");
   }
   return html.replace(
     breadcrumbPlaceholder,
-    `<div id="breadcrumb" aria-label="Breadcrumb" data-server-rendered="true">${buildBreadcrumbHtml(metadata)}</div>`,
+    `<div id="breadcrumb" aria-label="面包屑导航" data-server-rendered="true">${buildBreadcrumbHtml(metadata)}</div>`,
   );
 }
 

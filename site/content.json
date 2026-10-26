@@ -6,67 +6,186 @@
       "icon": "book-open",
       "desc": "从入门、核心概念到高级工作流程，逐步了解如何运行 Paperclip AI 公司。",
       "pages": [
-        { "title": "五分钟快速上手", "file": "../docs/zh/guides/getting-started/five-minute-path.md" },
-        { "title": "安装 Paperclip", "file": "../docs/zh/guides/getting-started/installation.md" },
-        { "title": "创建你的第一家公司", "file": "../docs/zh/guides/getting-started/your-first-company.md" },
-        { "title": "聘用你的首位智能体", "file": "../docs/zh/guides/getting-started/your-first-agent.md" },
-        { "title": "观察智能体工作", "file": "../docs/zh/guides/getting-started/watching-agents-work.md" },
         {
           "title": "欢迎与核心概念",
           "pages": [
-            { "title": "Paperclip 是什么？", "file": "../docs/zh/guides/welcome/what-is-paperclip.md" },
-            { "title": "关键概念", "file": "../docs/zh/guides/welcome/key-concepts.md" },
-            { "title": "术语表", "file": "../docs/zh/guides/welcome/glossary.md" }
+            {
+              "title": "Paperclip 是什么？",
+              "file": "../docs/zh/guides/welcome/what-is-paperclip.md"
+            },
+            {
+              "title": "关键概念",
+              "file": "../docs/zh/guides/welcome/key-concepts.md"
+            },
+            {
+              "title": "术语表",
+              "file": "../docs/zh/guides/welcome/glossary.md"
+            }
+          ]
+        },
+        {
+          "title": "首次运行：从安装到第一位智能体",
+          "pages": [
+            {
+              "title": "安装 Paperclip",
+              "file": "../docs/zh/guides/getting-started/installation.md"
+            },
+            {
+              "title": "五分钟快速上手",
+              "file": "../docs/zh/guides/getting-started/five-minute-path.md"
+            },
+            {
+              "title": "创建你的第一家公司",
+              "file": "../docs/zh/guides/getting-started/your-first-company.md"
+            },
+            {
+              "title": "聘用你的首位智能体",
+              "file": "../docs/zh/guides/getting-started/your-first-agent.md"
+            },
+            {
+              "title": "观察智能体工作",
+              "file": "../docs/zh/guides/getting-started/watching-agents-work.md"
+            }
           ]
         },
         {
           "title": "进阶指南",
           "pages": [
-            { "title": "终端设置", "file": "../docs/zh/guides/power/terminal-setup.md" },
-            { "title": "执行策略", "file": "../docs/zh/guides/power/execution-policy.md" },
-            { "title": "导出和导入公司", "file": "../docs/zh/guides/power/export-import.md" }
+            {
+              "title": "终端设置",
+              "file": "../docs/zh/guides/power/terminal-setup.md"
+            },
+            {
+              "title": "执行策略",
+              "file": "../docs/zh/guides/power/execution-policy.md"
+            },
+            {
+              "title": "导出和导入公司",
+              "file": "../docs/zh/guides/power/export-import.md"
+            }
           ]
         },
         {
           "title": "日常使用",
           "pages": [
-            { "title": "仪表板", "file": "../docs/zh/guides/day-to-day/dashboard.md" },
-            { "title": "命令面板", "file": "../docs/zh/guides/day-to-day/command-palette.md" },
-            { "title": "工作模式", "file": "../docs/zh/guides/day-to-day/work-modes.md" },
-            { "title": "反馈与投票", "file": "../docs/zh/guides/day-to-day/feedback-voting.md" },
-            { "title": "审批", "file": "../docs/zh/guides/day-to-day/approvals.md" },
-            { "title": "阻塞收件箱", "file": "../docs/zh/guides/day-to-day/blocked-inbox.md" },
-            { "title": "决策", "file": "../docs/zh/guides/day-to-day/decisions.md" },
-            { "title": "活动日志", "file": "../docs/zh/guides/day-to-day/activity-log.md" },
-            { "title": "工作时间线", "file": "../docs/zh/guides/day-to-day/work-timeline.md" },
-            { "title": "成果", "file": "../docs/zh/guides/day-to-day/artifacts.md" },
-            { "title": "问题与任务", "file": "../docs/zh/guides/day-to-day/issues.md" },
-            { "title": "成本与预算", "file": "../docs/zh/guides/day-to-day/costs.md" }
+            {
+              "title": "仪表板",
+              "file": "../docs/zh/guides/day-to-day/dashboard.md"
+            },
+            {
+              "title": "命令面板",
+              "file": "../docs/zh/guides/day-to-day/command-palette.md"
+            },
+            {
+              "title": "工作模式",
+              "file": "../docs/zh/guides/day-to-day/work-modes.md"
+            },
+            {
+              "title": "反馈与投票",
+              "file": "../docs/zh/guides/day-to-day/feedback-voting.md"
+            },
+            {
+              "title": "审批",
+              "file": "../docs/zh/guides/day-to-day/approvals.md"
+            },
+            {
+              "title": "阻塞收件箱",
+              "file": "../docs/zh/guides/day-to-day/blocked-inbox.md"
+            },
+            {
+              "title": "决策",
+              "file": "../docs/zh/guides/day-to-day/decisions.md"
+            },
+            {
+              "title": "活动日志",
+              "file": "../docs/zh/guides/day-to-day/activity-log.md"
+            },
+            {
+              "title": "工作时间线",
+              "file": "../docs/zh/guides/day-to-day/work-timeline.md"
+            },
+            {
+              "title": "成果",
+              "file": "../docs/zh/guides/day-to-day/artifacts.md"
+            },
+            {
+              "title": "问题与任务",
+              "file": "../docs/zh/guides/day-to-day/issues.md"
+            },
+            {
+              "title": "成本与预算",
+              "file": "../docs/zh/guides/day-to-day/costs.md"
+            }
           ]
         },
         {
           "title": "组织与智能体",
           "pages": [
-            { "title": "成员与访问权限", "file": "../docs/zh/guides/org/members-and-access.md" },
-            { "title": "组织结构", "file": "../docs/zh/guides/org/org-structure.md" },
-            { "title": "委派", "file": "../docs/zh/guides/org/delegation.md" },
-            { "title": "智能体适配器", "file": "../docs/zh/guides/org/agent-adapters.md" },
-            { "title": "适配器管理器", "file": "../docs/zh/guides/org/adapters.md" },
-            { "title": "智能体的密码学身份", "file": "../docs/zh/guides/org/agent-identity.md" },
-            { "title": "团队目录", "file": "../docs/zh/guides/org/team-catalog.md" },
-            { "title": "智能体", "file": "../docs/zh/guides/org/agents.md" },
-            { "title": "技能", "file": "../docs/zh/guides/org/skills.md" }
+            {
+              "title": "成员与访问权限",
+              "file": "../docs/zh/guides/org/members-and-access.md"
+            },
+            {
+              "title": "组织结构",
+              "file": "../docs/zh/guides/org/org-structure.md"
+            },
+            {
+              "title": "委派",
+              "file": "../docs/zh/guides/org/delegation.md"
+            },
+            {
+              "title": "智能体适配器",
+              "file": "../docs/zh/guides/org/agent-adapters.md"
+            },
+            {
+              "title": "适配器管理器",
+              "file": "../docs/zh/guides/org/adapters.md"
+            },
+            {
+              "title": "智能体的密码学身份",
+              "file": "../docs/zh/guides/org/agent-identity.md"
+            },
+            {
+              "title": "团队目录",
+              "file": "../docs/zh/guides/org/team-catalog.md"
+            },
+            {
+              "title": "智能体",
+              "file": "../docs/zh/guides/org/agents.md"
+            },
+            {
+              "title": "技能",
+              "file": "../docs/zh/guides/org/skills.md"
+            }
           ]
         },
         {
           "title": "项目与工作流",
           "pages": [
-            { "title": "目标", "file": "../docs/zh/guides/projects-workflow/goals.md" },
-            { "title": "项目", "file": "../docs/zh/guides/projects-workflow/projects.md" },
-            { "title": "任务看护器", "file": "../docs/zh/guides/projects-workflow/task-watchdogs.md" },
-            { "title": "自定义沙盒镜像", "file": "../docs/zh/guides/projects-workflow/custom-sandbox-images.md" },
-            { "title": "例程", "file": "../docs/zh/guides/projects-workflow/routines.md" },
-            { "title": "工作区", "file": "../docs/zh/guides/projects-workflow/workspaces.md" }
+            {
+              "title": "目标",
+              "file": "../docs/zh/guides/projects-workflow/goals.md"
+            },
+            {
+              "title": "项目",
+              "file": "../docs/zh/guides/projects-workflow/projects.md"
+            },
+            {
+              "title": "任务看护器",
+              "file": "../docs/zh/guides/projects-workflow/task-watchdogs.md"
+            },
+            {
+              "title": "自定义沙盒镜像",
+              "file": "../docs/zh/guides/projects-workflow/custom-sandbox-images.md"
+            },
+            {
+              "title": "例程",
+              "file": "../docs/zh/guides/projects-workflow/routines.md"
+            },
+            {
+              "title": "工作区",
+              "file": "../docs/zh/guides/projects-workflow/workspaces.md"
+            }
           ]
         }
       ]
@@ -77,6 +196,10 @@
       "icon": "wrench",
       "desc": "成员管理、智能体配置、预算、自动化和 Paperclip 运维的实用步骤。",
       "pages": [
+        {
+          "title": "操作指南目录",
+          "file": "../docs/zh/how-to/README.md"
+        },
         {
           "title": "成员与访问",
           "pages": [
@@ -337,8 +460,12 @@
       "tier": "中文文档",
       "title": "连接器（简体中文）",
       "icon": "unplug",
-      "desc": "93 篇连接器、模型提供商、聊天渠道及相关访问与设置文档的完整简体中文翻译。",
+      "desc": "93 篇连接器、模型提供商和聊天渠道文档，另含连接器总览与目录。",
       "pages": [
+        {
+          "title": "连接器总览",
+          "file": "../docs/zh/connectors.md"
+        },
         {
           "title": "连接器文档目录",
           "file": "../docs/zh/connectors/README.md"
@@ -723,25 +850,82 @@
       "icon": "flask-conical",
       "desc": "了解 Paperclip 的实验性功能、启用方式、工作机制和注意事项。",
       "pages": [
-        { "title": "实验性功能概览", "file": "../docs/zh/experimental/overview.md" },
-        { "title": "智能体聊天", "file": "../docs/zh/experimental/agent-chat.md" },
-        { "title": "Assistant 连接（MCP）", "file": "../docs/zh/experimental/assistant-connections.md" },
-        { "title": "自动创建恢复任务", "file": "../docs/zh/experimental/auto-create-recovery-tasks.md" },
-        { "title": "空闲时自动重启开发服务器", "file": "../docs/zh/experimental/auto-restart-dev-server.md" },
-        { "title": "案例", "file": "../docs/zh/experimental/cases.md" },
-        { "title": "Cloud Sync（已退役）", "file": "../docs/zh/experimental/cloud-sync.md" },
-        { "title": "Connections v3 基础架构", "file": "../docs/zh/experimental/connections-apps.md" },
-        { "title": "环境", "file": "../docs/zh/experimental/environments.md" },
-        { "title": "外部智能体：OpenAI Dot", "file": "../docs/zh/experimental/external-agents.md" },
-        { "title": "外部对象", "file": "../docs/zh/experimental/external-objects.md" },
-        { "title": "实验性文件查看器", "file": "../docs/zh/experimental/file-viewer.md" },
-        { "title": "隔离工作区", "file": "../docs/zh/experimental/isolated-workspaces.md" },
-        { "title": "任务计划分解", "file": "../docs/zh/experimental/plan-decomposition-panel.md" },
-        { "title": "服务器信息调试视图", "file": "../docs/zh/experimental/server-info-debug-view.md" },
-        { "title": "状态卡片", "file": "../docs/zh/experimental/status-cards.md" },
-        { "title": "聊天式任务", "file": "../docs/zh/experimental/task-chat.md" },
-        { "title": "任务固定的 AI 路由", "file": "../docs/zh/experimental/task-pinned-ai-routing.md" },
-        { "title": "任务看护器", "file": "../docs/zh/experimental/task-watchdogs.md" }
+        {
+          "title": "实验性功能概览",
+          "file": "../docs/zh/experimental/overview.md"
+        },
+        {
+          "title": "智能体聊天",
+          "file": "../docs/zh/experimental/agent-chat.md"
+        },
+        {
+          "title": "Assistant 连接（MCP）",
+          "file": "../docs/zh/experimental/assistant-connections.md"
+        },
+        {
+          "title": "自动创建恢复任务",
+          "file": "../docs/zh/experimental/auto-create-recovery-tasks.md"
+        },
+        {
+          "title": "空闲时自动重启开发服务器",
+          "file": "../docs/zh/experimental/auto-restart-dev-server.md"
+        },
+        {
+          "title": "案例",
+          "file": "../docs/zh/experimental/cases.md"
+        },
+        {
+          "title": "Cloud Sync（已退役）",
+          "file": "../docs/zh/experimental/cloud-sync.md"
+        },
+        {
+          "title": "Connections v3 基础架构",
+          "file": "../docs/zh/experimental/connections-apps.md"
+        },
+        {
+          "title": "环境",
+          "file": "../docs/zh/experimental/environments.md"
+        },
+        {
+          "title": "外部智能体：OpenAI Dot",
+          "file": "../docs/zh/experimental/external-agents.md"
+        },
+        {
+          "title": "外部对象",
+          "file": "../docs/zh/experimental/external-objects.md"
+        },
+        {
+          "title": "实验性文件查看器",
+          "file": "../docs/zh/experimental/file-viewer.md"
+        },
+        {
+          "title": "隔离工作区",
+          "file": "../docs/zh/experimental/isolated-workspaces.md"
+        },
+        {
+          "title": "任务计划分解",
+          "file": "../docs/zh/experimental/plan-decomposition-panel.md"
+        },
+        {
+          "title": "服务器信息调试视图",
+          "file": "../docs/zh/experimental/server-info-debug-view.md"
+        },
+        {
+          "title": "状态卡片",
+          "file": "../docs/zh/experimental/status-cards.md"
+        },
+        {
+          "title": "聊天式任务",
+          "file": "../docs/zh/experimental/task-chat.md"
+        },
+        {
+          "title": "任务固定的 AI 路由",
+          "file": "../docs/zh/experimental/task-pinned-ai-routing.md"
+        },
+        {
+          "title": "任务看护器",
+          "file": "../docs/zh/experimental/task-watchdogs.md"
+        }
       ]
     },
     {
@@ -1404,6 +1588,10 @@
       "desc": "公司管理、角色权限、密钥、实例设置、插件和 CLI 身份认证的完整简体中文文档。",
       "pages": [
         {
+          "title": "管理文档目录",
+          "file": "../docs/zh/administration/README.md"
+        },
+        {
           "title": "公司管理",
           "file": "../docs/zh/administration/company.md"
         },
@@ -1438,6 +1626,544 @@
         {
           "title": "CLI 身份认证与董事会认领",
           "file": "../docs/zh/administration/cli-auth.md"
+        }
+      ]
+    },
+    {
+      "tier": "中文文档",
+      "title": "技术参考（简体中文）",
+      "icon": "braces",
+      "desc": "按 API、CLI、适配器、部署、插件和技能分类，查阅 Paperclip 的完整技术文档。",
+      "pages": [
+        {
+          "title": "API 参考",
+          "pages": [
+            {
+              "title": "API 概览",
+              "file": "../docs/zh/reference/api/overview.md"
+            },
+            {
+              "title": "Assistant MCP",
+              "file": "../docs/zh/reference/api/assistant-mcp.md"
+            },
+            {
+              "title": "代理",
+              "file": "../docs/zh/reference/api/agents.md"
+            },
+            {
+              "title": "仪表板",
+              "file": "../docs/zh/reference/api/dashboard.md"
+            },
+            {
+              "title": "例行任务",
+              "file": "../docs/zh/reference/api/routines.md"
+            },
+            {
+              "title": "公司",
+              "file": "../docs/zh/reference/api/companies.md"
+            },
+            {
+              "title": "公司技能策略",
+              "file": "../docs/zh/reference/api/company-skill-policy.md"
+            },
+            {
+              "title": "内置智能体",
+              "file": "../docs/zh/reference/api/built-in-agents.md"
+            },
+            {
+              "title": "决策",
+              "file": "../docs/zh/reference/api/decisions.md"
+            },
+            {
+              "title": "决策模型",
+              "file": "../docs/zh/reference/api/decision-models.md"
+            },
+            {
+              "title": "决策训练",
+              "file": "../docs/zh/reference/api/decision-training.md"
+            },
+            {
+              "title": "团队目录 API",
+              "file": "../docs/zh/reference/api/teams-catalog.md"
+            },
+            {
+              "title": "复选框确认",
+              "file": "../docs/zh/reference/api/checkbox-confirmations.md"
+            },
+            {
+              "title": "实例管理 API",
+              "file": "../docs/zh/reference/api/instance-admin.md"
+            },
+            {
+              "title": "审批",
+              "file": "../docs/zh/reference/api/approvals.md"
+            },
+            {
+              "title": "密钥",
+              "file": "../docs/zh/reference/api/secrets.md"
+            },
+            {
+              "title": "工具网关",
+              "file": "../docs/zh/reference/api/tool-gateway.md"
+            },
+            {
+              "title": "待处理事项",
+              "file": "../docs/zh/reference/api/attention.md"
+            },
+            {
+              "title": "成本",
+              "file": "../docs/zh/reference/api/costs.md"
+            },
+            {
+              "title": "插件 API",
+              "file": "../docs/zh/reference/api/plugins.md"
+            },
+            {
+              "title": "摘要槽位",
+              "file": "../docs/zh/reference/api/summary-slots.md"
+            },
+            {
+              "title": "收件箱智能体策略",
+              "file": "../docs/zh/reference/api/inbox-agent-policy.md"
+            },
+            {
+              "title": "文件夹",
+              "file": "../docs/zh/reference/api/folders.md"
+            },
+            {
+              "title": "案例 API",
+              "file": "../docs/zh/reference/api/cases.md"
+            },
+            {
+              "title": "活动记录",
+              "file": "../docs/zh/reference/api/activity.md"
+            },
+            {
+              "title": "状态卡",
+              "file": "../docs/zh/reference/api/status-cards.md"
+            },
+            {
+              "title": "目标与项目",
+              "file": "../docs/zh/reference/api/goals-and-projects.md"
+            },
+            {
+              "title": "资源成员关系",
+              "file": "../docs/zh/reference/api/resource-memberships.md"
+            },
+            {
+              "title": "身份验证",
+              "file": "../docs/zh/reference/api/authentication.md"
+            },
+            {
+              "title": "连接意图",
+              "file": "../docs/zh/reference/api/connection-intents.md"
+            },
+            {
+              "title": "适配器 API",
+              "file": "../docs/zh/reference/api/adapters.md"
+            },
+            {
+              "title": "问题（Issues）",
+              "file": "../docs/zh/reference/api/issues.md"
+            }
+          ]
+        },
+        {
+          "title": "CLI 命令参考",
+          "pages": [
+            {
+              "title": "CLI 概览",
+              "file": "../docs/zh/reference/cli/overview.md"
+            },
+            {
+              "title": "Cloud 同步命令（已移除）",
+              "file": "../docs/zh/reference/cli/cloud.md"
+            },
+            {
+              "title": "Issue 命令",
+              "file": "../docs/zh/reference/cli/issue.md"
+            },
+            {
+              "title": "MCP 命令",
+              "file": "../docs/zh/reference/cli/mcp.md"
+            },
+            {
+              "title": "Worktree 与环境实验室",
+              "file": "../docs/zh/reference/cli/dev-environments.md"
+            },
+            {
+              "title": "connect 命令",
+              "file": "../docs/zh/reference/cli/connect.md"
+            },
+            {
+              "title": "connections 命令",
+              "file": "../docs/zh/reference/cli/connections.md"
+            },
+            {
+              "title": "managed-agent 命令",
+              "file": "../docs/zh/reference/cli/managed-agent.md"
+            },
+            {
+              "title": "test-drive 命令",
+              "file": "../docs/zh/reference/cli/test-drive.md"
+            },
+            {
+              "title": "代理命令",
+              "file": "../docs/zh/reference/cli/agent.md"
+            },
+            {
+              "title": "令牌命令",
+              "file": "../docs/zh/reference/cli/token.md"
+            },
+            {
+              "title": "例行任务命令",
+              "file": "../docs/zh/reference/cli/routine.md"
+            },
+            {
+              "title": "公司命令",
+              "file": "../docs/zh/reference/cli/company.md"
+            },
+            {
+              "title": "反馈命令",
+              "file": "../docs/zh/reference/cli/feedback.md"
+            },
+            {
+              "title": "命令参考",
+              "file": "../docs/zh/reference/cli/commands.md"
+            },
+            {
+              "title": "团队命令",
+              "file": "../docs/zh/reference/cli/teams.md"
+            },
+            {
+              "title": "安装 CLI",
+              "file": "../docs/zh/reference/cli/installation.md"
+            },
+            {
+              "title": "审批命令",
+              "file": "../docs/zh/reference/cli/approval.md"
+            },
+            {
+              "title": "工作区、组织和环境命令",
+              "file": "../docs/zh/reference/cli/workspace.md"
+            },
+            {
+              "title": "成本、财务与预算命令",
+              "file": "../docs/zh/reference/cli/cost.md"
+            },
+            {
+              "title": "技能命令",
+              "file": "../docs/zh/reference/cli/skills.md"
+            },
+            {
+              "title": "控制平面命令",
+              "file": "../docs/zh/reference/cli/control-plane-commands.md"
+            },
+            {
+              "title": "控制面板命令",
+              "file": "../docs/zh/reference/cli/dashboard.md"
+            },
+            {
+              "title": "提示移交",
+              "file": "../docs/zh/reference/cli/prompt.md"
+            },
+            {
+              "title": "插件命令",
+              "file": "../docs/zh/reference/cli/plugin.md"
+            },
+            {
+              "title": "服务命令",
+              "file": "../docs/zh/reference/cli/service.md"
+            },
+            {
+              "title": "活动命令",
+              "file": "../docs/zh/reference/cli/activity.md"
+            },
+            {
+              "title": "目标命令",
+              "file": "../docs/zh/reference/cli/goal.md"
+            },
+            {
+              "title": "秘密管理命令",
+              "file": "../docs/zh/reference/cli/secrets.md"
+            },
+            {
+              "title": "认证与令牌",
+              "file": "../docs/zh/reference/cli/authentication.md"
+            },
+            {
+              "title": "设置命令",
+              "file": "../docs/zh/reference/cli/setup-commands.md"
+            },
+            {
+              "title": "访问、个人资料与实例管理",
+              "file": "../docs/zh/reference/cli/access.md"
+            },
+            {
+              "title": "资源命令",
+              "file": "../docs/zh/reference/cli/asset.md"
+            },
+            {
+              "title": "输出与脚本",
+              "file": "../docs/zh/reference/cli/output-and-scripting.md"
+            },
+            {
+              "title": "运行时命令",
+              "file": "../docs/zh/reference/cli/runtime.md"
+            },
+            {
+              "title": "运行（心跳）命令",
+              "file": "../docs/zh/reference/cli/run.md"
+            },
+            {
+              "title": "适配器命令",
+              "file": "../docs/zh/reference/cli/adapter.md"
+            },
+            {
+              "title": "通用选项和连接",
+              "file": "../docs/zh/reference/cli/common-options.md"
+            },
+            {
+              "title": "项目命令",
+              "file": "../docs/zh/reference/cli/project.md"
+            }
+          ]
+        },
+        {
+          "title": "适配器参考",
+          "pages": [
+            {
+              "title": "适配器概览",
+              "file": "../docs/zh/reference/adapters/overview.md"
+            },
+            {
+              "title": "ACPX Local（已退役）",
+              "file": "../docs/zh/reference/adapters/acpx-local.md"
+            },
+            {
+              "title": "Claude Code",
+              "file": "../docs/zh/reference/adapters/claude-code.md"
+            },
+            {
+              "title": "Codex",
+              "file": "../docs/zh/reference/adapters/codex.md"
+            },
+            {
+              "title": "Cursor Cloud",
+              "file": "../docs/zh/reference/adapters/cursor-cloud.md"
+            },
+            {
+              "title": "Cursor Local",
+              "file": "../docs/zh/reference/adapters/cursor-local.md"
+            },
+            {
+              "title": "Gemini CLI",
+              "file": "../docs/zh/reference/adapters/gemini-cli.md"
+            },
+            {
+              "title": "Grok Local",
+              "file": "../docs/zh/reference/adapters/grok-local.md"
+            },
+            {
+              "title": "HTTP",
+              "file": "../docs/zh/reference/adapters/http.md"
+            },
+            {
+              "title": "Hermes",
+              "file": "../docs/zh/reference/adapters/hermes.md"
+            },
+            {
+              "title": "Hermes Gateway",
+              "file": "../docs/zh/reference/adapters/hermes-gateway.md"
+            },
+            {
+              "title": "Kimi Code",
+              "file": "../docs/zh/reference/adapters/kimi-local.md"
+            },
+            {
+              "title": "Modal",
+              "file": "../docs/zh/reference/adapters/modal.md"
+            },
+            {
+              "title": "OpenClaw Gateway",
+              "file": "../docs/zh/reference/adapters/openclaw-gateway.md"
+            },
+            {
+              "title": "OpenCode",
+              "file": "../docs/zh/reference/adapters/opencode.md"
+            },
+            {
+              "title": "Paperclip Runner",
+              "file": "../docs/zh/reference/adapters/paperclip-runner.md"
+            },
+            {
+              "title": "Pi",
+              "file": "../docs/zh/reference/adapters/pi.md"
+            },
+            {
+              "title": "Process",
+              "file": "../docs/zh/reference/adapters/process.md"
+            },
+            {
+              "title": "创建适配器",
+              "file": "../docs/zh/reference/adapters/creating-an-adapter.md"
+            },
+            {
+              "title": "外部适配器",
+              "file": "../docs/zh/reference/adapters/external-adapters.md"
+            },
+            {
+              "title": "沙盒服务提供商",
+              "file": "../docs/zh/reference/adapters/sandbox-providers.md"
+            },
+            {
+              "title": "适配器界面解析器契约",
+              "file": "../docs/zh/reference/adapters/adapter-ui-parser.md"
+            }
+          ]
+        },
+        {
+          "title": "部署参考",
+          "pages": [
+            {
+              "title": "部署概览",
+              "file": "../docs/zh/reference/deploy/overview.md"
+            },
+            {
+              "title": "Docker",
+              "file": "../docs/zh/reference/deploy/docker.md"
+            },
+            {
+              "title": "Tailscale HTTPS 代理",
+              "file": "../docs/zh/reference/deploy/tailscale-https-broker.md"
+            },
+            {
+              "title": "Tailscale 私有访问",
+              "file": "../docs/zh/reference/deploy/tailscale-private-access.md"
+            },
+            {
+              "title": "存储",
+              "file": "../docs/zh/reference/deploy/storage.md"
+            },
+            {
+              "title": "密钥",
+              "file": "../docs/zh/reference/deploy/secrets.md"
+            },
+            {
+              "title": "数据库",
+              "file": "../docs/zh/reference/deploy/database.md"
+            },
+            {
+              "title": "本地开发",
+              "file": "../docs/zh/reference/deploy/local-development.md"
+            },
+            {
+              "title": "环境变量",
+              "file": "../docs/zh/reference/deploy/environment-variables.md"
+            },
+            {
+              "title": "设置 HTTPS",
+              "file": "../docs/zh/reference/deploy/https.md"
+            },
+            {
+              "title": "部署模式",
+              "file": "../docs/zh/reference/deploy/deployment-modes.md"
+            }
+          ]
+        },
+        {
+          "title": "插件参考",
+          "pages": [
+            {
+              "title": "LLM Wiki",
+              "file": "../docs/zh/reference/plugins/llm-wiki.md"
+            },
+            {
+              "title": "插件 SDK",
+              "file": "../docs/zh/reference/plugins/sdk.md"
+            },
+            {
+              "title": "工作区差异查看器",
+              "file": "../docs/zh/reference/plugins/workspace-diff.md"
+            }
+          ]
+        },
+        {
+          "title": "技能参考",
+          "pages": [
+            {
+              "title": "技能参考",
+              "file": "../docs/zh/reference/skills.md"
+            },
+            {
+              "title": "GitHub 拉取请求工作流",
+              "file": "../docs/zh/reference/skills/bundled/software-development/github-pr-workflow.md"
+            },
+            {
+              "title": "QA 验收",
+              "file": "../docs/zh/reference/skills/bundled/quality/qa-acceptance.md"
+            },
+            {
+              "title": "Ramp",
+              "file": "../docs/zh/reference/skills/optional/finance/ramp.md"
+            },
+            {
+              "title": "last30days",
+              "file": "../docs/zh/reference/skills/optional/research/last30days.md"
+            },
+            {
+              "title": "产品设计评审",
+              "file": "../docs/zh/reference/skills/optional/product/design-critique.md"
+            },
+            {
+              "title": "代理浏览器",
+              "file": "../docs/zh/reference/skills/optional/browser/agent-browser.md"
+            },
+            {
+              "title": "任务分流",
+              "file": "../docs/zh/reference/skills/bundled/paperclip-operations/issue-triage.md"
+            },
+            {
+              "title": "任务规划",
+              "file": "../docs/zh/reference/skills/bundled/paperclip-operations/task-planning.md"
+            },
+            {
+              "title": "内置技能",
+              "file": "../docs/zh/reference/skills/bundled.md"
+            },
+            {
+              "title": "准备 MCP 集成",
+              "file": "../docs/zh/reference/skills/optional/software-development/prepare-mcp-integration.md"
+            },
+            {
+              "title": "可选技能",
+              "file": "../docs/zh/reference/skills/optional.md"
+            },
+            {
+              "title": "文档维护",
+              "file": "../docs/zh/reference/skills/bundled/docs/doc-maintenance.md"
+            },
+            {
+              "title": "版本公告",
+              "file": "../docs/zh/reference/skills/optional/content/release-announcement.md"
+            },
+            {
+              "title": "状态卡查询",
+              "file": "../docs/zh/reference/skills/bundled/paperclip-operations/status-card-query.md"
+            },
+            {
+              "title": "简明英语",
+              "file": "../docs/zh/reference/skills/optional/content/simplified-english.md"
+            },
+            {
+              "title": "线框图",
+              "file": "../docs/zh/reference/skills/bundled/product/wireframe.md"
+            }
+          ]
+        },
+        {
+          "title": "文档变更记录",
+          "file": "../docs/zh/reference/changelog.md"
         }
       ]
     },
